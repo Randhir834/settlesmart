@@ -41,38 +41,38 @@ const Problem = () => {
   ]
 
   return (
-    <section id="problem" className="py-20 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problem" className="py-12 sm:py-16 md:py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 mb-6">
-            <AlertCircle className="w-4 h-4 text-brand-600" />
-            <span className="text-sm font-medium text-brand-700">The Problem</span>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-brand-100 mb-4 sm:mb-6">
+            <AlertCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-600" />
+            <span className="text-xs sm:text-sm font-medium text-brand-700">The Problem</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-surface-900 mb-4 sm:mb-6">
             Managing Shared Money in India is{' '}
             <span className="gradient-text">Hard</span>
           </h2>
-          <p className="text-lg text-surface-600">
+          <p className="text-base sm:text-lg text-surface-600">
             From splitting dinner bills to managing flat expenses, Indians face unique challenges 
             that existing solutions fail to address properly.
           </p>
         </div>
 
         {/* Problem Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 feature-card hover:bg-white/90"
+              className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 feature-card hover:bg-white/90"
             >
-              <div className={`w-14 h-14 rounded-xl ${problem.color} flex items-center justify-center mb-4`}>
-                <problem.icon className="w-7 h-7" />
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl ${problem.color} flex items-center justify-center mb-3 sm:mb-4`}>
+                <problem.icon className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h3 className="text-xl font-bold text-surface-900 mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-surface-900 mb-2 sm:mb-3">
                 {problem.title}
               </h3>
-              <p className="text-surface-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-surface-600 leading-relaxed">
                 {problem.description}
               </p>
             </div>
@@ -80,23 +80,23 @@ const Problem = () => {
         </div>
 
         {/* Stats Banner */}
-        <div className="mt-16 glass-card rounded-3xl p-8 lg:p-12">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div className="mt-10 sm:mt-16 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <p className="text-4xl lg:text-5xl font-bold gradient-text mb-2">78%</p>
-              <p className="text-surface-600">Indians struggle with expense splitting</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-1 sm:mb-2">78%</p>
+              <p className="text-sm sm:text-base text-surface-600">Indians struggle with expense splitting</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold gradient-text mb-2">₹2.4L</p>
-              <p className="text-surface-600">Average unclaimed money per person yearly</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-1 sm:mb-2">₹2.4L</p>
+              <p className="text-sm sm:text-base text-surface-600">Average unclaimed money per person yearly</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold gradient-text mb-2">65%</p>
-              <p className="text-surface-600">Feel awkward asking money back</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-1 sm:mb-2">65%</p>
+              <p className="text-sm sm:text-base text-surface-600">Feel awkward asking money back</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold gradient-text mb-2">3.5hrs</p>
-              <p className="text-surface-600">Monthly time spent on manual tracking</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-1 sm:mb-2">3.5hrs</p>
+              <p className="text-sm sm:text-base text-surface-600">Monthly time spent on manual tracking</p>
             </div>
           </div>
         </div>

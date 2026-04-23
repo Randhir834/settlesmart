@@ -75,40 +75,40 @@ const Features = () => {
   ]
 
   return (
-    <section id="features" className="py-20 lg:py-32 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-12 sm:py-16 md:py-20 lg:py-32 relative">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 mb-6">
-            <Sparkles className="w-4 h-4 text-brand-600" />
-            <span className="text-sm font-medium text-brand-700">Core Features</span>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-brand-100 mb-4 sm:mb-6">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-600" />
+            <span className="text-xs sm:text-sm font-medium text-brand-700">Core Features</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-surface-900 mb-4 sm:mb-6">
             Everything You Need to{' '}
             <span className="gradient-text">Settle Smart</span>
           </h2>
-          <p className="text-lg text-surface-600">
+          <p className="text-base sm:text-lg text-surface-600">
             From splitting a chai to managing a Goa trip, we have features designed 
             for every Indian spending scenario.
           </p>
         </div>
 
         {/* Core Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {coreFeatures.map((feature, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 feature-card group hover:bg-white/90"
+              className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 feature-card group hover:bg-white/90"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-6 h-6 text-brand-600" />
+              <div className="flex items-start justify-between mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-600" />
                 </div>
-                <span className="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold">
+                <span className="px-2 sm:px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold">
                   {feature.highlight}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-surface-900 mb-2">
+              <h3 className="text-base sm:text-lg font-bold text-surface-900 mb-2">
                 {feature.title}
               </h3>
               <p className="text-surface-600 text-sm leading-relaxed">
@@ -119,18 +119,18 @@ const Features = () => {
         </div>
 
         {/* Additional Features */}
-        <div className="glass-card rounded-3xl p-8 lg:p-12">
-          <h3 className="text-2xl font-bold text-surface-900 mb-8 text-center">
+        <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
+          <h3 className="text-xl sm:text-2xl font-bold text-surface-900 mb-6 sm:mb-8 text-center">
             More Powerful Features
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-surface-100 to-surface-50 flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-7 h-7 text-surface-600" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-surface-100 to-surface-50 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-surface-600" />
                 </div>
-                <h4 className="font-bold text-surface-900 mb-2">{feature.title}</h4>
-                <p className="text-sm text-surface-600">{feature.description}</p>
+                <h4 className="font-bold text-sm sm:text-base text-surface-900 mb-1 sm:mb-2">{feature.title}</h4>
+                <p className="text-xs sm:text-sm text-surface-600">{feature.description}</p>
               </div>
             ))}
           </div>
