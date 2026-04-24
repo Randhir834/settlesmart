@@ -69,10 +69,10 @@ const Hero = () => {
                       <div className="flex items-center gap-2">
                         <img 
                           src="/app-logo.png" 
-                          alt="SettleSmart" 
+                          alt="SettSmartly" 
                           className="w-8 h-8 xs:w-10 xs:h-10 rounded-xl object-contain"
                         />
-                        <span className="font-bold text-sm xs:text-base text-surface-800">SettleSmart</span>
+                        <span className="font-bold text-sm xs:text-base text-surface-800">SettSmartly</span>
                       </div>
                       <div className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-surface-200" />
                     </div>

@@ -60,7 +60,7 @@ const TargetUsers = () => {
             <span className="gradient-text">Spending Scenario</span>
           </h2>
           <p className="text-base sm:text-lg text-surface-600">
-            From college hostels to corporate offices, SettleSmart adapts to your 
+            From college hostels to corporate offices, SettSmartly adapts to your 
             unique expense sharing needs.
           </p>
         </div>
@@ -103,7 +103,7 @@ const TargetUsers = () => {
                 SS
               </div>
               <div className="text-left">
-                <p className="font-bold text-sm sm:text-base text-surface-900">SettleSmart Team</p>
+                <p className="font-bold text-sm sm:text-base text-surface-900">SettSmartly Team</p>
                 <p className="text-xs sm:text-sm text-surface-600">Building for Bharat</p>
               </div>
             </div>

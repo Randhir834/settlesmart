@@ -56,11 +56,11 @@ const Footer = () => {
             <a href="#" className="flex items-center gap-2 mb-4 sm:mb-6">
               <img 
                 src="/app-logo.png" 
-                alt="SettleSmart Logo" 
+                alt="SettSmartly Logo" 
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain"
               />
               <span className="font-bold text-lg sm:text-xl">
-                Settle<span className="text-brand-400">Smart</span>
+                Sett<span className="text-brand-400">Smartly</span>
               </span>
             </a>
             <p className="text-surface-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
@@ -100,7 +100,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-surface-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
           <p className="text-surface-400 text-xs sm:text-sm text-center sm:text-left">
-            © 2025 SettleSmart. Made with <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline text-brand-500" /> in India
+            © 2025 SettSmartly. Made with <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline text-brand-500" /> in India
           </p>
           <div className="flex items-center gap-4 sm:gap-6">
             <span className="text-surface-400 text-xs sm:text-sm">Made for Bharat 🇮🇳</span>

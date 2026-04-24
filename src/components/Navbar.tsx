@@ -72,13 +72,13 @@ const Navbar = () => {
           <a href="#" className="flex items-center gap-2 group">
             <img 
               src="/app-logo.png" 
-              alt="SettleSmart Logo" 
+              alt="SettSmartly Logo" 
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-contain group-hover:scale-110 transition-transform"
             />
             <span className={`font-bold text-lg sm:text-xl transition-colors ${
               isScrolled ? 'text-surface-900' : 'text-surface-900'
             }`}>
-              Settle<span className="text-brand-600">Smart</span>
+              Sett<span className="text-brand-600">Smartly</span>
             </span>
           </a>
 
@@ -130,11 +130,11 @@ const Navbar = () => {
                 <a href="#" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                   <img
                     src="/app-logo.png"
-                    alt="SettleSmart Logo"
+                    alt="SettSmartly Logo"
                     className="w-10 h-10 rounded-2xl object-contain"
                   />
                   <span className="font-bold text-lg text-surface-900">
-                    Settle<span className="text-brand-600">Smart</span>
+                    Sett<span className="text-brand-600">Smartly</span>
                   </span>
                 </a>
 

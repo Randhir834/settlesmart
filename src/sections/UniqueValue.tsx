@@ -21,7 +21,7 @@ const UniqueValue = () => {
             <span className="gradient-text">A Complete Money Solution</span>
           </h2>
           <p className="text-base sm:text-lg text-surface-600">
-            SettleSmart goes beyond simple calculations. We help you maintain healthy 
+            SettSmartly goes beyond simple calculations. We help you maintain healthy 
             financial relationships while keeping your money organized.
           </p>
         </div>

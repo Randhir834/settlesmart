@@ -46,7 +46,7 @@ const WhyIndia = () => {
               <span className="text-xs sm:text-sm font-medium text-brand-700">Built for India</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-surface-900 mb-4 sm:mb-6">
-              Why SettleSmart is{' '}
+              Why SettSmartly is{' '}
               <span className="text-brand-600">Made for India</span>
             </h2>
             <p className="text-base sm:text-lg text-surface-600 leading-relaxed">

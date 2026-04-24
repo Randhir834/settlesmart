@@ -145,7 +145,7 @@ const FutureVision = () => {
               </h3>
               <p className="text-sm sm:text-base text-surface-600 leading-relaxed mb-4 sm:mb-6">
                 Students are the perfect early adopters - tech-savvy, living in groups, 
-                and constantly splitting expenses. They'll carry SettleSmart into their 
+                and constantly splitting expenses. They'll carry SettSmartly into their 
                 professional lives and family households.
               </p>
               <div className="flex items-center gap-2 text-brand-600 font-medium text-sm sm:text-base">
