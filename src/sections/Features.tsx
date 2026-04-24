@@ -9,16 +9,14 @@ import {
   Sparkles,
   Camera,
   Wallet,
-  Home,
-  FileText,
-  Users,
   BookOpen,
-  Briefcase,
   PieChart,
   BarChart3,
   PiggyBank,
   FileDown,
-  Tags
+  Tags,
+  FileText,
+  Users
 } from 'lucide-react'
 
 const Features = () => {
@@ -158,21 +156,12 @@ const Features = () => {
               On Campus
             </h3>
             <p className="text-sm sm:text-base text-surface-600">
-              Beyond splitting bills, SettleSmart can help students manage housing, money, career planning, and daily life admin.
+              Go beyond splitting bills. Track spending by category, set budgets, and understand exactly where your money goes.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
-              {
-                icon: Home,
-                title: 'Housing & Accommodation',
-                items: [
-                  'Verified student housing (distance, budget, safety)',
-                  'Roommate matching (habits, schedule, cleanliness)',
-                  'Subletting marketplace for internships & semesters'
-                ]
-              },
               {
                 icon: Wallet,
                 title: 'Financial Intelligence',
@@ -180,33 +169,6 @@ const Features = () => {
                   'Student budget optimizer based on allowance/aid cycles',
                   'Scholarship & grant tracker with deadline reminders',
                   'Textbook price comparison for buy/rent/sell'
-                ]
-              },
-              {
-                icon: Briefcase,
-                title: 'Career & Skill Building',
-                items: [
-                  'Skill gap analyzer for your target roles',
-                  'Peer project marketplace for hackathons & clubs',
-                  'Internship housing bundle for other cities'
-                ]
-              },
-              {
-                icon: FileText,
-                title: 'Life Admin Automation',
-                items: [
-                  'Digital mailbox for student documents & reminders',
-                  'Course swap / waitlist alerts for required classes',
-                  'Medical/insurance navigator around campus'
-                ]
-              },
-              {
-                icon: Users,
-                title: 'Transition Support',
-                items: [
-                  'Graduation exit planner (jobs, housing, loans)',
-                  'Alumni mentorship matching by college & branch',
-                  'Smart checklist for moving to a new city'
                 ]
               }
             ].map((category, index) => (
