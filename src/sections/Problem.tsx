@@ -1,4 +1,4 @@
-import { AlertCircle, Receipt, MessageCircle, Wallet, FileText, Users } from 'lucide-react'
+import { AlertCircle, Receipt, MessageCircle, Wallet, FileText, Users, PieChart, Bell } from 'lucide-react'
 
 const Problem = () => {
   const problems = [
@@ -6,6 +6,18 @@ const Problem = () => {
       icon: Receipt,
       title: 'Confusion in Splitting Bills',
       description: 'Who paid what? Who owes whom? Manual calculations lead to errors and disputes.',
+      color: 'bg-brand-100 text-brand-600'
+    },
+    {
+      icon: PieChart,
+      title: 'No Clarity Where Money Goes',
+      description: 'Students don’t realize they’re overspending on food, trips, and subscriptions until the month ends.',
+      color: 'bg-brand-100 text-brand-600'
+    },
+    {
+      icon: Bell,
+      title: 'No Budget Alerts',
+      description: 'Without limits and reminders, expenses cross budget silently and create end-of-month stress.',
       color: 'bg-brand-100 text-brand-600'
     },
     {
