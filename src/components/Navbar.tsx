@@ -71,7 +71,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <img 
-              src="/logo.png" 
+              src="/app-logo.png" 
               alt="SettleSmart Logo" 
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl object-contain group-hover:scale-110 transition-transform"
             />
@@ -129,7 +129,7 @@ const Navbar = () => {
               <div className="flex items-center justify-between py-4">
                 <a href="#" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                   <img
-                    src="/logo.png"
+                    src="/app-logo.png"
                     alt="SettleSmart Logo"
                     className="w-10 h-10 rounded-2xl object-contain"
                   />

@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4 sm:mb-6">
               <img 
-                src="/logo.png" 
+                src="/app-logo.png" 
                 alt="SettleSmart Logo" 
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain"
               />

@@ -68,7 +68,7 @@ const Hero = () => {
                     <div className="flex items-center justify-between mb-4 xs:mb-6">
                       <div className="flex items-center gap-2">
                         <img 
-                          src="/logo.png" 
+                          src="/app-logo.png" 
                           alt="SettleSmart" 
                           className="w-8 h-8 xs:w-10 xs:h-10 rounded-xl object-contain"
                         />
