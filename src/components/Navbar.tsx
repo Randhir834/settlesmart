@@ -4,14 +4,38 @@ import { Menu, X } from 'lucide-react'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
+    let lastScrollY = window.scrollY
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const currentScrollY = window.scrollY
+      setIsScrolled(currentScrollY > 50)
+
+      if (isMobileMenuOpen) {
+        setIsVisible(true)
+        lastScrollY = currentScrollY
+        return
+      }
+
+      const delta = currentScrollY - lastScrollY
+      if (Math.abs(delta) < 8) return
+
+      if (currentScrollY < 10) {
+        setIsVisible(true)
+      } else if (delta > 0) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+
+      lastScrollY = currentScrollY
     }
-    window.addEventListener('scroll', handleScroll)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const originalOverflow = document.body.style.overflow
@@ -34,7 +58,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
         isScrolled
           ? 'bg-white/80 backdrop-blur-md shadow-lg py-3'
           : 'bg-transparent py-5'
