@@ -13,10 +13,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [isMobileMenuOpen])
+
   const navLinks = [
     { name: 'Vision', href: '#vision' },
     { name: 'Problem', href: '#problem' },
     { name: 'Features', href: '#features' },
+    { name: 'Students', href: '#students' },
     { name: 'Why India', href: '#why-india' },
     { name: 'Future', href: '#future' },
   ]
@@ -75,28 +86,61 @@ const Navbar = () => {
             )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-surface-200 safe-area-inset">
-            <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-surface-700 font-medium py-3 px-2 hover:text-brand-600 transition-colors text-sm"
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-[60]">
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="absolute inset-0 bg-surface-900/40 backdrop-blur-[2px]"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+
+          <div className="absolute top-0 left-0 right-0 bg-white shadow-2xl">
+            <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6">
+              <div className="flex items-center justify-between py-4">
+                <a href="#" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <img
+                    src="/logo.png"
+                    alt="SettleSmart Logo"
+                    className="w-10 h-10 rounded-2xl object-contain"
+                  />
+                  <span className="font-bold text-lg text-surface-900">
+                    Settle<span className="text-brand-600">Smart</span>
+                  </span>
+                </a>
+
+                <button
+                  className="p-2 rounded-lg hover:bg-surface-100 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.name}
-                </a>
-              ))}
-              <button className="btn-primary px-5 py-3.5 rounded-full text-white font-medium text-sm mt-2 min-h-[48px]">
-                Get Early Access
-              </button>
+                  <X className="w-6 h-6 text-surface-700" />
+                </button>
+              </div>
+
+              <div className="py-4 border-t border-surface-200 safe-area-inset">
+                <div className="flex flex-col gap-2">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="text-surface-800 font-semibold py-3 px-2 rounded-xl hover:bg-surface-50 hover:text-brand-600 transition-colors text-sm"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                  <button className="btn-primary px-5 py-3.5 rounded-full text-white font-medium text-sm mt-2 min-h-[48px]">
+                    Get Early Access
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
 }

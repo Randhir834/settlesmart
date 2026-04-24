@@ -8,7 +8,12 @@ import {
   Star,
   Sparkles,
   Camera,
-  Wallet
+  Wallet,
+  Home,
+  FileText,
+  Users,
+  BookOpen,
+  Briefcase
 } from 'lucide-react'
 
 const Features = () => {
@@ -131,6 +136,90 @@ const Features = () => {
                 </div>
                 <h4 className="font-bold text-sm sm:text-base text-surface-900 mb-1 sm:mb-2">{feature.title}</h4>
                 <p className="text-xs sm:text-sm text-surface-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div id="students" className="mt-10 sm:mt-16 lg:mt-20">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-brand-100 mb-4 sm:mb-6">
+              <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-600" />
+              <span className="text-xs sm:text-sm font-medium text-brand-700">For College Students</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-surface-900 mb-3 sm:mb-4">
+              Built to Help You{' '}
+              <span className="gradient-text">Settle Smart</span>{' '}
+              On Campus
+            </h3>
+            <p className="text-sm sm:text-base text-surface-600">
+              Beyond splitting bills, SettleSmart can help students manage housing, money, career planning, and daily life admin.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              {
+                icon: Home,
+                title: 'Housing & Accommodation',
+                items: [
+                  'Verified student housing (distance, budget, safety)',
+                  'Roommate matching (habits, schedule, cleanliness)',
+                  'Subletting marketplace for internships & semesters'
+                ]
+              },
+              {
+                icon: Wallet,
+                title: 'Financial Intelligence',
+                items: [
+                  'Student budget optimizer based on allowance/aid cycles',
+                  'Scholarship & grant tracker with deadline reminders',
+                  'Textbook price comparison for buy/rent/sell'
+                ]
+              },
+              {
+                icon: Briefcase,
+                title: 'Career & Skill Building',
+                items: [
+                  'Skill gap analyzer for your target roles',
+                  'Peer project marketplace for hackathons & clubs',
+                  'Internship housing bundle for other cities'
+                ]
+              },
+              {
+                icon: FileText,
+                title: 'Life Admin Automation',
+                items: [
+                  'Digital mailbox for student documents & reminders',
+                  'Course swap / waitlist alerts for required classes',
+                  'Medical/insurance navigator around campus'
+                ]
+              },
+              {
+                icon: Users,
+                title: 'Transition Support',
+                items: [
+                  'Graduation exit planner (jobs, housing, loans)',
+                  'Alumni mentorship matching by college & branch',
+                  'Smart checklist for moving to a new city'
+                ]
+              }
+            ].map((category, index) => (
+              <div key={index} className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 feature-card">
+                <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center">
+                    <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-600" />
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold text-surface-900">{category.title}</h4>
+                </div>
+                <ul className="space-y-2 text-sm text-surface-600">
+                  {category.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
