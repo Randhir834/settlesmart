@@ -13,7 +13,12 @@ import {
   FileText,
   Users,
   BookOpen,
-  Briefcase
+  Briefcase,
+  PieChart,
+  BarChart3,
+  PiggyBank,
+  FileDown,
+  Tags
 } from 'lucide-react'
 
 const Features = () => {
@@ -222,6 +227,70 @@ const Features = () => {
                 </ul>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 sm:mt-12 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12">
+            <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-surface-900 mb-2 sm:mb-3">
+                Student Money Insights
+              </h4>
+              <p className="text-sm sm:text-base text-surface-600">
+                Track expenses, understand your biggest spends, and stay on budget with clear category-wise analytics.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                {
+                  icon: PieChart,
+                  title: 'Category Breakdown',
+                  description: 'See where money goes most: food, trips, shopping, subscriptions, and more.'
+                },
+                {
+                  icon: BarChart3,
+                  title: 'Spending Trends',
+                  description: 'Weekly/monthly trends to spot overspending patterns and peak spend days.'
+                },
+                {
+                  icon: Tags,
+                  title: 'Trips & Events Mode',
+                  description: 'Track trip costs separately and know your share for Goa trips, fests, and birthdays.'
+                },
+                {
+                  icon: PiggyBank,
+                  title: 'Budgets & Alerts',
+                  description: 'Set monthly and category limits and get alerts before you cross your budget.'
+                },
+                {
+                  icon: FileDown,
+                  title: 'Monthly Reports',
+                  description: 'Generate a clean monthly summary you can export as PDF/Excel for clarity.'
+                },
+                {
+                  icon: Wallet,
+                  title: 'Fast Expense Capture',
+                  description: 'Quickly log UPI spends with notes and categories, or scan bills when needed.'
+                },
+                {
+                  icon: FileText,
+                  title: 'Notes & Context',
+                  description: 'Add context like “canteen”, “cab”, “hostel fee” so insights stay accurate.'
+                },
+                {
+                  icon: Users,
+                  title: 'Group Insights',
+                  description: 'See how group spends split across categories and which expenses create the most dues.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="rounded-xl sm:rounded-2xl bg-white/60 border border-surface-200 p-4 sm:p-5">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center mb-3 sm:mb-4">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-600" />
+                  </div>
+                  <h5 className="font-bold text-sm sm:text-base text-surface-900 mb-1">{item.title}</h5>
+                  <p className="text-xs sm:text-sm text-surface-600 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
