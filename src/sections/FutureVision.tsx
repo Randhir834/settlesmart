@@ -4,35 +4,35 @@ const FutureVision = () => {
   const roadmap = [
     {
       phase: 'Phase 1',
-      title: 'Launch',
-      description: 'Core expense splitting, UPI integration, and basic groups. Target: Students & flatmates in metro cities.',
+      title: 'Thinking & Planning',
+      description: 'User research, product design, and validation. Define the MVP for students & flatmates and plan the first launch.',
       icon: Rocket,
       status: 'current',
-      timeframe: 'Q1 2025'
+      timeframe: '2026'
     },
     {
       phase: 'Phase 2',
-      title: 'Growth',
-      description: 'Bill scanning, trust scores, premium features. Expand to tier-2 cities and office teams.',
+      title: 'Build MVP',
+      description: 'Core expense splitting, UPI integration, and basic groups. Private beta with student communities.',
       icon: TrendingUp,
       status: 'upcoming',
-      timeframe: 'Q2-Q3 2025'
+      timeframe: '2026–2027'
     },
     {
       phase: 'Phase 3',
-      title: 'Scale',
-      description: 'Advanced analytics, business features, lending insights. Become India\'s default group finance app.',
+      title: 'Launch',
+      description: 'Public launch for students & flatmates with onboarding, referrals, and reliability improvements.',
       icon: Building2,
       status: 'upcoming',
-      timeframe: 'Q4 2025'
+      timeframe: '2027'
     },
     {
       phase: 'Phase 4',
       title: 'Expand',
-      description: 'International expansion to UPI-like ecosystems. Budgeting and personal finance features.',
+      description: 'Bill scanning, trust scores, premium features, and expansion beyond campus to young professionals.',
       icon: Globe,
       status: 'future',
-      timeframe: '2026+'
+      timeframe: '2028+'
     }
   ]
 
