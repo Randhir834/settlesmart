@@ -71,7 +71,7 @@ const Footer = () => {
               <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
                 <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
+              <a href="https://www.linkedin.com/company/settsmartly/about/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
