@@ -170,6 +170,24 @@ const Features = () => {
                   'Scholarship & grant tracker with deadline reminders',
                   'Textbook price comparison for buy/rent/sell'
                 ]
+              },
+              {
+                icon: PiggyBank,
+                title: 'Budgets & Alerts',
+                items: [
+                  'Set monthly budget and category limits (food, trips, shopping)',
+                  'Get alerts at 50% / 80% / 100% of budget',
+                  'Spot budget leaks with weekly trends'
+                ]
+              },
+              {
+                icon: Users,
+                title: 'Trips & Group Spending',
+                items: [
+                  'Track trip costs separately (travel, stay, food, activities)',
+                  'Know your share instantly for group plans',
+                  'See who owes whom and settle without confusion'
+                ]
               }
             ].map((category, index) => (
               <div key={index} className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 feature-card">
