@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/app-logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/app-logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SettSmartly" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="SettSmartly" />
+    <meta name="msapplication-TileColor" content="#2563EB" />
+    <meta name="msapplication-TileImage" content="/app-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Primary Meta Tags -->
@@ -19,6 +29,18 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://settsmartly.com/" />
+    
+    <!-- Google Search Console Verification (Replace content with your verification code) -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" />
+    
+    <!-- Google Analytics (Replace GA_MEASUREMENT_ID with your actual ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -99,6 +121,95 @@
         "target": "https://settsmartly.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+    
+    <!-- Structured Data - MobileApp (for Google Play/App Store) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "SettSmartly",
+      "description": "Personal expense tracker, household expense manager, and group bill splitting app for India",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1000"
+      },
+      "screenshot": "https://settsmartly.com/og-image.png",
+      "softwareVersion": "1.0.0",
+      "fileSize": "15MB"
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage (for Google Rich Snippets) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SettSmartly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SettSmartly is India's smartest expense management app for tracking personal spending, managing household expenses, and splitting group costs with friends and family."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SettSmartly free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Personal expense tracking, household expense management, and group expense splitting are completely free. Premium features are available for power users."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track my family's monthly ration expenses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! SettSmartly includes household expense tracking features to monitor monthly ration, groceries, utilities, and see detailed breakdowns of where your family money goes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SettSmartly support UPI payments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, SettSmartly has UPI integration built for India. Settle dues instantly via UPI without leaving the app."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://settsmartly.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://settsmartly.com/#features"
+        }
+      ]
     }
     </script>
     

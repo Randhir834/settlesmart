@@ -1,0 +1,42 @@
+{
+  "name": "SettSmartly - Personal & Group Expense Tracker",
+  "short_name": "SettSmartly",
+  "description": "India's smartest expense management app. Track personal spending, manage household expenses, split bills with friends.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/app-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.settsmartly.app"
+    }
+  ],
+  "prefer_related_applications": true
+}
