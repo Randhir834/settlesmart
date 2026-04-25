@@ -20,7 +20,7 @@ const Footer = () => {
                 Ready to Settle Smart?
               </h2>
               <p className="text-surface-700 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
-                Join thousands of Indians who are already simplifying their shared expenses.
+                Join thousands of Indians who are already simplifying their personal spending and shared expenses.
                 Be the first to know when we launch.
               </p>
               
@@ -64,7 +64,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-surface-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-              The smartest way for Indians to manage shared money. 
+              The smartest way for Indians to manage personal spending and shared expenses. 
               Less calculation, less awkwardness, more clarity.
             </p>
             <div className="flex gap-3 sm:gap-4">

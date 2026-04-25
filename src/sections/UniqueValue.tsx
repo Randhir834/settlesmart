@@ -96,7 +96,7 @@ const UniqueValue = () => {
                 Freemium Model That Makes Sense
               </h3>
               <p className="text-sm sm:text-base text-surface-600 mb-4 sm:mb-6">
-                Core expense splitting is always free. Premium features for power users 
+                Core personal tracking and expense splitting are always free. Premium features for power users 
                 who want deeper insights and advanced tools.
               </p>
               <div className="space-y-3 sm:space-y-4">
@@ -106,7 +106,7 @@ const UniqueValue = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-sm sm:text-base text-surface-900">Free Forever</p>
-                    <p className="text-xs sm:text-sm text-surface-600">Basic splitting, groups, UPI payments</p>
+                    <p className="text-xs sm:text-sm text-surface-600">Personal tracking, splitting, groups, UPI payments</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">

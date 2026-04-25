@@ -28,6 +28,12 @@ const Features = () => {
       highlight: 'Equal • % • Exact'
     },
     {
+      icon: PiggyBank,
+      title: 'Personal Expense Tracking',
+      description: 'Log daily spends with categories and notes. See monthly summaries and stay in control of your money.',
+      highlight: 'Personal'
+    },
+    {
       icon: Lightbulb,
       title: 'Smart Split Suggestions',
       description: 'AI-powered suggestions based on who paid last, spending patterns, and group dynamics.',
@@ -96,7 +102,7 @@ const Features = () => {
             <span className="gradient-text">Settle Smart</span>
           </h2>
           <p className="text-base sm:text-lg text-surface-600">
-            From splitting a chai to managing a Goa trip, we have features designed 
+            From tracking personal spends to managing a Goa trip with friends, we have features designed 
             for every Indian spending scenario.
           </p>
         </div>

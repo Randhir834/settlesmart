@@ -13,7 +13,7 @@ const FutureVision = () => {
     {
       phase: 'Phase 2',
       title: 'Build MVP',
-      description: 'Core expense splitting, UPI integration, and basic groups. Private beta with student communities.',
+      description: 'Personal tracking, core expense splitting, UPI integration, and basic groups. Private beta with student communities.',
       icon: TrendingUp,
       status: 'upcoming',
       timeframe: '2026–2027'

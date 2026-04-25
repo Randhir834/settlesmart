@@ -25,7 +25,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-surface-600 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              The smartest and simplest way for Indians to manage shared money. 
+              The smartest and simplest way for Indians to manage personal spending and shared expenses. 
               <span className="font-semibold text-surface-800"> Less calculation, less awkwardness, more clarity.</span>
             </p>
 
@@ -43,7 +43,7 @@ const Hero = () => {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 sm:mt-10">
               <div className="flex items-center gap-1.5 sm:gap-2 text-surface-600">
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 text-brand-500" />
-                <span className="text-xs sm:text-sm font-medium">For Groups</span>
+                <span className="text-xs sm:text-sm font-medium">Personal + Groups</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 text-surface-600">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-brand-600" />

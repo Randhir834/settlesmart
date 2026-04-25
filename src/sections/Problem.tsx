@@ -62,12 +62,12 @@ const Problem = () => {
             <span className="text-xs sm:text-sm font-medium text-brand-700">The Problem</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-surface-900 mb-4 sm:mb-6">
-            Managing Shared Money in India is{' '}
+            Managing Money in India is{' '}
             <span className="gradient-text">Hard</span>
           </h2>
           <p className="text-base sm:text-lg text-surface-600">
-            From splitting dinner bills to managing flat expenses, Indians face unique challenges 
-            that existing solutions fail to address properly.
+            From tracking daily personal spends to splitting dinner bills and managing flat expenses, 
+            Indians face unique challenges that existing solutions fail to address properly.
           </p>
         </div>
 
