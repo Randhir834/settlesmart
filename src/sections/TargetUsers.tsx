@@ -1,4 +1,4 @@
-import { GraduationCap, Home, Heart, Users, Building2, PartyPopper, ArrowRight } from 'lucide-react'
+import { GraduationCap, Home, Heart, Users, Building2, PartyPopper, ArrowRight, ShoppingBasket } from 'lucide-react'
 
 const TargetUsers = () => {
   const userTypes = [
@@ -42,6 +42,13 @@ const TargetUsers = () => {
       title: 'Event Groups',
       description: 'Weddings, trips, parties - manage complex group finances with ease.',
       color: 'from-brand-500 to-brand-700',
+      bgColor: 'bg-brand-50'
+    },
+    {
+      icon: ShoppingBasket,
+      title: 'Families',
+      description: 'Track monthly ration, groceries, utilities. See exactly where your household money goes.',
+      color: 'from-brand-500 to-brand-600',
       bgColor: 'bg-brand-50'
     }
   ]

@@ -16,7 +16,8 @@ import {
   FileDown,
   Tags,
   FileText,
-  Users
+  Users,
+  ShoppingBasket
 } from 'lucide-react'
 
 const Features = () => {
@@ -70,6 +71,11 @@ const Features = () => {
       icon: HandIcon,
       title: 'Loan Tracking',
       description: 'Track informal loans between friends with automatic interest calculation and due date reminders.'
+    },
+    {
+      icon: ShoppingBasket,
+      title: 'Household Expense Tracking',
+      description: 'Track monthly ration, groceries, utilities. Get detailed breakdowns of where your family money goes.'
     },
     {
       icon: Star,
