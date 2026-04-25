@@ -20,21 +20,21 @@ const Hero = () => {
             </div>
             
             <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6">
-              Smart Expense Manager{' '}
+              Personal & Group Expense Tracker{' '}
               <span className="gradient-text">for India</span>
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-surface-600 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              The smartest and simplest way for Indians to manage personal spending and shared expenses. 
-              <span className="font-semibold text-surface-800"> Less calculation, less awkwardness, more clarity.</span>
+              Track personal spending, manage household expenses, and split bills with friends. 
+              <span className="font-semibold text-surface-800"> Free expense manager built for Indians.</span>
             </p>
 
             <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <button className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-2 group min-h-[48px]">
+              <button aria-label="Get early access to SettSmartly expense tracker app" className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-2 group min-h-[48px]">
                 Get Early Access
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-surface-300 text-surface-700 font-semibold text-base sm:text-lg hover:border-brand-500 hover:text-brand-600 transition-colors min-h-[48px]">
+              <button aria-label="Learn more about SettSmartly features" className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-surface-300 text-surface-700 font-semibold text-base sm:text-lg hover:border-brand-500 hover:text-brand-600 transition-colors min-h-[48px]">
                 Learn More
               </button>
             </div>

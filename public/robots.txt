@@ -1,0 +1,11 @@
+# Robots.txt for SettSmartly
+# https://settsmartly.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://settsmartly.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
