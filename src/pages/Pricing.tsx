@@ -5,26 +5,8 @@ import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import FaqList from '../components/FaqList'
 import CtaBand from '../components/CtaBand'
-import { plans } from '../data/content'
+import { plans, pricingFaqs } from '../data/content'
 
-const pricingFaqs = [
-  {
-    q: 'Will the free plan stay free?',
-    a: 'Yes. Splitting expenses, managing groups and settling balances will always be available on the free plan.',
-  },
-  {
-    q: 'When will paid plans be available?',
-    a: 'Paid plans will open after launch. Pricing will be published here before any plan can be purchased.',
-  },
-  {
-    q: 'Do all group members need a paid plan?',
-    a: 'No. Paid features apply to the member who subscribes, and the Household plan covers multiple members together.',
-  },
-  {
-    q: 'Can I cancel anytime?',
-    a: 'Once subscriptions are live, you will be able to cancel at any time. Details will be covered in our Refund Policy.',
-  },
-]
 
 const Pricing = () => (
   <>

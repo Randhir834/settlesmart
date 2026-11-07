@@ -13,6 +13,7 @@ const columns = [
       { name: 'How It Works', to: '/how-it-works' },
       { name: 'Pricing', to: '/pricing' },
       { name: 'FAQ', to: '/#faq' },
+      { name: 'Join the Waitlist', to: '/get-started' },
     ],
   },
   {
@@ -71,8 +72,10 @@ const Footer = () => (
         </div>
 
         {columns.map((col) => (
-          <div key={col.title}>
-            <h2 className="font-display text-sm font-bold text-ink">{col.title}</h2>
+          <nav key={col.title} aria-labelledby={`footer-${col.title}`}>
+            <p id={`footer-${col.title}`} className="font-display text-sm font-bold text-ink">
+              {col.title}
+            </p>
             <ul className="mt-4 space-y-1">
               {col.links.map((l) => (
                 <li key={l.name}>
@@ -82,7 +85,7 @@ const Footer = () => (
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         ))}
       </div>
 

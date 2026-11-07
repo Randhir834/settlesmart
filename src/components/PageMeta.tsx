@@ -35,7 +35,7 @@ const PageMeta = ({ path }: { path: PagePath }) => {
     const url = `${site.url}${path === '/' ? '/' : path}`
     document.title = p.title
     setMeta('name', 'description', p.description)
-    setMeta('name', 'robots', p.noindex ? 'noindex, follow' : 'index, follow')
+    setMeta('name', 'robots', p.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMeta('property', 'og:title', p.title)
     setMeta('property', 'og:description', p.description)
     setMeta('property', 'og:url', p.noindex ? `${site.url}/` : url)

@@ -6,7 +6,7 @@ import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import FaqList from '../components/FaqList'
 import { createDoc, mailto } from '../lib/firestore'
-import { faqs } from '../data/content'
+import { contactFaqs } from '../data/content'
 import { site } from '../config'
 
 const topics = ['General question', 'Beta / research interview', 'Product feedback', 'Business enquiry', 'Press', 'Other']
@@ -176,7 +176,7 @@ const Contact = () => (
       <div className="container-site max-w-3xl">
         <SectionHeading title="Common questions" />
         <Reveal className="mt-10">
-          <FaqList items={faqs.slice(0, 5)} />
+          <FaqList items={contactFaqs} />
         </Reveal>
       </div>
     </section>

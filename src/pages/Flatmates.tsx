@@ -22,7 +22,7 @@ import FaqList from '../components/FaqList'
 import CtaBand from '../components/CtaBand'
 import { AppIcon } from '../components/Logo'
 import { PhoneFrame, GroupScreen, AnalyticsScreen, SettleScreen } from '../components/PhoneMockup'
-import { faqs, sampleMonth } from '../data/content'
+import { flatmateFaqs, sampleMonth } from '../data/content'
 
 const monthTimeline = [
   {
@@ -71,9 +71,6 @@ const fixes = [
   { icon: Eye, pain: 'Nobody sees the full picture', fix: 'A monthly household statement everyone can see.' },
 ]
 
-const flatmateFaqs = faqs.filter((f) =>
-  ['How is it different from a bill-splitting app?', 'What happens when a flatmate moves out?', 'Does Settsmartly move or hold my money?', 'Is Settsmartly free?', 'When and where are you launching?'].includes(f.q),
-)
 
 const inr = (n: number) => '₹' + n.toLocaleString('en-IN')
 

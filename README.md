@@ -70,14 +70,28 @@ every route change. Without it, no analytics script loads.
 Import the repo in Vercel (framework preset: Vite, build command `npm run build`, output `dist`). Add any env
 vars in Vercel → Settings → Environment Variables.
 
-`npm run build` runs `scripts/prerender.mjs` after Vite. It writes a static `dist/<page>/index.html` for every
-page in `src/data/pages.json`, each with its own title, description, canonical URL and social-preview tags, so
-links shared on WhatsApp/LinkedIn and search engines see the right page details. It also writes `404.html`
-(served with a real 404 status for unknown URLs), `sitemap.xml` and `robots.txt`.
+## SEO
 
-- **Page titles and descriptions:** `src/data/pages.json` (used at build time and at runtime).
-- **Adding a page:** add its route in `src/App.tsx`, an entry in `pages.json`, and `<PageMeta path="/your-page" />` in the page.
+`npm run build` runs three steps: the client build, an SSR build of `src/entry-server.tsx`, and
+`scripts/prerender.mjs`. The prerender writes a static `dist/<page>/index.html` for every page in
+`src/data/pages.json` containing:
+
+- the **full server-rendered page content** (the browser hydrates it), so Google, Bing, AI crawlers and
+  WhatsApp/LinkedIn/X previews see everything without running JavaScript;
+- the page's title, description, canonical URL, robots directive and Open Graph/Twitter tags;
+- **JSON-LD structured data** from `src/seo/schema.ts`: Organization, WebSite, WebPage (AboutPage/ContactPage),
+  BreadcrumbList on inner pages, SoftwareApplication on `/`, `/features`, `/pricing`, and FAQPage on pages with
+  their own FAQ (`faqSchemaByPath` in `content.ts`), generated from the same text that's shown on the page;
+- preload links for the self-hosted Latin font files.
+
+It also writes `404.html` (served with a real 404 status), `sitemap.xml` (each `<lastmod>` is the last git commit
+touching that page's `sources`), `robots.txt` and `llms.txt`.
+
+- **Titles and descriptions:** `src/data/pages.json`. Keep titles under ~60 characters and descriptions 120–160.
+- **Adding a page:** add its route in `src/App.tsx`, an entry in `pages.json` (with `name` and `sources`), and
+  `<PageMeta path="/your-page" />` in the page. Give it exactly one `<h1>`.
+- **FAQs:** edit them in `src/data/content.ts`; the structured data follows automatically.
 - **Domain:** `VITE_SITE_URL` (defaults to `https://settsmartly.com`) sets canonical URLs, the sitemap and robots.txt.
-- **Search Console:** set `VITE_GOOGLE_SITE_VERIFICATION` to the HTML-tag code, or verify the domain by DNS instead.
-
-`vercel.json` adds long-term caching for hashed assets and standard security headers.
+- **Verification:** set `VITE_GOOGLE_SITE_VERIFICATION` and/or `VITE_BING_SITE_VERIFICATION`.
+- **Local check:** `npm run build && npm run preview`, then open pages *with* a trailing slash
+  (`/features/`). `vite preview` falls back to the home page for `/features`; Vercel serves the right file.

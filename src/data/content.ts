@@ -360,6 +360,72 @@ export const faqs: Faq[] = [
   },
 ]
 
+/** FAQ shown on /flatmates: a subset of the home-page FAQ. */
+export const flatmateFaqs = faqs.filter((f) =>
+  [
+    'How is it different from a bill-splitting app?',
+    'What happens when a flatmate moves out?',
+    'Does Settsmartly move or hold my money?',
+    'Is Settsmartly free?',
+    'When and where are you launching?',
+  ].includes(f.q),
+)
+
+/** FAQ shown on /contact. */
+export const contactFaqs = faqs.slice(0, 5)
+
+export const voiceFaqs: Faq[] = [
+  {
+    q: 'Is the voice assistant available now?',
+    a: 'Not yet. It is our signature feature and is in development. Join the waitlist to try it in our closed beta, starting with flatmates in Bengaluru.',
+  },
+  {
+    q: 'Which languages will it understand?',
+    a: 'English, Hindi and Hinglish (mixed Hindi-English) from the start. We are testing with real flatmates to make sure it understands how people actually speak.',
+  },
+  {
+    q: 'What if it gets something wrong?',
+    a: 'You always see a draft before anything is saved, so you can correct it by voice or by hand. If something is missing or unclear, the assistant asks you instead of guessing.',
+  },
+  {
+    q: 'Does it store my voice recordings?',
+    a: 'Voice will only be used with your consent. Before the assistant launches, we will publish exactly what is stored, how long it is kept and how you can delete it.',
+  },
+  {
+    q: 'Will it cost extra?',
+    a: 'The core of Settsmartly will be free. We plan to include voice entry in our paid plans, and will announce details and pricing before launch.',
+  },
+]
+
+export const pricingFaqs: Faq[] = [
+  {
+    q: 'Will the free plan stay free?',
+    a: 'Yes. Splitting expenses, managing groups and settling balances will always be available on the free plan.',
+  },
+  {
+    q: 'When will paid plans be available?',
+    a: 'Paid plans will open after launch. Pricing will be published here before any plan can be purchased.',
+  },
+  {
+    q: 'Do all group members need a paid plan?',
+    a: 'No. Paid features apply to the member who subscribes, and the Household plan covers multiple members together.',
+  },
+  {
+    q: 'Can I cancel anytime?',
+    a: 'Once subscriptions are live, you will be able to cancel at any time. Details will be covered in our Refund Policy.',
+  },
+]
+
+/**
+ * Pages whose FAQ gets FAQPage structured data. Only pages with their own unique questions are listed:
+ * /flatmates and /contact repeat home-page questions, and Google asks for repeated FAQs to be marked up once.
+ */
+export const faqSchemaByPath: Record<string, Faq[]> = {
+  '/': faqs,
+  '/voice-assistant': voiceFaqs,
+  '/pricing': pricingFaqs,
+}
+
 export interface Plan {
   id: string
   name: string

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Target, Compass, Eye, Sparkles, ShieldCheck, Heart, Users } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
@@ -43,7 +44,15 @@ const About = () => (
           </p>
           <p>
             Settsmartly gives every flat one financial workspace for expenses, recurring bills, member contributions
-            and settlements, with an assistant you can talk to in English, Hindi or Hinglish.
+            and settlements, with{' '}
+            <Link to="/voice-assistant" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              an AI assistant you can talk to
+            </Link>{' '}
+            in English, Hindi or Hinglish. Read more about{' '}
+            <Link to="/flatmates" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              how it works for flatmates
+            </Link>
+            .
           </p>
         </Reveal>
       </div>
