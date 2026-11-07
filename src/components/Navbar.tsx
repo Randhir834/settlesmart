@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
-import { site } from '../config'
 
 export const navLinks = [
   { name: 'Features', to: '/features' },
@@ -14,8 +13,6 @@ export const navLinks = [
   { name: 'FAQ', to: '/#faq' },
   { name: 'Contact', to: '/contact' },
 ]
-
-const loginHref = site.appLoginUrl || '/login'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -74,9 +71,6 @@ const Navbar = () => {
         </div>
 
         <div className="hidden items-center gap-2 xl:flex">
-          <a href={loginHref} className="btn-ghost">
-            Log In
-          </a>
           <Link to="/get-started" className="btn-primary py-2.5">
             Get Started
           </Link>
@@ -113,9 +107,6 @@ const Navbar = () => {
               <Link to="/get-started" className="btn-primary w-full py-3.5 text-base">
                 Get Started <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href={loginHref} className="btn-secondary w-full py-3.5 text-base">
-                Log In
-              </a>
             </div>
           </div>
         </div>,
