@@ -2,221 +2,103 @@
 <html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/app-logo.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/app-logo.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#2563EB" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="SettSmartly" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="SettSmartly" />
-    <meta name="msapplication-TileColor" content="#2563EB" />
-    <meta name="msapplication-TileImage" content="/app-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>SettSmartly - Personal & Group Expense Tracker App for India | Split Bills, Track Spending</title>
-    <meta name="title" content="SettSmartly - Personal & Group Expense Tracker App for India | Split Bills, Track Spending" />
-    <meta name="description" content="India's smartest expense management app. Track personal spending, manage household expenses, split bills with friends. Free personal tracking, UPI payments, spending analytics. Built for Indians." />
-    <meta name="keywords" content="expense tracker app India, personal finance app, group expense splitting, split bills app, household expense tracker, family expense tracker, ration tracking app, budget tracker, money management app, UPI payments, shared expenses India, expense manager, bill splitter, spending tracker, Indian finance app" />
-    <meta name="author" content="SettSmartly" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#3D0385" />
+    <meta name="msapplication-TileColor" content="#3D0385" />
+    <meta name="msapplication-TileImage" content="/icon-192.png?v=2" />
+    <meta name="application-name" content="Settsmartly" />
+    <meta name="apple-mobile-web-app-title" content="Settsmartly" />
+
+    <!-- Primary meta (per-page title/description are updated at runtime) -->
+    <title>Settsmartly – Household Finance App for Flatmates | Rent, Bills & Shared Expenses</title>
+    <meta name="description" content="Settsmartly helps flatmates and working professionals in India manage rent, bills, groceries and settlements in one place, with an AI voice assistant. Join the waitlist." />
+    <meta name="keywords" content="flatmate expense app, household expense manager, shared flat rent split, roommate expense tracker Bengaluru, voice expense tracker, Hinglish expense app, recurring bills reminder, UPI settle up, Settsmartly" />
+    <meta name="author" content="Settsmartly" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="geo.region" content="IN" />
-    <meta name="geo.placename" content="India" />
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://settsmartly.com/" />
-    
-    <!-- Google Search Console Verification (Replace content with your verification code) -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" />
-    
-    <!-- Google Analytics (Replace GA_MEASUREMENT_ID with your actual ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
-    <!-- Open Graph / Facebook -->
+    <!-- Google Search Console verification is added at build time from VITE_GOOGLE_SITE_VERIFICATION -->
+
+    <!-- Google Analytics loads from src/lib/analytics.ts when VITE_GA_MEASUREMENT_ID is set -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://settsmartly.com/" />
-    <meta property="og:title" content="SettSmartly - Personal & Group Expense Tracker App for India" />
-    <meta property="og:description" content="India's smartest expense management app. Track personal spending, manage household expenses, split bills with friends. Free personal tracking, UPI payments, spending analytics." />
-    <meta property="og:image" content="https://settsmartly.com/og-image.png" />
+    <meta property="og:site_name" content="Settsmartly" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="SettSmartly" />
-    
+    <meta property="og:title" content="Settsmartly – Your household. Your money. One smart platform." />
+    <meta property="og:description" content="Household financial management for flatmates: rent, bills, groceries and settlements in one place, with an AI voice assistant. Join the waitlist." />
+    <meta property="og:image" content="https://settsmartly.com/og-image.png?v=2" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://settsmartly.com/" />
-    <meta property="twitter:title" content="SettSmartly - Personal & Group Expense Tracker App for India" />
-    <meta property="twitter:description" content="India's smartest expense management app. Track personal spending, manage household expenses, split bills with friends. Free personal tracking, UPI payments, spending analytics." />
-    <meta property="twitter:image" content="https://settsmartly.com/og-image.png" />
-    
-    <!-- Structured Data - Organization -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Settsmartly – Your household. Your money. One smart platform." />
+    <meta name="twitter:description" content="Household financial management for flatmates: rent, bills, groceries and settlements, with an AI voice assistant." />
+    <meta name="twitter:image" content="https://settsmartly.com/og-image.png?v=2" />
+
+    <!-- Structured data. No ratings/offers until the app is publicly available. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SettSmartly",
-      "url": "https://settsmartly.com",
-      "logo": "https://settsmartly.com/app-logo.png",
-      "description": "India's smartest expense management app for tracking personal spending, household expenses, and splitting group costs.",
-      "sameAs": [
-        "https://www.linkedin.com/company/settsmartly"
-      ],
-      "contactInfo": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "availableLanguage": ["English", "Hindi"]
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Software Application -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "SettSmartly",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Android, iOS",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "description": "Personal expense tracker, household expense manager, and group bill splitting app for India. Track spending, manage family budgets, split expenses with friends.",
-      "featureList": [
-        "Personal expense tracking",
-        "Household expense management",
-        "Group expense splitting",
-        "UPI payments integration",
-        "Spending analytics",
-        "Budget alerts",
-        "Family ration tracking"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1000"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SettSmartly",
-      "url": "https://settsmartly.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://settsmartly.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - MobileApp (for Google Play/App Store) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "SettSmartly",
-      "description": "Personal expense tracker, household expense manager, and group bill splitting app for India",
-      "operatingSystem": "Android, iOS",
-      "applicationCategory": "FinanceApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1000"
-      },
-      "screenshot": "https://settsmartly.com/og-image.png",
-      "softwareVersion": "1.0.0",
-      "fileSize": "15MB"
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage (for Google Rich Snippets) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+      "@graph": [
         {
-          "@type": "Question",
-          "name": "What is SettSmartly?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "SettSmartly is India's smartest expense management app for tracking personal spending, managing household expenses, and splitting group costs with friends and family."
-          }
+          "@type": "Organization",
+          "@id": "https://settsmartly.com/#org",
+          "name": "Settsmartly",
+          "url": "https://settsmartly.com",
+          "logo": "https://settsmartly.com/icon-512.png?v=2",
+          "slogan": "Your household. Your money. One smart platform.",
+          "sameAs": ["https://www.linkedin.com/company/settsmartly"]
         },
         {
-          "@type": "Question",
-          "name": "Is SettSmartly free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Personal expense tracking, household expense management, and group expense splitting are completely free. Premium features are available for power users."
-          }
+          "@type": "WebSite",
+          "@id": "https://settsmartly.com/#website",
+          "name": "Settsmartly",
+          "url": "https://settsmartly.com",
+          "publisher": { "@id": "https://settsmartly.com/#org" },
+          "inLanguage": "en-IN"
         },
         {
-          "@type": "Question",
-          "name": "Can I track my family's monthly ration expenses?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely! SettSmartly includes household expense tracking features to monitor monthly ration, groceries, utilities, and see detailed breakdowns of where your family money goes."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does SettSmartly support UPI payments?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, SettSmartly has UPI integration built for India. Settle dues instantly via UPI without leaving the app."
-          }
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Settsmartly?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Settsmartly is a household financial management platform for people who live together. It brings shared expenses, recurring bills, member contributions and settlements into one place, with an AI assistant you can talk to." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Settsmartly free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The core experience will be free: households, expense splitting, balances and access to your own records. Optional paid plans will add things like more AI usage and advanced household features." }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the voice assistant work?",
+              "acceptedAnswer": { "@type": "Answer", "text": "You describe an expense in English, Hindi or Hinglish. The assistant prepares a draft with the amount, payer, members and split; the expense engine calculates the shares, and nothing is saved until you confirm. The voice assistant is planned and in development." }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Settsmartly automatically deduct money?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Recording an expense does not automatically transfer money. Payments are made through the selected payment method, with settlement status recorded separately." }
+            }
+          ]
         }
       ]
     }
     </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://settsmartly.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Features",
-          "item": "https://settsmartly.com/#features"
-        }
-      ]
-    }
-    </script>
-    
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>

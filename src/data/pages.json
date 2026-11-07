@@ -1,0 +1,93 @@
+{
+  "$comment": "Single source for every page's <title>, description and sitemap entry. Used at runtime by PageMeta and at build time by scripts/prerender.mjs.",
+  "pages": {
+    "/": {
+      "title": "Settsmartly – Household Finance App for Flatmates in India",
+      "description": "Settsmartly helps flatmates and working professionals in India manage rent, bills, groceries and settlements in one place, with an AI voice assistant.",
+      "priority": "1.0",
+      "changefreq": "weekly"
+    },
+    "/features": {
+      "title": "Features – Settsmartly",
+      "description": "AI voice assistant, household workspace, smart splitting, recurring bills, roommate move-in and move-out, UPI settlements and insights for flatmates.",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/voice-assistant": {
+      "title": "AI Voice Assistant – Settsmartly",
+      "description": "Add household expenses by speaking in English, Hindi or Hinglish. The assistant prepares a draft, our engine does the maths, and nothing saves until you confirm.",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/flatmates": {
+      "title": "For Flatmates – Settsmartly",
+      "description": "Built for flatmates sharing a rented flat: rent, utilities, groceries, move-ins and move-outs, and monthly settlements in one place. Beta starting in Bengaluru.",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/how-it-works": {
+      "title": "How It Works – Settsmartly",
+      "description": "Set up your household, invite flatmates, add expenses by voice or by hand, put bills on autopilot and settle up every month with Settsmartly.",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    "/pricing": {
+      "title": "Pricing – Settsmartly",
+      "description": "Settsmartly will be free for every flat's core expense management, with optional Plus, Premium and Household plans for AI and advanced household features.",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    "/about": {
+      "title": "About Us – Settsmartly",
+      "description": "Settsmartly is building India's household financial management platform for people who live together, starting with flatmates in Bengaluru.",
+      "priority": "0.6",
+      "changefreq": "monthly"
+    },
+    "/contact": {
+      "title": "Contact Us – Settsmartly",
+      "description": "Get in touch with the Settsmartly team about the beta, product feedback, partnerships, press or business enquiries. A real person will reply.",
+      "priority": "0.6",
+      "changefreq": "yearly"
+    },
+    "/get-started": {
+      "title": "Join the Waitlist – Settsmartly",
+      "description": "Join the Settsmartly waitlist for early access to household financial management for flatmates. Closed beta starting in Bengaluru.",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    "/login": {
+      "title": "Log In – Settsmartly",
+      "description": "The Settsmartly app isn't open yet. Join the waitlist and we'll email you as soon as you can create your account.",
+      "noindex": true
+    },
+    "/careers": {
+      "title": "Careers – Settsmartly",
+      "description": "Help build household financial management for people who live together in India. No open roles right now, but we'd love to hear from you.",
+      "priority": "0.3",
+      "changefreq": "monthly"
+    },
+    "/privacy": {
+      "title": "Privacy Policy – Settsmartly",
+      "description": "How Settsmartly collects, uses and protects the information you share through settsmartly.com, and the rights you have over it.",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    },
+    "/terms": {
+      "title": "Terms and Conditions – Settsmartly",
+      "description": "The terms that govern your use of the Settsmartly website, including the waitlist, acceptable use and the fact that we are not a bank or payment service.",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    },
+    "/refunds": {
+      "title": "Refund Policy – Settsmartly",
+      "description": "Settsmartly does not sell paid plans yet. Refund and cancellation terms will be published here before any plan goes on sale.",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    },
+    "/404": {
+      "title": "Page not found – Settsmartly",
+      "description": "The page you're looking for doesn't exist or has moved.",
+      "noindex": true
+    }
+  }
+}

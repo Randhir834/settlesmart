@@ -1,0 +1,46 @@
+// ============================================================================
+// MARKETING WEBSITE COLLECTIONS (settsmartly.com)
+// ----------------------------------------------------------------------------
+// Paste these two blocks into the mobile app's firestore.rules
+// (Settsmartly/firestore.rules), inside `match /databases/{database}/documents { ... }`,
+// then deploy from that folder:
+//
+//   firebase login
+//   firebase deploy --only firestore:rules
+//
+// Do NOT deploy rules from the website repo: Firestore has one rules file per
+// project, so deploying only these blocks would wipe out the app's rules.
+//
+// Visitors may only CREATE documents. Nobody can read, list, update or delete
+// them from a client; view submissions in the Firebase console.
+// ============================================================================
+
+    match /waitlist/{entryId} {
+      allow create: if request.resource.data.keys().hasAll(['email', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['email', 'name', 'useCase', 'city', 'interview', 'source', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
+        && (!('name' in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() <= 120))
+        && (!('useCase' in request.resource.data) || (request.resource.data.useCase is string && request.resource.data.useCase.size() <= 40))
+        && (!('city' in request.resource.data) || (request.resource.data.city is string && request.resource.data.city.size() <= 60))
+        && (!('interview' in request.resource.data) || request.resource.data.interview is bool)
+        && (!('source' in request.resource.data) || (request.resource.data.source is string && request.resource.data.source.size() <= 40))
+        && request.resource.data.createdAt is timestamp;
+      allow read, update, delete: if false;
+    }
+
+    match /contact_messages/{messageId} {
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['name', 'email', 'topic', 'message', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1 && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
+        && (!('topic' in request.resource.data) || (request.resource.data.topic is string && request.resource.data.topic.size() <= 40))
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 10 && request.resource.data.message.size() <= 4000
+        && request.resource.data.createdAt is timestamp;
+      allow read, update, delete: if false;
+    }
