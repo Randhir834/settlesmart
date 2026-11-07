@@ -8,7 +8,7 @@ const values = [
   { icon: ShieldCheck, t: 'Trustworthy', d: 'We never hold your money, and we are clear about what the product can and cannot do.' },
   { icon: Sparkles, t: 'Simple', d: 'Adding an expense should take seconds, not a spreadsheet.' },
   { icon: Eye, t: 'Transparent', d: 'Every member sees the same numbers, edits and settlements.' },
-  { icon: Heart, t: 'Friendly', d: 'Money between friends should never cost the friendship.' },
+  { icon: Heart, t: 'Friendly', d: 'Money between flatmates should never cost the friendship.' },
 ]
 
 const About = () => (

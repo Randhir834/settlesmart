@@ -37,12 +37,12 @@ const InviteVisual = () => (
       <Link2 className="h-4 w-4 text-brand-700" /> settsmartly.com/join/…
     </div>
     <ul className="mt-4 space-y-2.5">
-      {['Neha', 'Kabir', 'Riya', 'Dev'].map((n, i) => (
+      {['Aman', 'Neha', 'Kabir', 'Riya'].map((n, i) => (
         <li key={n} className="flex items-center gap-3 text-sm">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">{n[0]}</span>
           <span className="flex-1">
             <span className="block font-medium text-ink">{n}</span>
-            <span className="block text-xs text-ink-400">Moved in {['1 Jun', '1 Jun', '15 Aug', '1 Nov'][i]}</span>
+            <span className="block text-xs text-ink-400">Moved in {['1 Jun', '1 Jun', '15 Aug', '1 Sep'][i]}</span>
           </span>
           {i < 3 ? (
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-positive">

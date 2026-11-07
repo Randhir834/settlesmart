@@ -78,4 +78,6 @@
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .animate-float { animation: none; }
+  .hero-motion,
+  .hero-motion * { animation: none !important; }
 }

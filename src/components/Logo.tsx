@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
 
+export const LOGO_SRC = '/logo.png?v=2'
+
+/** The Settsmartly app icon on its own. Size it with className (h-* w-*). */
+export const AppIcon = ({ className = 'h-9 w-9', alt = '' }: { className?: string; alt?: string }) => (
+  <img src={LOGO_SRC} alt={alt} width={256} height={256} className={`object-contain ${className}`} />
+)
+
 const Logo = ({ inverted = false }: { inverted?: boolean }) => (
   <Link to="/" className="flex items-center gap-2.5" aria-label="Settsmartly home">
-    <img src="/logo.png" alt="" width={36} height={36} className="h-9 w-9 rounded-xl object-contain" />
+    <AppIcon className="h-9 w-9" />
     <span className={`font-display text-lg font-extrabold tracking-tight ${inverted ? 'text-white' : 'text-ink'}`}>
       Sett<span className={inverted ? 'text-brand-300' : 'text-brand-700'}>smartly</span>
     </span>

@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
+import { AppIcon } from '../components/Logo'
 import Reveal from '../components/Reveal'
 import WaitlistForm from '../components/WaitlistForm'
 import { PhoneFrame, VoiceScreen } from '../components/PhoneMockup'
@@ -14,6 +15,7 @@ const GetStarted = () => (
     <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
       <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <Reveal>
+          <AppIcon className="mb-6 h-16 w-16 drop-shadow-lg" />
           <span className="eyebrow">Early access</span>
           <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl">Be first to run your flat smarter.</h1>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink-600">

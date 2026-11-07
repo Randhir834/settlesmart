@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
@@ -39,61 +40,130 @@ import {
 const inr = (n: number, paise = false) =>
   '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: paise ? 2 : 0, maximumFractionDigits: paise ? 2 : 0 })
 
+const delay = (ms: number) => ({ animationDelay: `${ms}ms` })
+
+/**
+ * A note card that sits to the right of the phone. It tucks under the bezel by 16px only,
+ * so it never covers anything on the screen. Hidden where the column is too narrow for it.
+ */
+const SideNote = ({
+  className = '',
+  enterDelay,
+  floatDelay,
+  children,
+}: {
+  className?: string
+  enterDelay: number
+  floatDelay: number
+  children: ReactNode
+}) => (
+  <div
+    className={`absolute left-[calc(100%-16px)] hidden w-[204px] animate-slide-in sm:block lg:hidden xl:block ${className}`}
+    style={delay(enterDelay)}
+  >
+    <div
+      className="flex animate-float-soft items-center gap-3 rounded-2xl border border-ink-100 bg-white p-3 shadow-lift"
+      style={delay(floatDelay)}
+    >
+      {children}
+    </div>
+  </div>
+)
+
 const Hero = () => (
-  <section className="relative overflow-hidden">
+  <section className="hero-motion relative overflow-hidden">
     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-gradient-to-b from-brand-50 to-white" />
     <div
       aria-hidden
       className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background-image:radial-gradient(#D8BFFE_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
     />
-    <div className="container-site grid items-center gap-14 pb-16 pt-12 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-24 lg:pt-20">
+    <div className="container-site grid items-center gap-14 pb-16 pt-12 sm:pt-16 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-20">
       <div className="text-center lg:text-left">
-        <span className="eyebrow">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand-500" /> Household finances for flatmates
+        <span className="eyebrow animate-rise">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inset-0 animate-ping rounded-full bg-brand-400 opacity-60 [animation-duration:2.4s]" />
+            <span className="relative h-1.5 w-1.5 rounded-full bg-brand-500" />
+          </span>
+          Household finances for flatmates
         </span>
-        <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.05] sm:text-6xl lg:text-[4rem]">
-          Your household. Your money. <span className="text-brand-700">One smart platform.</span>
+        <h1 className="mt-6 animate-rise text-[2.5rem] font-extrabold leading-[1.05] sm:text-6xl lg:text-[4rem]" style={delay(100)}>
+          Your household. Your money.{' '}
+          <span className="text-brand-700">
+            One{' '}
+            <span className="relative inline-block whitespace-nowrap">
+              smart
+              <svg
+                aria-hidden
+                viewBox="0 0 120 12"
+                preserveAspectRatio="none"
+                className="absolute -bottom-[0.1em] left-0 h-[0.22em] w-full text-brand-300"
+              >
+                <path
+                  d="M2 8.5C22 4 48 3 70 4.5S106 7 118 5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  pathLength={1}
+                  strokeDasharray="1"
+                  vectorEffect="non-scaling-stroke"
+                  className="animate-draw"
+                  style={delay(900)}
+                />
+              </svg>
+            </span>{' '}
+            platform.
+          </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-600 lg:mx-0">{positioning.subhead}</p>
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-          <Link to="/get-started" className="btn-primary px-6 py-3.5 text-base">
-            Join the waitlist <ArrowRight className="h-4 w-4" />
+        <p className="mx-auto mt-6 max-w-xl animate-rise text-lg leading-relaxed text-ink-600 lg:mx-0" style={delay(220)}>
+          {positioning.subhead}
+        </p>
+        <div className="mt-8 flex animate-rise flex-col justify-center gap-3 sm:flex-row lg:justify-start" style={delay(340)}>
+          <Link to="/get-started" className="btn-primary group px-6 py-3.5 text-base">
+            Join the waitlist <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
           <a href="#voice" className="btn-secondary px-6 py-3.5 text-base">
             <Mic className="h-4 w-4" /> See the voice assistant
           </a>
         </div>
-        <p className="mt-5 inline-flex items-center gap-1.5 text-sm text-ink-500">
+        <p className="mt-5 inline-flex animate-rise items-center gap-1.5 text-sm text-ink-500" style={delay(440)}>
           <MapPin className="h-4 w-4 text-brand-500" />
           {positioning.launchNote}
         </p>
       </div>
 
-      <Reveal delay={120} className="relative mx-auto">
-        <div aria-hidden className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-200/60 blur-3xl" />
-        <PhoneFrame className="mx-auto">
-          <VoiceScreen />
-        </PhoneFrame>
-        <div className="absolute -left-6 top-[500px] hidden w-56 animate-float items-center gap-3 rounded-2xl border border-ink-100 bg-white p-3 shadow-lift sm:flex lg:-left-24">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-            <CalendarClock className="h-5 w-5" />
-          </span>
-          <div>
-            <p className="text-[11px] font-medium text-ink-500">Rent due in 3 days</p>
-            <p className="amount text-sm font-bold text-ink">₹15,000 · 5 members</p>
+      {/* Phone + side notes. Right padding reserves room for the notes so the group stays centred in its column. */}
+      <Reveal delay={120} className="relative mx-auto w-fit sm:pr-[188px] lg:pr-0 xl:pr-[188px]">
+        <div className="relative">
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 animate-breathe rounded-full bg-brand-200/70 blur-3xl"
+          />
+          <div className="animate-float-soft [animation-duration:9s]">
+            <PhoneFrame>
+              <VoiceScreen live />
+            </PhoneFrame>
           </div>
-        </div>
-        <div
-          className="absolute -right-4 top-[590px] hidden items-center gap-2.5 rounded-2xl border border-ink-100 bg-white p-3 pr-4 shadow-lift sm:flex lg:-right-24"
-          style={{ animation: 'float 6s ease-in-out 1.5s infinite' }}
-        >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-            <CheckCircle2 className="h-5 w-5" />
-          </span>
-          <div>
-            <p className="text-sm font-bold text-ink">Settled up</p>
-            <p className="amount text-[11px] text-ink-500">Kabir paid you ₹620</p>
-          </div>
+
+          <SideNote className="top-[132px]" enterDelay={1100} floatDelay={0}>
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+              <CalendarClock className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-medium text-ink-500">Rent due in 3 days</p>
+              <p className="amount text-[13px] font-bold text-ink">₹15,000 · 5 members</p>
+            </div>
+          </SideNote>
+
+          <SideNote className="bottom-[120px]" enterDelay={2000} floatDelay={2500}>
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+              <CheckCircle2 className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[13px] font-bold text-ink">Settled up</p>
+              <p className="amount text-[11px] text-ink-500">Kabir paid you ₹2,100.80</p>
+            </div>
+          </SideNote>
         </div>
       </Reveal>
     </div>
@@ -248,6 +318,11 @@ const Voice = () => (
           AI interprets what you say. Money is always calculated by our expense engine, and nothing is saved without your
           confirmation.
         </p>
+        <div className="mt-8 text-center">
+          <Link to="/voice-assistant" className="btn bg-white px-6 text-brand-800 hover:bg-brand-50">
+            Explore the voice assistant <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </Reveal>
     </div>
   </section>
@@ -285,7 +360,7 @@ const Roommates = () => (
           </div>
           <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Flatmates come and go. Your accounts stay right.</h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-600">
-            When Aman moves out on the 15th, Settsmartly works out his share using your flat’s agreed policy, settles
+            When Aman moves out on 15 December, Settsmartly works out his share using your flat’s agreed policy, settles
             what’s pending and stops including him in new expenses, without rewriting history.
           </p>
         </Reveal>
@@ -401,6 +476,9 @@ const ForWhom = () => {
               </span>
               <h3 className="mt-4 text-2xl font-extrabold text-white sm:text-3xl">{primary.title}</h3>
               <p className="mt-3 text-lg leading-relaxed text-brand-100">{primary.description}</p>
+              <Link to="/flatmates" className="mt-6 inline-flex items-center gap-1.5 font-semibold text-white underline-offset-4 hover:underline">
+                See how it works for flatmates <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
             <div className="flex flex-wrap gap-2 lg:justify-end">
               {primary.examples.map((e) => (
@@ -432,7 +510,7 @@ const members = [
   { n: 'Neha', paid: 5000, note: 'groceries' },
   { n: 'Kabir', paid: 2999, note: 'electricity, internet' },
   { n: 'Riya', paid: 2500, note: 'water, supplies' },
-  { n: 'Dev', paid: 0, note: 'nothing yet' },
+  { n: 'Aman', paid: 0, note: 'nothing yet' },
 ]
 
 const Clarity = () => {

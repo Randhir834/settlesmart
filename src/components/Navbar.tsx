@@ -7,8 +7,9 @@ import { site } from '../config'
 
 export const navLinks = [
   { name: 'Features', to: '/features' },
+  { name: 'Voice Assistant', to: '/voice-assistant' },
+  { name: 'For Flatmates', to: '/flatmates' },
   { name: 'How It Works', to: '/how-it-works' },
-  { name: 'For Whom', to: '/#for-whom' },
   { name: 'Pricing', to: '/pricing' },
   { name: 'FAQ', to: '/#faq' },
   { name: 'Contact', to: '/contact' },
@@ -58,7 +59,7 @@ const Navbar = () => {
       <nav className="container-site flex h-16 items-center justify-between gap-4" aria-label="Main">
         <Logo />
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 xl:flex">
           {navLinks.map((l) =>
             l.to.includes('#') ? (
               <Link key={l.name} to={l.to} className={linkClass(l.to)}>
@@ -72,7 +73,7 @@ const Navbar = () => {
           )}
         </div>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <a href={loginHref} className="btn-ghost">
             Log In
           </a>
@@ -83,7 +84,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-50 lg:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-50 xl:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -97,7 +98,7 @@ const Navbar = () => {
           containing block for this fixed panel and clip it to the header's height. */}
       {open &&
         createPortal(
-        <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-white lg:hidden">
+        <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-white xl:hidden">
           <div className="container-site flex flex-col gap-1 py-6">
             {navLinks.map((l) => (
               <Link

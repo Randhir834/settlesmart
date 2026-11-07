@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Clock } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
+import { AppIcon } from '../components/Logo'
 import { site } from '../config'
 
 /**
@@ -32,8 +33,11 @@ const InfoPage = ({ kind }: { kind: Kind }) => {
       <section className="bg-gradient-to-b from-brand-50 to-white">
         <div className="container-site flex min-h-[60vh] max-w-2xl flex-col items-center justify-center py-20 text-center">
           <Reveal>
-            <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand-700 shadow-card">
-              <Clock className="h-6 w-6" />
+            <span className="relative mx-auto inline-flex">
+              <AppIcon className="h-20 w-20 drop-shadow-lg" />
+              <span className="absolute -bottom-1 -right-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand-700 shadow-card">
+                <Clock className="h-4 w-4" />
+              </span>
             </span>
             <h1 className="mt-6 text-3xl font-extrabold sm:text-4xl">{p.heading}</h1>
             <p className="mt-4 text-lg leading-relaxed text-ink-600">{p.body}</p>

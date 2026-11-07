@@ -11,6 +11,8 @@ import Contact from './pages/Contact'
 import GetStarted from './pages/GetStarted'
 import InfoPage from './pages/InfoPage'
 import Legal from './pages/Legal'
+import VoiceAssistant from './pages/VoiceAssistant'
+import Flatmates from './pages/Flatmates'
 import NotFound from './pages/NotFound'
 
 const Layout = () => (
@@ -32,6 +34,8 @@ const App = () => (
     <Route element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="features" element={<Features />} />
+      <Route path="voice-assistant" element={<VoiceAssistant />} />
+      <Route path="flatmates" element={<Flatmates />} />
       <Route path="how-it-works" element={<HowItWorks />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="about" element={<About />} />

@@ -59,9 +59,43 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        rise: {
+          from: { opacity: '0', transform: 'translateY(14px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-in': {
+          from: { opacity: '0', transform: 'translateX(-14px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        'float-soft': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'scaleY(0.35)' },
+          '50%': { transform: 'scaleY(1)' },
+        },
+        'pulse-ring': {
+          '0%': { transform: 'scale(1)', opacity: '0.45' },
+          '100%': { transform: 'scale(1.75)', opacity: '0' },
+        },
+        breathe: {
+          '0%, 100%': { opacity: '0.5' },
+          '50%': { opacity: '0.85' },
+        },
+        draw: {
+          from: { strokeDashoffset: '1' },
+          to: { strokeDashoffset: '0' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
+        rise: 'rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'slide-in': 'slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'float-soft': 'float-soft 7s ease-in-out infinite',
+        'pulse-ring': 'pulse-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite',
+        breathe: 'breathe 7s ease-in-out infinite',
+        draw: 'draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) both',
       },
     },
   },

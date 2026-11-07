@@ -8,6 +8,8 @@ const columns = [
     title: 'Product',
     links: [
       { name: 'Features', to: '/features' },
+      { name: 'Voice Assistant', to: '/voice-assistant' },
+      { name: 'For Flatmates', to: '/flatmates' },
       { name: 'How It Works', to: '/how-it-works' },
       { name: 'Pricing', to: '/pricing' },
       { name: 'FAQ', to: '/#faq' },

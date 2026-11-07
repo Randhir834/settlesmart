@@ -113,7 +113,7 @@ const terms = (
 
     <H>1. About Settsmartly</H>
     <p>
-      Settsmartly is a shared expense management product that is currently in development. The Website describes the
+      Settsmartly is a household financial management product for people who live together. It is currently in development. The Website describes the
       product we are building. Features, plans and timelines shown on the Website, including those marked "Planned",
       are subject to change and are not a promise that any feature will be available.
     </p>

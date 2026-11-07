@@ -9,7 +9,7 @@ import { createDoc, mailto } from '../lib/firestore'
 import { faqs } from '../data/content'
 import { site } from '../config'
 
-const topics = ['General question', 'Product feedback', 'Business enquiry', 'Press', 'Other']
+const topics = ['General question', 'Beta / research interview', 'Product feedback', 'Business enquiry', 'Press', 'Other']
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: '', email: '', topic: topics[0], message: '' })

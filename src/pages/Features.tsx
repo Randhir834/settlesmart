@@ -51,9 +51,9 @@ const FeatureRow = ({ feature, visual, reverse }: { feature: Feature; visual: Re
 const RecurringVisual = () => (
   <div className="space-y-2">
     {[
-      { icon: HomeIcon, n: 'Rent', d: 'Every 1st', a: '₹42,000' },
-      { icon: Zap, n: 'Electricity', d: 'Every 10th', a: '~₹1,900' },
-      { icon: Wifi, n: 'Wi-Fi', d: 'Every 15th', a: '₹999' },
+      { icon: HomeIcon, n: 'Rent', d: 'Every 1st', a: '₹15,000' },
+      { icon: Zap, n: 'Electricity', d: 'Every 10th', a: '~₹2,000' },
+      { icon: Wifi, n: 'Internet', d: 'Every 15th', a: '₹999' },
       { icon: Tv, n: 'OTT subscription', d: 'Every 22nd', a: '₹649' },
     ].map((r) => (
       <div key={r.n} className="flex items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-ink-100">
