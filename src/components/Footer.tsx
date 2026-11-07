@@ -54,18 +54,25 @@ const Footer = () => (
               <Linkedin className="h-4 w-4" />
             </a>
             <a
-              href={`mailto:${site.businessEmail}`}
-              aria-label="Email Settsmartly"
+              href={`mailto:${site.supportEmail}`}
+              aria-label="Email Settsmartly support"
               className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 bg-white text-ink-600 transition hover:border-brand-300 hover:text-brand-700"
             >
               <Mail className="h-4 w-4" />
             </a>
           </div>
+          <a
+            href={`mailto:${site.supportEmail}`}
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-ink-600 transition hover:text-brand-700"
+          >
+            <Mail className="h-4 w-4" />
+            {site.supportEmail}
+          </a>
         </div>
 
         {columns.map((col) => (
           <div key={col.title}>
-            <h3 className="font-display text-sm font-bold text-ink">{col.title}</h3>
+            <h2 className="font-display text-sm font-bold text-ink">{col.title}</h2>
             <ul className="mt-4 space-y-1">
               {col.links.map((l) => (
                 <li key={l.name}>

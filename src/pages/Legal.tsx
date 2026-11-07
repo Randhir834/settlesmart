@@ -198,23 +198,17 @@ const refunds = (
   </>
 )
 
-const pages: Record<Kind, { title: string; heading: string; description: string; body: ReactNode }> = {
+const pages: Record<Kind, { heading: string; body: ReactNode }> = {
   privacy: {
-    title: 'Privacy Policy – Settsmartly',
     heading: 'Privacy Policy',
-    description: 'How Settsmartly collects, uses and protects the information you share through settsmartly.com.',
     body: privacy,
   },
   terms: {
-    title: 'Terms and Conditions – Settsmartly',
     heading: 'Terms and Conditions',
-    description: 'The terms that govern your use of the Settsmartly website.',
     body: terms,
   },
   refunds: {
-    title: 'Refund Policy – Settsmartly',
     heading: 'Refund Policy',
-    description: 'Settsmartly does not sell paid plans yet. Refund terms will be published before any plan goes on sale.',
     body: refunds,
   },
 }
@@ -223,7 +217,7 @@ const Legal = ({ kind }: { kind: Kind }) => {
   const p = pages[kind]
   return (
     <>
-      <PageMeta title={p.title} description={p.description} path={`/${kind}`} />
+      <PageMeta path={`/${kind}`} />
       <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50 to-white">
         <div className="container-site max-w-3xl py-14 sm:py-16">
           <span className="eyebrow">Legal</span>

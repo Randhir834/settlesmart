@@ -81,11 +81,7 @@ const Flatmates = () => {
   const total = sampleMonth.rows.reduce((s, r) => s + r.amount, 0)
   return (
     <>
-      <PageMeta
-        title="For Flatmates – Settsmartly | Rent, Bills & Expenses for Shared Flats"
-        description="Settsmartly is built for flatmates and working professionals sharing a rented flat: rent, utilities, groceries, move-ins and move-outs, and monthly settlements in one place."
-        path="/flatmates"
-      />
+      <PageMeta path="/flatmates" />
 
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
         <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">

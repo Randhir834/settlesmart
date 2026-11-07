@@ -7,11 +7,7 @@ import { PhoneFrame, VoiceScreen } from '../components/PhoneMockup'
 
 const GetStarted = () => (
   <>
-    <PageMeta
-      title="Join the Waitlist – Settsmartly"
-      description="Join the Settsmartly waitlist for early access to household financial management for flatmates. Beta starting in Bengaluru."
-      path="/get-started"
-    />
+    <PageMeta path="/get-started" />
     <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
       <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <Reveal>

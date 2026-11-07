@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock } from 'lucide-react'
-import PageMeta from '../components/PageMeta'
+import PageMeta, { type PagePath } from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import { AppIcon } from '../components/Logo'
 import { site } from '../config'
@@ -10,15 +10,13 @@ import { site } from '../config'
  */
 type Kind = 'login' | 'careers'
 
-const pages: Record<Kind, { title: string; heading: string; body: string; path: string }> = {
+const pages: Record<Kind, { heading: string; body: string; path: PagePath }> = {
   login: {
-    title: 'Log In – Settsmartly',
     heading: "The Settsmartly app isn't open yet",
     body: "We're building the app right now. Join the waitlist and we'll email you as soon as you can create your account.",
     path: '/login',
   },
   careers: {
-    title: 'Careers – Settsmartly',
     heading: 'Careers at Settsmartly',
     body: `We don't have open roles listed right now. If you'd like to help build the future of shared money in India, write to us at ${site.businessEmail}.`,
     path: '/careers',
@@ -29,7 +27,7 @@ const InfoPage = ({ kind }: { kind: Kind }) => {
   const p = pages[kind]
   return (
     <>
-      <PageMeta title={p.title} description={p.body.slice(0, 155)} path={p.path} />
+      <PageMeta path={p.path} />
       <section className="bg-gradient-to-b from-brand-50 to-white">
         <div className="container-site flex min-h-[60vh] max-w-2xl flex-col items-center justify-center py-20 text-center">
           <Reveal>

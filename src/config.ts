@@ -3,7 +3,7 @@
  */
 export const site = {
   name: 'Settsmartly',
-  url: 'https://settsmartly.com',
+  url: ((import.meta.env.VITE_SITE_URL as string | undefined) || 'https://settsmartly.com').replace(/\/$/, ''),
   tagline: 'Your household. Your money. One smart platform.',
   // Replace with the real inboxes before publishing.
   supportEmail: 'support@settsmartly.com',

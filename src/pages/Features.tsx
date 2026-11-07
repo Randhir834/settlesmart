@@ -104,11 +104,7 @@ const secondary: { id: string; visual: ReactNode }[] = [
 
 const Features = () => (
   <>
-    <PageMeta
-      title="Features – Settsmartly"
-      description="AI voice assistant, household workspace, smart splitting, recurring bills, roommate move-in and move-out, UPI settlements and household insights for flatmates."
-      path="/features"
-    />
+    <PageMeta path="/features" />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-6 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading

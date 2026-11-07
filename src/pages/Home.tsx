@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
@@ -9,7 +8,6 @@ import {
   Users,
   ShieldCheck,
   CheckCircle2,
-  CalendarClock,
   Landmark,
   Calculator,
   History,
@@ -41,34 +39,6 @@ const inr = (n: number, paise = false) =>
   '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: paise ? 2 : 0, maximumFractionDigits: paise ? 2 : 0 })
 
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` })
-
-/**
- * A note card that sits to the right of the phone. It tucks under the bezel by 16px only,
- * so it never covers anything on the screen. Hidden where the column is too narrow for it.
- */
-const SideNote = ({
-  className = '',
-  enterDelay,
-  floatDelay,
-  children,
-}: {
-  className?: string
-  enterDelay: number
-  floatDelay: number
-  children: ReactNode
-}) => (
-  <div
-    className={`absolute left-[calc(100%-16px)] hidden w-[204px] animate-slide-in sm:block lg:hidden xl:block ${className}`}
-    style={delay(enterDelay)}
-  >
-    <div
-      className="flex animate-float-soft items-center gap-3 rounded-2xl border border-ink-100 bg-white p-3 shadow-lift"
-      style={delay(floatDelay)}
-    >
-      {children}
-    </div>
-  </div>
-)
 
 const Hero = () => (
   <section className="hero-motion relative overflow-hidden">
@@ -132,8 +102,7 @@ const Hero = () => (
         </p>
       </div>
 
-      {/* Phone + side notes. Right padding reserves room for the notes so the group stays centred in its column. */}
-      <Reveal delay={120} className="relative mx-auto w-fit sm:pr-[188px] lg:pr-0 xl:pr-[188px]">
+      <Reveal delay={120} className="relative mx-auto w-fit">
         <div className="relative">
           <div
             aria-hidden
@@ -144,26 +113,6 @@ const Hero = () => (
               <VoiceScreen live />
             </PhoneFrame>
           </div>
-
-          <SideNote className="top-[132px]" enterDelay={1100} floatDelay={0}>
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-              <CalendarClock className="h-5 w-5" />
-            </span>
-            <div className="min-w-0">
-              <p className="text-[11px] font-medium text-ink-500">Rent due in 3 days</p>
-              <p className="amount text-[13px] font-bold text-ink">₹15,000 · 5 members</p>
-            </div>
-          </SideNote>
-
-          <SideNote className="bottom-[120px]" enterDelay={2000} floatDelay={2500}>
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-              <CheckCircle2 className="h-5 w-5" />
-            </span>
-            <div className="min-w-0">
-              <p className="text-[13px] font-bold text-ink">Settled up</p>
-              <p className="amount text-[11px] text-ink-500">Kabir paid you ₹2,100.80</p>
-            </div>
-          </SideNote>
         </div>
       </Reveal>
     </div>
@@ -278,7 +227,7 @@ const Voice = () => (
         </Reveal>
 
         <Reveal delay={100} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">It asks when something’s unclear</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">It asks when something’s unclear</p>
           <div className="mt-4 space-y-2.5">
             {conversation.map((m, i) => (
               <div
@@ -309,7 +258,7 @@ const Voice = () => (
             <li key={t} className="bg-ink p-4">
               <span className="amount text-xs font-bold text-brand-300">0{i + 1}</span>
               <p className="mt-1 font-display text-sm font-bold text-white">{t}</p>
-              <p className="mt-0.5 text-xs text-ink-400">{d}</p>
+              <p className="mt-0.5 text-xs text-ink-500">{d}</p>
             </li>
           ))}
         </ol>
@@ -570,7 +519,7 @@ const Clarity = () => {
                       <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-xs font-bold text-brand-700">{m.n[0]}</span>
                       <span className="min-w-0">
                         <span className="block font-medium text-ink">{m.n}</span>
-                        <span className="block truncate text-xs text-ink-400">Paid {m.note}</span>
+                        <span className="block truncate text-xs text-ink-500">Paid {m.note}</span>
                       </span>
                     </span>
                     <span className={`amount shrink-0 font-semibold ${pos ? 'text-positive' : 'text-negative'}`}>
@@ -581,7 +530,7 @@ const Clarity = () => {
                 )
               })}
             </ul>
-            <p className="mt-4 text-xs text-ink-400">Illustrative example. Balances always add up to zero.</p>
+            <p className="mt-4 text-xs text-ink-500">Illustrative example. Balances always add up to zero.</p>
           </div>
         </Reveal>
       </div>
@@ -664,11 +613,7 @@ const Beta = () => (
 
 const Home = () => (
   <>
-    <PageMeta
-      title="Settsmartly – Household Finance App for Flatmates | Rent, Bills & Shared Expenses"
-      description="Settsmartly helps flatmates and working professionals in India manage rent, bills, groceries and settlements in one place, with an AI voice assistant. Join the waitlist."
-      path="/"
-    />
+    <PageMeta path="/" />
     <Hero />
     <Problem />
     <Voice />

@@ -118,11 +118,7 @@ const ContactForm = () => {
 
 const Contact = () => (
   <>
-    <PageMeta
-      title="Contact Us – Settsmartly"
-      description="Get in touch with the Settsmartly team for support, feedback, partnerships and business enquiries."
-      path="/contact"
-    />
+    <PageMeta path="/contact" />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-16 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading
@@ -138,7 +134,7 @@ const Contact = () => (
       <div className="container-site grid gap-6 lg:grid-cols-[1fr_1.5fr]">
         <Reveal className="grid content-start gap-4">
           {[
-            { icon: LifeBuoy, t: 'Support', d: 'Help with the app or your account.', href: `mailto:${site.supportEmail}`, l: site.supportEmail },
+            { icon: LifeBuoy, t: 'Support', d: 'Questions about Settsmartly, the beta or your waitlist signup.', href: `mailto:${site.supportEmail}`, l: site.supportEmail },
             { icon: Briefcase, t: 'Business enquiries', d: 'Partnerships, integrations and press.', href: `mailto:${site.businessEmail}`, l: site.businessEmail },
             { icon: Linkedin, t: 'LinkedIn', d: 'Follow our progress towards launch.', href: site.linkedin, l: 'linkedin.com/company/settsmartly' },
           ].map((c) => (

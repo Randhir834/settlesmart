@@ -181,7 +181,7 @@ export const SettleScreen = () => (
         <div key={s.from + s.to} className={`rounded-xl border px-3 py-2.5 ${s.you ? 'border-brand-300 bg-white shadow-card' : 'border-ink-100'}`}>
           <div className="flex items-center gap-2">
             <Avatar name={s.from} tone={s.you ? 'brand' : 'ink'} />
-            <ChevronRight className="h-3.5 w-3.5 text-ink-400" />
+            <ChevronRight className="h-3.5 w-3.5 text-ink-500" />
             <Avatar name={s.to} tone="green" />
             <p className="ml-1 flex-1 text-[11px] font-semibold text-ink">
               {s.from} → {s.to}
@@ -200,7 +200,7 @@ export const SettleScreen = () => (
     <div className="mt-3 rounded-xl bg-ink-50 p-3 text-[10px] leading-snug text-ink-600">
       Aman opens the link in his own UPI app with the amount filled in. You confirm once the money arrives.
     </div>
-    <p className="mt-auto mb-4 text-center text-[9px] leading-snug text-ink-400">
+    <p className="mt-auto mb-4 text-center text-[9px] leading-snug text-ink-500">
       Payments happen in your UPI app. Settsmartly never moves your money.
     </p>
   </div>
@@ -229,7 +229,7 @@ export const AnalyticsScreen = () => {
           {bars.map((h, i) => (
             <div key={i} className="flex flex-1 flex-col items-center gap-1">
               <div className={`w-full rounded-md ${i === bars.length - 1 ? 'bg-brand-700' : 'bg-brand-100'}`} style={{ height: `${h}%` }} />
-              <span className="text-[8px] text-ink-400">{['J', 'J', 'A', 'S', 'O', 'N'][i]}</span>
+              <span className="text-[8px] text-ink-500">{['J', 'J', 'A', 'S', 'O', 'N'][i]}</span>
             </div>
           ))}
         </div>
@@ -282,7 +282,7 @@ export const VoiceScreen = ({ live = false }: { live?: boolean }) => {
     >
       “I paid 2,500 for groceries today. Split equally between all five of us.”
     </div>
-    <p className={`mt-1 text-right text-[9px] text-ink-400 ${caption.className}`} style={caption.style}>
+    <p className={`mt-1 text-right text-[9px] text-ink-500 ${caption.className}`} style={caption.style}>
       You · voice
     </p>
 
@@ -322,7 +322,7 @@ export const VoiceScreen = ({ live = false }: { live?: boolean }) => {
       </div>
     </div>
 
-    <p className={`mt-2 text-center text-[9px] text-ink-400 ${note.className}`} style={note.style}>
+    <p className={`mt-2 text-center text-[9px] text-ink-500 ${note.className}`} style={note.style}>
       Nothing is saved until you confirm
     </p>
 
@@ -402,6 +402,6 @@ export const MoveOutScreen = () => (
         </div>
       ))}
     </div>
-    <p className="mt-auto mb-4 text-center text-[9px] text-ink-400">History stays intact for everyone</p>
+    <p className="mt-auto mb-4 text-center text-[9px] text-ink-500">History stays intact for everyone</p>
   </div>
 )

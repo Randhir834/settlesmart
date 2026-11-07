@@ -34,7 +34,7 @@ npm run preview   # serve the production build
 ### Pre-launch honesty rules
 
 Features that aren't built yet carry `status: 'planned'` in `content.ts` and show a **Planned** badge
-(currently UPI settlements and AI receipt scanning). Remove the flag when a feature ships.
+(currently the voice assistant, recurring bills, roommate move-in/out, UPI settlements and receipt scanning). Remove the flag when a feature ships.
 Paid plans show "Coming soon"; set `priceLabel` when subscriptions go live.
 
 ## Waitlist and contact form (Firebase)
@@ -42,7 +42,7 @@ Paid plans show "Coming soon"; set `priceLabel` when subscriptions go live.
 Both forms write to Cloud Firestore in the app's existing `settsmartly` Firebase project, using the REST
 API (no Firebase SDK in the bundle):
 
-- `waitlist/{sha256(email)}`: `email`, `name?`, `useCase?`, `source`, `createdAt`. The hashed id stops duplicates.
+- `waitlist/{sha256(email)}`: `email`, `name?`, `useCase?`, `city?`, `interview?`, `source`, `createdAt`. The hashed id stops duplicates.
 - `contact_messages/{auto}`: `name`, `email`, `topic`, `message`, `createdAt`
 
 **One-time setup:** add the rules in `firebase/marketing.rules` to the app's `firestore.rules`
@@ -67,7 +67,17 @@ every route change. Without it, no analytics script loads.
 
 ## Deploy (Vercel)
 
-Import the repo in Vercel (framework preset: Vite). `vercel.json` rewrites all routes to `index.html`, so deep
-links like `/pricing` work. Add any env vars in Vercel → Settings → Environment Variables.
+Import the repo in Vercel (framework preset: Vite, build command `npm run build`, output `dist`). Add any env
+vars in Vercel → Settings → Environment Variables.
 
-Before going live, also replace the Google Search Console placeholder in `index.html`.
+`npm run build` runs `scripts/prerender.mjs` after Vite. It writes a static `dist/<page>/index.html` for every
+page in `src/data/pages.json`, each with its own title, description, canonical URL and social-preview tags, so
+links shared on WhatsApp/LinkedIn and search engines see the right page details. It also writes `404.html`
+(served with a real 404 status for unknown URLs), `sitemap.xml` and `robots.txt`.
+
+- **Page titles and descriptions:** `src/data/pages.json` (used at build time and at runtime).
+- **Adding a page:** add its route in `src/App.tsx`, an entry in `pages.json`, and `<PageMeta path="/your-page" />` in the page.
+- **Domain:** `VITE_SITE_URL` (defaults to `https://settsmartly.com`) sets canonical URLs, the sitemap and robots.txt.
+- **Search Console:** set `VITE_GOOGLE_SITE_VERIFICATION` to the HTML-tag code, or verify the domain by DNS instead.
+
+`vercel.json` adds long-term caching for hashed assets and standard security headers.

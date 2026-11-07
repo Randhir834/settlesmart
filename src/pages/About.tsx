@@ -13,11 +13,7 @@ const values = [
 
 const About = () => (
   <>
-    <PageMeta
-      title="About Us – Settsmartly"
-      description="Settsmartly is building India's household financial management platform for people who live together, starting with flatmates in Bengaluru."
-      path="/about"
-    />
+    <PageMeta path="/about" />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-16 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading

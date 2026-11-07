@@ -28,11 +28,7 @@ const pricingFaqs = [
 
 const Pricing = () => (
   <>
-    <PageMeta
-      title="Pricing – Settsmartly"
-      description="Settsmartly will be free for every flat's core expense management, with optional Plus, Premium and Household plans for AI and advanced household features."
-      path="/pricing"
-    />
+    <PageMeta path="/pricing" />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-20 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading

@@ -180,7 +180,7 @@ export const features: Feature[] = [
 export const voiceExamples = [
   { lang: 'English', said: 'I paid 2,500 rupees for groceries today. Split equally between all five of us.' },
   { lang: 'Hinglish', said: 'Aaj electricity ka 1800 rupees bill pay kiya, sabke beech equally divide kar do.' },
-  { lang: 'Household rules', said: 'Add 800 for cleaning supplies, but exclude Aman, he moved out.' },
+  { lang: 'Household rules', said: 'Add 800 for cleaning supplies, but exclude Aman, he’s away this week.' },
   { lang: 'Questions', said: 'How much did we spend on groceries last month?' },
 ]
 

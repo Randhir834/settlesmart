@@ -39,7 +39,7 @@ export default {
           100: '#EEEDF4',
           50: '#F8F7FB',
         },
-        positive: '#0E9F6E',
+        positive: '#047857', // 5.5:1 on white (WCAG AA for small text)
         negative: '#D9364F',
       },
       fontFamily: {

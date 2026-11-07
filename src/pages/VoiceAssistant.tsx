@@ -126,11 +126,7 @@ const voiceFaqs = [
 
 const VoiceAssistant = () => (
   <>
-    <PageMeta
-      title="AI Voice Assistant – Settsmartly"
-      description="Add household expenses by speaking naturally in English, Hindi or Hinglish. Settsmartly's AI assistant prepares a draft, our engine does the maths, and nothing saves until you confirm."
-      path="/voice-assistant"
-    />
+    <PageMeta path="/voice-assistant" />
 
     <section className="relative overflow-hidden bg-ink text-white">
       <div aria-hidden className="pointer-events-none absolute -right-32 -top-20 h-[520px] w-[520px] rounded-full bg-brand-700/50 blur-3xl" />

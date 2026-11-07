@@ -42,14 +42,14 @@ const InviteVisual = () => (
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">{n[0]}</span>
           <span className="flex-1">
             <span className="block font-medium text-ink">{n}</span>
-            <span className="block text-xs text-ink-400">Moved in {['1 Jun', '1 Jun', '15 Aug', '1 Sep'][i]}</span>
+            <span className="block text-xs text-ink-500">Moved in {['1 Jun', '1 Jun', '15 Aug', '1 Sep'][i]}</span>
           </span>
           {i < 3 ? (
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-positive">
               <Check className="h-3.5 w-3.5" /> Joined
             </span>
           ) : (
-            <span className="text-xs font-medium text-ink-400">Invited</span>
+            <span className="text-xs font-medium text-ink-500">Invited</span>
           )}
         </li>
       ))}
@@ -73,11 +73,11 @@ const BillsVisual = () => (
           <b.icon className="h-4 w-4 shrink-0 text-brand-700" />
           <span className="min-w-0 flex-1">
             <span className="block truncate font-medium text-ink">{b.n}</span>
-            <span className="block text-xs text-ink-400">{b.d}</span>
+            <span className="block text-xs text-ink-500">{b.d}</span>
           </span>
           <span className="text-right">
             <span className="amount block font-semibold text-ink">{b.a}</span>
-            <span className={`block text-[11px] font-semibold ${b.s === 'Paid' ? 'text-positive' : b.s.startsWith('Due') ? 'text-amber-700' : 'text-ink-400'}`}>{b.s}</span>
+            <span className={`block text-[11px] font-semibold ${b.s === 'Paid' ? 'text-positive' : b.s.startsWith('Due') ? 'text-amber-700' : 'text-ink-500'}`}>{b.s}</span>
           </span>
         </li>
       ))}
@@ -112,11 +112,7 @@ const visuals: ReactNode[] = [
 
 const HowItWorks = () => (
   <>
-    <PageMeta
-      title="How It Works – Settsmartly"
-      description="Set up your household, invite flatmates, add expenses by voice or by hand, put bills on autopilot and settle up every month with Settsmartly."
-      path="/how-it-works"
-    />
+    <PageMeta path="/how-it-works" />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-4 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading

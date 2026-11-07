@@ -4,7 +4,7 @@ import { AppIcon } from '../components/Logo'
 
 const NotFound = () => (
   <>
-    <PageMeta title="Page not found – Settsmartly" description="The page you're looking for doesn't exist." path="/404" />
+    <PageMeta path="/404" />
     <section className="container-site flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
       <AppIcon className="mb-6 h-20 w-20 drop-shadow-lg" />
       <p className="amount font-display text-6xl font-extrabold text-brand-700">404</p>

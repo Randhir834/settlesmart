@@ -140,7 +140,7 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
     <form onSubmit={submit} noValidate className="grid gap-4">
       <div>
         <label htmlFor="wl-name" className="label">
-          Name <span className="font-normal text-ink-400">(optional)</span>
+          Name <span className="font-normal text-ink-500">(optional)</span>
         </label>
         <input id="wl-name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className="input" maxLength={120} />
       </div>
@@ -162,7 +162,7 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
       </div>
       <div>
         <label htmlFor="wl-usecase" className="label">
-          I'll mostly use Settsmartly with… <span className="font-normal text-ink-400">(optional)</span>
+          I'll mostly use Settsmartly with… <span className="font-normal text-ink-500">(optional)</span>
         </label>
         <select id="wl-usecase" value={useCase} onChange={(e) => setUseCase(e.target.value)} className="input">
           <option value="">Choose one</option>
@@ -175,7 +175,7 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
       </div>
       <div>
         <label htmlFor="wl-city" className="label">
-          City <span className="font-normal text-ink-400">(optional)</span>
+          City <span className="font-normal text-ink-500">(optional)</span>
         </label>
         <input
           id="wl-city"
