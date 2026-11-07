@@ -49,14 +49,18 @@ const Hero = () => (
     />
     <div className="container-site grid items-center gap-14 pb-16 pt-12 sm:pt-16 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-20">
       <div className="text-center lg:text-left">
-        <span className="eyebrow animate-rise">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inset-0 animate-ping rounded-full bg-brand-400 opacity-60 [animation-duration:2.4s]" />
-            <span className="relative h-1.5 w-1.5 rounded-full bg-brand-500" />
+        {/* The eyebrow is part of the H1 so the page's main heading names what Settsmartly is.
+            The headline itself is not faded in: it is the Largest Contentful Paint element. */}
+        <h1 className="text-[2.5rem] font-extrabold leading-[1.05] sm:text-6xl lg:text-[4rem]">
+          <span className="eyebrow animate-rise font-sans leading-normal">
+            <span aria-hidden className="relative flex h-1.5 w-1.5">
+              <span className="absolute inset-0 animate-ping rounded-full bg-brand-400 opacity-60 [animation-duration:2.4s]" />
+              <span className="relative h-1.5 w-1.5 rounded-full bg-brand-500" />
+            </span>
+            Household expense app for flatmates
           </span>
-          Household finances for flatmates
-        </span>
-        <h1 className="mt-6 animate-rise text-[2.5rem] font-extrabold leading-[1.05] sm:text-6xl lg:text-[4rem]" style={delay(100)}>
+          <span className="sr-only"> – </span>
+          <span className="mt-6 block">
           Your household. Your money.{' '}
           <span className="text-brand-700">
             One{' '}
@@ -83,6 +87,7 @@ const Hero = () => (
               </svg>
             </span>{' '}
             platform.
+          </span>
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl animate-rise text-lg leading-relaxed text-ink-600 lg:mx-0" style={delay(220)}>

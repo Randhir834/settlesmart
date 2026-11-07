@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { isValidElement, type ReactNode } from 'react'
 import { AppIcon } from './Logo'
 import { ArrowLeft, Check, ChevronRight, Plus, ShoppingCart, Zap, Wifi, Droplets, Home as HomeIcon, Mic, Sparkles, Pencil, DoorOpen } from 'lucide-react'
 
@@ -7,8 +7,15 @@ import { ArrowLeft, Check, ChevronRight, Plus, ShoppingCart, Zap, Wifi, Droplets
  * To use real app screenshots instead, render <PhoneFrame><img src="/screens/x.png" … /></PhoneFrame>.
  */
 
-export const PhoneFrame = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
+/** Accessible descriptions of each mockup screen, so it reads as one image rather than scattered sample text. */
+const screenLabels = new Map<unknown, string>()
+const labelFor = (children: ReactNode) =>
+  (isValidElement(children) && screenLabels.get(children.type)) || 'Illustrative Settsmartly app screen'
+
+export const PhoneFrame = ({ children, className = '', label }: { children: ReactNode; className?: string; label?: string }) => (
   <div
+    role="img"
+    aria-label={label ?? labelFor(children)}
     className={`relative w-[272px] rounded-[2.6rem] bg-ink p-[9px] shadow-phone ring-1 ring-ink-800 sm:w-[300px] ${className}`}
   >
     <div className="relative h-[560px] overflow-hidden rounded-[2.1rem] bg-white sm:h-[610px]">
@@ -405,3 +412,10 @@ export const MoveOutScreen = () => (
     <p className="mt-auto mb-4 text-center text-[9px] text-ink-500">History stays intact for everyone</p>
   </div>
 )
+
+screenLabels.set(GroupScreen, 'Settsmartly app: household overview for a five-member Bangalore flat, showing ₹25,499 spent this month and recent shared expenses')
+screenLabels.set(AddExpenseScreen, 'Settsmartly app: adding a ₹3,600 expense and splitting it between flatmates by shares')
+screenLabels.set(SettleScreen, 'Settsmartly app: settle-up screen suggesting four payments and a UPI payment link')
+screenLabels.set(AnalyticsScreen, 'Settsmartly app: monthly household spending insights with a category breakdown for rent, groceries and utilities')
+screenLabels.set(VoiceScreen, 'Settsmartly app: AI voice assistant turning a spoken request into a ₹2,500 grocery expense split equally between five flatmates, awaiting confirmation')
+screenLabels.set(MoveOutScreen, 'Settsmartly app: a flatmate moving out mid-month, with a pro-rata rent share of ₹1,500 and a settlement checklist')

@@ -25,6 +25,7 @@ import FaqList from '../components/FaqList'
 import CtaBand from '../components/CtaBand'
 import { AppIcon } from '../components/Logo'
 import { PhoneFrame, VoiceScreen } from '../components/PhoneMockup'
+import { voiceFaqs } from '../data/content'
 
 const sayings = [
   {
@@ -101,28 +102,6 @@ const safeguards = [
   { icon: History, t: 'Every change is logged', d: 'Expenses created or edited by voice appear in the household’s history like any other change.' },
 ]
 
-const voiceFaqs = [
-  {
-    q: 'Is the voice assistant available now?',
-    a: 'Not yet. It is our signature feature and is in development. Join the waitlist to try it in our closed beta, starting with flatmates in Bengaluru.',
-  },
-  {
-    q: 'Which languages will it understand?',
-    a: 'English, Hindi and Hinglish (mixed Hindi-English) from the start. We are testing with real flatmates to make sure it understands how people actually speak.',
-  },
-  {
-    q: 'What if it gets something wrong?',
-    a: 'You always see a draft before anything is saved, so you can correct it by voice or by hand. If something is missing or unclear, the assistant asks you instead of guessing.',
-  },
-  {
-    q: 'Does it store my voice recordings?',
-    a: 'Voice will only be used with your consent. Before the assistant launches, we will publish exactly what is stored, how long it is kept and how you can delete it.',
-  },
-  {
-    q: 'Will it cost extra?',
-    a: 'The core of Settsmartly will be free. We plan to include voice entry in our paid plans, and will announce details and pricing before launch.',
-  },
-]
 
 const VoiceAssistant = () => (
   <>

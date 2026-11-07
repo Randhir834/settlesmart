@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import { Check, Bell, Camera, Zap, Wifi, Home as HomeIcon, Tv } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Check, Bell, Camera, Zap, Wifi, Home as HomeIcon, Tv } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
@@ -23,7 +24,17 @@ const Bullets = ({ items }: { items: string[] }) => (
   </ul>
 )
 
-const FeatureRow = ({ feature, visual, reverse }: { feature: Feature; visual: ReactNode; reverse?: boolean }) => (
+const FeatureRow = ({
+  feature,
+  visual,
+  reverse,
+  link,
+}: {
+  feature: Feature
+  visual: ReactNode
+  reverse?: boolean
+  link?: { to: string; label: string }
+}) => (
   <section id={feature.id} className="scroll-mt-24 py-14 sm:py-20">
     <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
       <Reveal className={reverse ? 'lg:order-2' : ''}>
@@ -36,6 +47,11 @@ const FeatureRow = ({ feature, visual, reverse }: { feature: Feature; visual: Re
         <h2 className="mt-5 text-3xl font-extrabold sm:text-4xl">{feature.title}</h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-600">{feature.description}</p>
         <Bullets items={feature.details} />
+        {link && (
+          <Link to={link.to} className="mt-7 inline-flex items-center gap-1.5 font-semibold text-brand-700 underline-offset-4 hover:underline">
+            {link.label} <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
       </Reveal>
       <Reveal delay={100} className={`relative flex justify-center ${reverse ? 'lg:order-1' : ''}`}>
         <div aria-hidden className="absolute inset-x-6 inset-y-10 -z-10 rounded-[3rem] bg-brand-50" />
@@ -131,15 +147,28 @@ const Features = () => (
       </div>
     </section>
 
-    <FeatureRow feature={byId('voice')} visual={<PhoneFrame><VoiceScreen /></PhoneFrame>} />
+    <FeatureRow
+      feature={byId('voice')}
+      visual={<PhoneFrame><VoiceScreen /></PhoneFrame>}
+      link={{ to: '/voice-assistant', label: 'Explore the AI voice assistant' }}
+    />
     <div className="bg-ink-50/60">
       <FeatureRow feature={byId('household')} visual={<PhoneFrame><GroupScreen /></PhoneFrame>} reverse />
     </div>
     <FeatureRow feature={byId('splitting')} visual={<PhoneFrame><AddExpenseScreen /></PhoneFrame>} />
     <div className="bg-ink-50/60">
-      <FeatureRow feature={byId('roommates')} visual={<PhoneFrame><MoveOutScreen /></PhoneFrame>} reverse />
+      <FeatureRow
+        feature={byId('roommates')}
+        visual={<PhoneFrame><MoveOutScreen /></PhoneFrame>}
+        reverse
+        link={{ to: '/flatmates', label: 'See how it works for flatmates' }}
+      />
     </div>
-    <FeatureRow feature={byId('settlements')} visual={<PhoneFrame><SettleScreen /></PhoneFrame>} />
+    <FeatureRow
+      feature={byId('settlements')}
+      visual={<PhoneFrame><SettleScreen /></PhoneFrame>}
+      link={{ to: '/pricing', label: 'See what’s free' }}
+    />
     <div className="bg-ink-50/60">
       <FeatureRow feature={byId('insights')} visual={<PhoneFrame><AnalyticsScreen /></PhoneFrame>} reverse />
     </div>

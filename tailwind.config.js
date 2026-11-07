@@ -43,8 +43,8 @@ export default {
         negative: '#D9364F',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter Variable', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        display: ['Manrope Variable', 'Manrope', 'Inter Variable', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         card: '0 1px 2px rgba(23,19,41,0.04), 0 8px 24px -8px rgba(23,19,41,0.08)',

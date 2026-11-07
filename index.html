@@ -16,92 +16,46 @@
     <meta name="application-name" content="Settsmartly" />
     <meta name="apple-mobile-web-app-title" content="Settsmartly" />
 
-    <!-- Primary meta (per-page title/description are updated at runtime) -->
-    <title>Settsmartly – Household Finance App for Flatmates | Rent, Bills & Shared Expenses</title>
-    <meta name="description" content="Settsmartly helps flatmates and working professionals in India manage rent, bills, groceries and settlements in one place, with an AI voice assistant. Join the waitlist." />
-    <meta name="keywords" content="flatmate expense app, household expense manager, shared flat rent split, roommate expense tracker Bengaluru, voice expense tracker, Hinglish expense app, recurring bills reminder, UPI settle up, Settsmartly" />
-    <meta name="author" content="Settsmartly" />
-    <meta name="robots" content="index, follow" />
+    <!-- Primary meta. scripts/prerender.mjs rewrites these per page from src/data/pages.json; PageMeta keeps them in sync on client navigation. -->
+    <title>Settsmartly: Split Rent, Bills &amp; Expenses with Flatmates</title>
+    <meta name="description" content="The household expense app for flatmates in India. Split rent, bills and groceries, track who paid and settle up every month, with an AI voice assistant." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://settsmartly.com/" />
-    <!-- Google Search Console verification is added at build time from VITE_GOOGLE_SITE_VERIFICATION -->
-
-    <!-- Google Analytics loads from src/lib/analytics.ts when VITE_GA_MEASUREMENT_ID is set -->
+    <meta name="author" content="Settsmartly" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Search Console / Bing Webmaster verification tags are added at build time from VITE_GOOGLE_SITE_VERIFICATION and VITE_BING_SITE_VERIFICATION -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://settsmartly.com/" />
     <meta property="og:site_name" content="Settsmartly" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:title" content="Settsmartly – Your household. Your money. One smart platform." />
-    <meta property="og:description" content="Household financial management for flatmates: rent, bills, groceries and settlements in one place, with an AI voice assistant. Join the waitlist." />
+    <meta property="og:title" content="Settsmartly: Split Rent, Bills &amp; Expenses with Flatmates" />
+    <meta property="og:description" content="The household expense app for flatmates in India. Split rent, bills and groceries, track who paid and settle up every month, with an AI voice assistant." />
     <meta property="og:image" content="https://settsmartly.com/og-image.png?v=2" />
+    <meta property="og:image:secure_url" content="https://settsmartly.com/og-image.png?v=2" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Settsmartly: household expense app for flatmates, with an AI voice assistant" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Settsmartly – Your household. Your money. One smart platform." />
-    <meta name="twitter:description" content="Household financial management for flatmates: rent, bills, groceries and settlements, with an AI voice assistant." />
+    <meta name="twitter:title" content="Settsmartly: Split Rent, Bills &amp; Expenses with Flatmates" />
+    <meta name="twitter:description" content="The household expense app for flatmates in India. Split rent, bills and groceries, track who paid and settle up every month, with an AI voice assistant." />
     <meta name="twitter:image" content="https://settsmartly.com/og-image.png?v=2" />
+    <meta name="twitter:image:alt" content="Settsmartly: household expense app for flatmates, with an AI voice assistant" />
 
-    <!-- Structured data. No ratings/offers until the app is publicly available. -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://settsmartly.com/#org",
-          "name": "Settsmartly",
-          "url": "https://settsmartly.com",
-          "logo": "https://settsmartly.com/icon-512.png?v=2",
-          "slogan": "Your household. Your money. One smart platform.",
-          "sameAs": ["https://www.linkedin.com/company/settsmartly"]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://settsmartly.com/#website",
-          "name": "Settsmartly",
-          "url": "https://settsmartly.com",
-          "publisher": { "@id": "https://settsmartly.com/#org" },
-          "inLanguage": "en-IN"
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is Settsmartly?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Settsmartly is a household financial management platform for people who live together. It brings shared expenses, recurring bills, member contributions and settlements into one place, with an AI assistant you can talk to." }
-            },
-            {
-              "@type": "Question",
-              "name": "Is Settsmartly free?",
-              "acceptedAnswer": { "@type": "Answer", "text": "The core experience will be free: households, expense splitting, balances and access to your own records. Optional paid plans will add things like more AI usage and advanced household features." }
-            },
-            {
-              "@type": "Question",
-              "name": "How does the voice assistant work?",
-              "acceptedAnswer": { "@type": "Answer", "text": "You describe an expense in English, Hindi or Hinglish. The assistant prepares a draft with the amount, payer, members and split; the expense engine calculates the shares, and nothing is saved until you confirm. The voice assistant is planned and in development." }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Settsmartly automatically deduct money?",
-              "acceptedAnswer": { "@type": "Answer", "text": "No. Recording an expense does not automatically transfer money. Payments are made through the selected payment method, with settlement status recorded separately." }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
+    <!-- Structured data (JSON-LD) for each page is injected here at build time. See src/seo/schema.ts. -->
+    <!--app-head-->
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <!-- Scroll-reveal animations hide content only when JavaScript runs, so no-JS crawlers and readers see everything. -->
+    <script>document.documentElement.classList.add('js')</script>
+
+    <!-- Fonts are self-hosted (@fontsource-variable, imported in src/main.tsx); prerender.mjs adds preload links for the Latin files. -->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
