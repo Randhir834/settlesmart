@@ -20,6 +20,8 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [useCase, setUseCase] = useState('')
+  const [city, setCity] = useState('')
+  const [interview, setInterview] = useState(false)
   const [state, setState] = useState<State>('idle')
   const [message, setMessage] = useState('')
   const [fallback, setFallback] = useState('')
@@ -42,6 +44,8 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
           email: trimmed,
           name: name.trim().slice(0, 120),
           useCase,
+          city: city.trim().slice(0, 60),
+          interview: interview || undefined,
           source: source.slice(0, 40),
           createdAt: new Date(),
         },
@@ -63,7 +67,7 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
           'Add me to the Settsmartly waitlist',
           `Please add me to the Settsmartly waitlist.\n\nEmail: ${trimmed}${name.trim() ? `\nName: ${name.trim()}` : ''}${
             useCase ? `\nUse case: ${useCase}` : ''
-          }`,
+          }${city.trim() ? `\nCity: ${city.trim()}` : ''}${interview ? '\nHappy to chat about how my flat manages money.' : ''}`,
         ),
       )
     }
@@ -169,6 +173,39 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
           ))}
         </select>
       </div>
+      <div>
+        <label htmlFor="wl-city" className="label">
+          City <span className="font-normal text-ink-400">(optional)</span>
+        </label>
+        <input
+          id="wl-city"
+          autoComplete="address-level2"
+          list="wl-cities"
+          placeholder="e.g. Bengaluru"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className="input"
+          maxLength={60}
+        />
+        <datalist id="wl-cities">
+          {['Bengaluru', 'Hyderabad', 'Pune', 'Chennai', 'Mumbai', 'Delhi NCR', 'Kolkata'].map((c) => (
+            <option key={c} value={c} />
+          ))}
+        </datalist>
+      </div>
+      <label htmlFor="wl-interview" className="flex cursor-pointer items-start gap-3 rounded-xl border border-brand-100 bg-brand-50 p-3.5">
+        <input
+          id="wl-interview"
+          type="checkbox"
+          checked={interview}
+          onChange={(e) => setInterview(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-brand-700"
+        />
+        <span className="text-sm text-ink-700">
+          <span className="font-semibold text-ink">Happy to chat.</span> I’m open to a short call about how my flat manages
+          money, and to joining the early beta.
+        </span>
+      </label>
       <button type="submit" disabled={state === 'loading'} className="btn-primary mt-1 w-full py-3.5 text-base">
         {state === 'loading' && <Loader2 className="h-4 w-4 animate-spin" />}
         Join the waitlist <ArrowRight className="h-4 w-4" />

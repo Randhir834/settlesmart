@@ -30,7 +30,7 @@ const Pricing = () => (
   <>
     <PageMeta
       title="Pricing – Settsmartly"
-      description="Settsmartly will be free for everyday expense splitting, with optional Plus, Premium and Household plans for advanced features."
+      description="Settsmartly will be free for every flat's core expense management, with optional Plus, Premium and Household plans for AI and advanced household features."
       path="/pricing"
     />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-20 pt-16 sm:pt-20">
@@ -38,8 +38,8 @@ const Pricing = () => (
         <SectionHeading
           as="h1"
           eyebrow="Pricing"
-          title="Free to split. Upgrade when you need more."
-          description="Everything you need to share expenses is free. Optional plans add deeper insights and automation."
+          title="Free for every flat. Upgrade for more AI."
+          description="Splitting, balances and your own records will always be free. Optional plans add the voice assistant, bill automation and advanced household tools."
         />
         <Reveal className="mx-auto mt-8 flex max-w-xl items-start gap-3 rounded-2xl bg-white p-4 text-sm text-ink-600 ring-1 ring-ink-100">
           <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />

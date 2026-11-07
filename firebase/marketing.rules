@@ -17,12 +17,14 @@
 
     match /waitlist/{entryId} {
       allow create: if request.resource.data.keys().hasAll(['email', 'createdAt'])
-        && request.resource.data.keys().hasOnly(['email', 'name', 'useCase', 'source', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['email', 'name', 'useCase', 'city', 'interview', 'source', 'createdAt'])
         && request.resource.data.email is string
         && request.resource.data.email.size() <= 254
         && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
         && (!('name' in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() <= 120))
         && (!('useCase' in request.resource.data) || (request.resource.data.useCase is string && request.resource.data.useCase.size() <= 40))
+        && (!('city' in request.resource.data) || (request.resource.data.city is string && request.resource.data.city.size() <= 60))
+        && (!('interview' in request.resource.data) || request.resource.data.interview is bool)
         && (!('source' in request.resource.data) || (request.resource.data.source is string && request.resource.data.source.size() <= 40))
         && request.resource.data.createdAt is timestamp;
       allow read, update, delete: if false;

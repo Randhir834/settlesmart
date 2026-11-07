@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Smartphone, Link2, Check } from 'lucide-react'
+import { ArrowRight, Smartphone, Link2, Check, Bell, Home as HomeIcon, Zap, Wifi, Tv, Droplets } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import CtaBand from '../components/CtaBand'
-import { PhoneFrame, GroupScreen, AddExpenseScreen, SettleScreen, AnalyticsScreen } from '../components/PhoneMockup'
+import { PhoneFrame, VoiceScreen, AddExpenseScreen, SettleScreen } from '../components/PhoneMockup'
 import { steps } from '../data/content'
 
 const OtpVisual = () => (
@@ -31,16 +31,19 @@ const OtpVisual = () => (
 
 const InviteVisual = () => (
   <div className="w-full max-w-xs rounded-3xl bg-white p-6 shadow-lift ring-1 ring-ink-100">
-    <p className="font-display text-lg font-bold">Goa trip 🏖️</p>
-    <p className="mt-1 text-sm text-ink-500">Invite members</p>
+    <p className="font-display text-lg font-bold">Bangalore Flat</p>
+    <p className="mt-1 text-sm text-ink-500">Invite flatmates</p>
     <div className="mt-4 flex items-center gap-2 rounded-xl bg-ink-50 px-3 py-2.5 text-sm text-ink-600">
       <Link2 className="h-4 w-4 text-brand-700" /> settsmartly.com/join/…
     </div>
     <ul className="mt-4 space-y-2.5">
-      {['Aditi', 'Rohan', 'Meera', 'Sam'].map((n, i) => (
+      {['Neha', 'Kabir', 'Riya', 'Dev'].map((n, i) => (
         <li key={n} className="flex items-center gap-3 text-sm">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">{n[0]}</span>
-          <span className="flex-1 font-medium text-ink">{n}</span>
+          <span className="flex-1">
+            <span className="block font-medium text-ink">{n}</span>
+            <span className="block text-xs text-ink-400">Moved in {['1 Jun', '1 Jun', '15 Aug', '1 Nov'][i]}</span>
+          </span>
           {i < 3 ? (
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-positive">
               <Check className="h-3.5 w-3.5" /> Joined
@@ -54,20 +57,56 @@ const InviteVisual = () => (
   </div>
 )
 
+const BillsVisual = () => (
+  <div className="w-full max-w-xs rounded-3xl bg-white p-6 shadow-lift ring-1 ring-ink-100">
+    <p className="font-display text-lg font-bold">November bills</p>
+    <p className="mt-1 text-sm text-ink-500">Bangalore Flat · 5 members</p>
+    <ul className="mt-4 space-y-2.5">
+      {[
+        { icon: HomeIcon, n: 'Rent', d: 'Due 1st', a: '₹15,000', s: 'Paid' },
+        { icon: Zap, n: 'Electricity', d: 'Due 10th', a: '₹2,000', s: 'Due in 3d' },
+        { icon: Droplets, n: 'Water & maint.', d: 'Due 12th', a: '₹1,500', s: 'Upcoming' },
+        { icon: Wifi, n: 'Internet', d: 'Due 15th', a: '₹999', s: 'Upcoming' },
+        { icon: Tv, n: 'OTT', d: 'Due 22nd', a: '₹649', s: 'Upcoming' },
+      ].map((b) => (
+        <li key={b.n} className="flex items-center gap-3 text-sm">
+          <b.icon className="h-4 w-4 shrink-0 text-brand-700" />
+          <span className="min-w-0 flex-1">
+            <span className="block truncate font-medium text-ink">{b.n}</span>
+            <span className="block text-xs text-ink-400">{b.d}</span>
+          </span>
+          <span className="text-right">
+            <span className="amount block font-semibold text-ink">{b.a}</span>
+            <span className={`block text-[11px] font-semibold ${b.s === 'Paid' ? 'text-positive' : b.s.startsWith('Due') ? 'text-amber-700' : 'text-ink-400'}`}>{b.s}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+    <p className="mt-4 flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-medium text-brand-800">
+      <Bell className="h-3.5 w-3.5" /> Everyone gets a reminder 2 days before
+    </p>
+  </div>
+)
+
+/** Shown under steps that rely on features that aren't live yet. */
+const notes: Record<number, string> = {
+  2: 'Voice and receipt entry are planned. Manual entry works from day one.',
+  4: 'Recurring bills and reminders are planned.',
+  5: 'UPI payment links are planned and will be enabled once fully tested. Settsmartly never moves money itself.',
+}
+
 const visuals: ReactNode[] = [
   <OtpVisual key="otp" />,
   <InviteVisual key="invite" />,
+  <PhoneFrame key="voice">
+    <VoiceScreen />
+  </PhoneFrame>,
   <PhoneFrame key="add">
     <AddExpenseScreen />
   </PhoneFrame>,
-  <PhoneFrame key="group">
-    <GroupScreen />
-  </PhoneFrame>,
+  <BillsVisual key="bills" />,
   <PhoneFrame key="settle">
     <SettleScreen />
-  </PhoneFrame>,
-  <PhoneFrame key="insights">
-    <AnalyticsScreen />
   </PhoneFrame>,
 ]
 
@@ -75,7 +114,7 @@ const HowItWorks = () => (
   <>
     <PageMeta
       title="How It Works – Settsmartly"
-      description="Create an account, start a group, add expenses and let Settsmartly calculate everyone's share. Settle up through your preferred UPI app."
+      description="Set up your household, invite flatmates, add expenses by voice or by hand, put bills on autopilot and settle up every month with Settsmartly."
       path="/how-it-works"
     />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-4 pt-16 sm:pt-20">
@@ -84,7 +123,7 @@ const HowItWorks = () => (
           as="h1"
           eyebrow="How it works"
           title="How Settsmartly works"
-          description="Six simple steps from your first shared expense to everyone being settled up."
+          description="Set up your flat once. Then six simple steps keep your household’s money organized every month."
         />
       </div>
     </section>
@@ -102,11 +141,8 @@ const HowItWorks = () => (
                 <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-brand-700">Step {i + 1}</p>
                 <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">{s.title}</h2>
                 <p className="mt-4 max-w-md text-lg leading-relaxed text-ink-600">{s.description}</p>
-                {i === 4 && (
-                  <p className="mt-4 max-w-md rounded-xl bg-amber-50 p-3 text-sm text-amber-900 ring-1 ring-amber-200">
-                    UPI payment links are planned and will be enabled once fully tested. Settsmartly never moves money
-                    itself.
-                  </p>
+                {notes[i] && (
+                  <p className="mt-4 max-w-md rounded-xl bg-amber-50 p-3 text-sm text-amber-900 ring-1 ring-amber-200">{notes[i]}</p>
                 )}
               </Reveal>
               <Reveal delay={100} className={`relative flex justify-center ${reverse ? 'lg:order-1' : ''}`}>

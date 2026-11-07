@@ -4,7 +4,7 @@
 export const site = {
   name: 'Settsmartly',
   url: 'https://settsmartly.com',
-  tagline: 'Split. Track. Settle. Smartly.',
+  tagline: 'Your household. Your money. One smart platform.',
   // Replace with the real inboxes before publishing.
   supportEmail: 'support@settsmartly.com',
   businessEmail: 'hello@settsmartly.com',

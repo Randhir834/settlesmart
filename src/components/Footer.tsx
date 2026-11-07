@@ -39,7 +39,7 @@ const Footer = () => (
           <Logo />
           <p className="mt-4 font-display text-sm font-semibold text-ink-800">{site.tagline}</p>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-500">
-            An Indian-first platform for managing shared expenses with friends, flatmates and family.
+            Complete household financial management for flatmates and working professionals in India.
           </p>
           <div className="mt-5 flex gap-2">
             <a

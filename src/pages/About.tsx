@@ -15,7 +15,7 @@ const About = () => (
   <>
     <PageMeta
       title="About Us – Settsmartly"
-      description="Settsmartly is building an Indian-first shared expense platform so friends, flatmates and families can split, track and settle money without confusion."
+      description="Settsmartly is building India's household financial management platform for people who live together, starting with flatmates in Bengaluru."
       path="/about"
     />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-16 pt-16 sm:pt-20">
@@ -23,8 +23,8 @@ const About = () => (
         <SectionHeading
           as="h1"
           eyebrow="About us"
-          title="Sharing expenses should be simple. Settling them should be smarter."
-          description="Settsmartly is an Indian-first shared expense management platform, built for the way India actually lives, travels and shares."
+          title="Making shared money as easy as having a conversation."
+          description="Settsmartly is building an India-first household financial management platform for flatmates and working professionals."
         />
       </div>
     </section>
@@ -33,21 +33,21 @@ const About = () => (
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <Reveal>
           <span className="eyebrow">Why we exist</span>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Shared money is everywhere in India. Good tools for it aren't.</h2>
+          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Living together is simple. Managing its money isn’t.</h2>
         </Reveal>
         <Reveal delay={80} className="space-y-5 text-lg leading-relaxed text-ink-600">
           <p>
-            Flatmates split rent, electricity and the maid's salary. Friends split dinners, cabs and weekend trips.
-            Families pool money for ration, festivals and school fees. Almost all of it is tracked in group chats,
-            notebooks and memory.
+            Across India’s cities, young professionals share rented flats. Every month they juggle rent, groceries,
+            electricity, internet and maintenance, paid by different people, shared in different ways, tracked in
+            WhatsApp threads, spreadsheets and memory.
           </p>
           <p>
-            The result is familiar: forgotten payments, disputed totals and the awkwardness of asking someone you care
-            about for money. We think that's an unnecessary cost on relationships.
+            Then someone pays late, someone moves out mid-month, and nobody has the full picture. Bill-splitting apps
+            help divide a single expense, but the real work is running the household’s money month after month.
           </p>
           <p>
-            Settsmartly gives every group one clear, shared record of what was spent, who paid and what's left to
-            settle, designed around Indian households, Indian payment habits and the rupee.
+            Settsmartly gives every flat one financial workspace for expenses, recurring bills, member contributions
+            and settlements, with an assistant you can talk to in English, Hindi or Hinglish.
           </p>
         </Reveal>
       </div>
@@ -59,16 +59,16 @@ const About = () => (
           <Target className="h-7 w-7 text-brand-700" />
           <h2 className="mt-5 text-2xl font-extrabold">Our mission</h2>
           <p className="mt-3 text-lg leading-relaxed text-ink-600">
-            To make managing shared money transparent, simple and accessible for everyone in India, so people can
-            focus on the time they spend together, not the maths.
+            To make managing a shared household’s money effortless and transparent, so everyone knows where every
+            rupee goes, who paid and what is pending.
           </p>
         </Reveal>
         <Reveal delay={80} className="rounded-3xl bg-brand-700 p-8 text-white sm:p-10">
           <Compass className="h-7 w-7 text-brand-200" />
           <h2 className="mt-5 text-2xl font-extrabold text-white">Our vision</h2>
           <p className="mt-3 text-lg leading-relaxed text-brand-100">
-            A future where every shared expense, from a ₹50 chai to a month's rent, is recorded, fair and settled
-            without a single awkward reminder.
+            To become the financial operating system for shared living in India, where managing shared money is as
+            easy as having a conversation.
           </p>
         </Reveal>
       </div>
@@ -98,8 +98,9 @@ const About = () => (
           <div>
             <h2 className="text-2xl font-extrabold">Where we are today</h2>
             <p className="mt-2 max-w-2xl text-ink-600">
-              Settsmartly is currently in development. We're building the mobile app and opening early access through
-              our waitlist. If you'd like to help shape the product, join the waitlist or write to us.
+              Settsmartly is in development. We’re talking to flatmates in Bengaluru, building the core household
+              experience, and preparing a closed beta for a small group of households. If you share a flat and want to
+              help shape it, join the waitlist and tick “Happy to chat”.
             </p>
           </div>
         </Reveal>

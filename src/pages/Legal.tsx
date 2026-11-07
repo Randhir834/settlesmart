@@ -30,8 +30,9 @@ const privacy = (
     <H>1. Information we collect</H>
     <ul>
       <li>
-        <strong>Waitlist:</strong> your email address and, if you choose to give them, your name and how you plan to
-        use Settsmartly. We also record which page you joined from and when.
+        <strong>Waitlist:</strong> your email address and, if you choose to give them, your name, city, how you plan to
+        use Settsmartly and whether you are happy to be contacted for a short research conversation. We also record
+        which page you joined from and when.
       </li>
       <li>
         <strong>Contact form:</strong> your name, email address, the topic you select and your message.
@@ -49,6 +50,7 @@ const privacy = (
     <H>2. How we use it</H>
     <ul>
       <li>To tell you when early access opens and to send launch updates you signed up for.</li>
+      <li>If you ticked “Happy to chat”, to invite you to a short conversation about how your household manages money, or to our beta.</li>
       <li>To reply to your messages and enquiries.</li>
       <li>To understand how the Website is used and improve it.</li>
       <li>To protect the Website against spam and abuse.</li>

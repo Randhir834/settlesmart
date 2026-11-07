@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
-import { Check, Bell, Camera, Download, Search, Zap, Wifi, Home as HomeIcon, Tv } from 'lucide-react'
+import { Check, Bell, Camera, Zap, Wifi, Home as HomeIcon, Tv } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import StatusBadge from '../components/StatusBadge'
 import CtaBand from '../components/CtaBand'
-import { PhoneFrame, GroupScreen, AddExpenseScreen, SettleScreen, AnalyticsScreen } from '../components/PhoneMockup'
+import { PhoneFrame, GroupScreen, AddExpenseScreen, SettleScreen, AnalyticsScreen, VoiceScreen, MoveOutScreen } from '../components/PhoneMockup'
 import { features, type Feature } from '../data/content'
 
 const byId = (id: string) => features.find((f) => f.id === id) as Feature
@@ -47,24 +47,6 @@ const FeatureRow = ({ feature, visual, reverse }: { feature: Feature; visual: Re
 
 /* Small visuals for the secondary features */
 
-const RealtimeVisual = () => (
-  <div className="space-y-2">
-    {[
-      { who: 'Riya', what: 'added "Cab to airport"', amt: '₹1,120', t: 'now' },
-      { who: 'Dev', what: 'edited "Hotel – night 2"', amt: '₹6,400', t: '2m' },
-      { who: 'Kabir', what: 'settled with you', amt: '₹620', t: '1h' },
-    ].map((a) => (
-      <div key={a.what} className="flex items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-ink-100">
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">{a.who[0]}</span>
-        <p className="min-w-0 flex-1 text-sm text-ink-700">
-          <span className="font-semibold text-ink">{a.who}</span> {a.what}
-        </p>
-        <span className="amount shrink-0 text-sm font-semibold text-ink">{a.amt}</span>
-        <span className="w-6 shrink-0 text-right text-xs text-ink-400">{a.t}</span>
-      </div>
-    ))}
-  </div>
-)
 
 const RecurringVisual = () => (
   <div className="space-y-2">
@@ -114,41 +96,17 @@ const ReceiptVisual = () => (
   </div>
 )
 
-const HistoryVisual = () => (
-  <div className="rounded-xl bg-white p-3 ring-1 ring-ink-100">
-    <div className="flex items-center gap-2 rounded-lg bg-ink-50 px-3 py-2 text-sm text-ink-400">
-      <Search className="h-4 w-4" /> Search expenses
-    </div>
-    <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
-      {['October', 'Groceries', 'Paid by me'].map((c) => (
-        <span key={c} className="rounded-full bg-brand-50 px-2.5 py-1 font-medium text-brand-700">
-          {c}
-        </span>
-      ))}
-    </div>
-    <div className="mt-3 flex items-center justify-between border-t border-ink-100 pt-3 text-sm">
-      <span className="text-ink-600">
-        14 expenses · <span className="amount font-semibold text-ink">₹9,214</span>
-      </span>
-      <span className="inline-flex items-center gap-1 font-semibold text-brand-700">
-        <Download className="h-4 w-4" /> Export
-      </span>
-    </div>
-  </div>
-)
 
 const secondary: { id: string; visual: ReactNode }[] = [
-  { id: 'realtime', visual: <RealtimeVisual /> },
   { id: 'recurring', visual: <RecurringVisual /> },
   { id: 'receipts', visual: <ReceiptVisual /> },
-  { id: 'history', visual: <HistoryVisual /> },
 ]
 
 const Features = () => (
   <>
     <PageMeta
       title="Features – Settsmartly"
-      description="Smart expense splitting, group management, UPI settlements, recurring bills, receipt scanning and spending analytics. Everything you need to manage shared money."
+      description="AI voice assistant, household workspace, smart splitting, recurring bills, roommate move-in and move-out, UPI settlements and household insights for flatmates."
       path="/features"
     />
     <section className="bg-gradient-to-b from-brand-50 to-white pb-6 pt-16 sm:pt-20">
@@ -156,8 +114,8 @@ const Features = () => (
         <SectionHeading
           as="h1"
           eyebrow="Features"
-          title="Everything you need to manage shared money"
-          description="From splitting a single dinner bill to running a whole household's monthly expenses, Settsmartly keeps every rupee accounted for."
+          title="Everything a shared home needs to manage money"
+          description="Rent, bills, groceries, flatmates moving in and out, and an AI assistant you can just talk to. Settsmartly keeps every rupee in your household accounted for."
         />
         <Reveal className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
           {features.map((f) => (
@@ -177,18 +135,22 @@ const Features = () => (
       </div>
     </section>
 
+    <FeatureRow feature={byId('voice')} visual={<PhoneFrame><VoiceScreen /></PhoneFrame>} />
+    <div className="bg-ink-50/60">
+      <FeatureRow feature={byId('household')} visual={<PhoneFrame><GroupScreen /></PhoneFrame>} reverse />
+    </div>
     <FeatureRow feature={byId('splitting')} visual={<PhoneFrame><AddExpenseScreen /></PhoneFrame>} />
     <div className="bg-ink-50/60">
-      <FeatureRow feature={byId('groups')} visual={<PhoneFrame><GroupScreen /></PhoneFrame>} reverse />
+      <FeatureRow feature={byId('roommates')} visual={<PhoneFrame><MoveOutScreen /></PhoneFrame>} reverse />
     </div>
-    <FeatureRow feature={byId('upi')} visual={<PhoneFrame><SettleScreen /></PhoneFrame>} />
+    <FeatureRow feature={byId('settlements')} visual={<PhoneFrame><SettleScreen /></PhoneFrame>} />
     <div className="bg-ink-50/60">
-      <FeatureRow feature={byId('analytics')} visual={<PhoneFrame><AnalyticsScreen /></PhoneFrame>} reverse />
+      <FeatureRow feature={byId('insights')} visual={<PhoneFrame><AnalyticsScreen /></PhoneFrame>} reverse />
     </div>
 
     <section className="section">
       <div className="container-site">
-        <SectionHeading eyebrow="And more" title="Built for the way shared money actually works" />
+        <SectionHeading eyebrow="And more" title="Less admin, every single month" />
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {secondary.map(({ id, visual }, i) => {
             const f = byId(id)

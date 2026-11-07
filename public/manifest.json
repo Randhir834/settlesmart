@@ -1,7 +1,7 @@
 {
-  "name": "Settsmartly – Split. Track. Settle. Smartly.",
+  "name": "Settsmartly – Household finances for flatmates",
   "short_name": "Settsmartly",
-  "description": "Indian-first shared expense management. Split bills, track group expenses and settle with clarity.",
+  "description": "Household financial management for flatmates: rent, bills, groceries and settlements in one place.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
