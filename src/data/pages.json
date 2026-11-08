@@ -55,6 +55,33 @@
       "description": "Join the Settsmartly waitlist for early access to the household expense app for flatmates. Closed beta starting in Bengaluru, and anyone in India can sign up.",
       "sources": ["src/pages/GetStarted.tsx", "src/components/WaitlistForm.tsx"]
     },
+    "/guides": {
+      "name": "Guides",
+      "title": "Money Guides for Flatmates in India | Settsmartly",
+      "description": "Practical guides for flatmates in India: how to split rent fairly, split electricity and utility bills, and settle up when a flatmate moves out mid-month.",
+      "sources": ["src/pages/Guides.tsx", "src/data/guides.tsx"]
+    },
+    "/guides/split-rent-with-flatmates": {
+      "name": "How to split rent with flatmates",
+      "title": "How to Split Rent with Flatmates Fairly: 4 Methods",
+      "description": "Split rent equally, by room size, with a premium for the better room, or with the hybrid method. Worked examples in rupees for shared flats in India.",
+      "published": "2026-11-07",
+      "sources": ["src/data/guides.tsx", "src/pages/Guide.tsx"]
+    },
+    "/guides/flatmate-moving-out": {
+      "name": "When a flatmate moves out",
+      "title": "Flatmate Moving Out Mid-Month? How to Settle Up Fairly",
+      "description": "Pro-rata rent, splitting electricity by person-days, shared furniture and the security deposit: a step-by-step guide to settling up when a flatmate leaves.",
+      "published": "2026-11-07",
+      "sources": ["src/data/guides.tsx", "src/pages/Guide.tsx"]
+    },
+    "/guides/split-electricity-bill": {
+      "name": "How to split electricity bills",
+      "title": "How to Split the Electricity Bill with Flatmates (AC too)",
+      "description": "Three fair ways to split electricity with flatmates: equally, by days at home, or with AC sub-meters. Plus Wi-Fi, water, gas and household help.",
+      "published": "2026-11-07",
+      "sources": ["src/data/guides.tsx", "src/pages/Guide.tsx"]
+    },
     "/login": {
       "name": "Log In",
       "title": "Log In | Settsmartly",

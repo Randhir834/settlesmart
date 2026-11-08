@@ -12,8 +12,11 @@ const GetStarted = () => (
       <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <Reveal>
           <AppIcon className="mb-6 h-16 w-16 drop-shadow-lg" />
-          <span className="eyebrow">Early access</span>
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl">Be first to run your flat smarter.</h1>
+          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">
+            <span className="eyebrow font-sans leading-normal">Join the Settsmartly waitlist</span>
+            <span className="sr-only"> – </span>
+            <span className="mt-5 block">Be first to run your flat smarter.</span>
+          </h1>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink-600">
             We’re opening a closed beta for flatmates, starting in Bengaluru. Join the waitlist and we’ll let you know
             the moment early access opens.

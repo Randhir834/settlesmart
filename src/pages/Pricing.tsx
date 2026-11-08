@@ -15,7 +15,7 @@ const Pricing = () => (
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="Pricing"
+          eyebrow="Settsmartly pricing"
           title="Free for every flat. Upgrade for more AI."
           description="Splitting, balances and your own records will always be free. Optional plans add the voice assistant, bill automation and advanced household tools."
         />
@@ -66,6 +66,21 @@ const Pricing = () => (
             </Reveal>
           ))}
         </div>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-ink-600">
+          Not sure what you need? Compare every{' '}
+          <Link to="/features" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+            Settsmartly feature
+          </Link>
+          , see{' '}
+          <Link to="/how-it-works" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+            how splitting works
+          </Link>{' '}
+          or learn about the{' '}
+          <Link to="/voice-assistant" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+            AI voice assistant
+          </Link>
+          .
+        </p>
       </div>
     </section>
 

@@ -1,6 +1,7 @@
 import { site } from '../config'
 import data from '../data/pages.json'
 import { faqSchemaByPath, features } from '../data/content'
+import { guides } from '../data/guides'
 
 /**
  * JSON-LD structured data for each page, built from the same data the pages render
@@ -10,7 +11,7 @@ import { faqSchemaByPath, features } from '../data/content'
  * Deliberately no ratings, reviews or prices for paid plans: none exist yet.
  */
 
-type Page = { name: string; title: string; description: string; noindex?: boolean }
+type Page = { name: string; title: string; description: string; noindex?: boolean; published?: string }
 
 export const OG_IMAGE_PATH = '/og-image.png?v=2'
 
@@ -55,7 +56,11 @@ export function structuredData(route: string, opts: { siteUrl: string; dateModif
   const graph: Record<string, unknown>[] = [organization, website]
 
   if (page && !page.noindex) {
-    const pageType = route === '/about' ? 'AboutPage' : route === '/contact' ? 'ContactPage' : 'WebPage'
+    const productRoutes = ['/', '/features', '/voice-assistant', '/flatmates', '/how-it-works', '/pricing']
+    const isProduct = productRoutes.includes(route)
+    const guide = route.startsWith('/guides/') ? guides.find((g) => `/guides/${g.slug}` === route) : undefined
+    const pageType =
+      route === '/about' ? 'AboutPage' : route === '/contact' ? 'ContactPage' : route === '/guides' ? 'CollectionPage' : 'WebPage'
     const webPage: Record<string, unknown> = {
       '@type': pageType,
       '@id': `${url}#webpage`,
@@ -64,7 +69,7 @@ export function structuredData(route: string, opts: { siteUrl: string; dateModif
       description: page.description,
       inLanguage: 'en-IN',
       isPartOf: { '@id': siteId },
-      about: { '@id': route === '/' || route === '/features' || route === '/pricing' ? appId : orgId },
+      about: { '@id': isProduct ? appId : orgId },
       publisher: { '@id': orgId },
       primaryImageOfPage: { '@type': 'ImageObject', url: base + OG_IMAGE_PATH, width: 1200, height: 630 },
     }
@@ -76,13 +81,46 @@ export function structuredData(route: string, opts: { siteUrl: string; dateModif
         '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${base}/` },
-          { '@type': 'ListItem', position: 2, name: page.name, item: url },
+          ...(guide ? [{ '@type': 'ListItem', position: 2, name: 'Guides', item: `${base}/guides` }] : []),
+          { '@type': 'ListItem', position: guide ? 3 : 2, name: page.name, item: url },
         ],
       })
     }
     graph.push(webPage)
 
-    if (route === '/' || route === '/features' || route === '/pricing') {
+    // Guides: each is an Article by the Settsmartly team; the index lists them.
+    if (guide) {
+      graph.push({
+        '@type': 'Article',
+        '@id': `${url}#article`,
+        headline: guide.headline,
+        alternativeHeadline: guide.eyebrow,
+        description: page.description,
+        url,
+        mainEntityOfPage: { '@id': `${url}#webpage` },
+        image: base + OG_IMAGE_PATH,
+        inLanguage: 'en-IN',
+        ...(page.published ? { datePublished: page.published } : {}),
+        ...(opts.dateModified || page.published ? { dateModified: opts.dateModified || page.published } : {}),
+        author: { '@type': 'Organization', name: `${site.name} team`, url: `${base}/about` },
+        publisher: { '@id': orgId },
+        isPartOf: { '@id': siteId },
+        timeRequired: `PT${guide.minutes}M`,
+      })
+    }
+    if (route === '/guides') {
+      webPage.mainEntity = {
+        '@type': 'ItemList',
+        itemListElement: guides.map((g, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: `${base}/guides/${g.slug}`,
+          name: g.headline,
+        })),
+      }
+    }
+
+    if (isProduct) {
       graph.push({
         '@type': 'SoftwareApplication',
         '@id': appId,
@@ -107,7 +145,7 @@ export function structuredData(route: string, opts: { siteUrl: string; dateModif
       })
     }
 
-    const faqs = faqSchemaByPath[route]
+    const faqs = guide ? guide.faqs : faqSchemaByPath[route]
     if (faqs?.length) {
       graph.push({
         '@type': 'FAQPage',

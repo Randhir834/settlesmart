@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import '@fontsource-variable/inter'
-import '@fontsource-variable/manrope'
+import './fonts.css'
 import './index.css'
 
 const container = document.getElementById('root')!

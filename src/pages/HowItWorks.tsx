@@ -117,9 +117,9 @@ const HowItWorks = () => (
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="How it works"
+          eyebrow="Split flat expenses in six steps"
           title="How Settsmartly works"
-          description="Set up your flat once. Then six simple steps keep your household’s money organized every month."
+          description="Set up your flat once. Then six simple steps keep your household’s money organised every month."
         />
       </div>
     </section>

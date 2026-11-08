@@ -17,6 +17,15 @@ const columns = [
     ],
   },
   {
+    title: 'Guides',
+    links: [
+      { name: 'All guides', to: '/guides' },
+      { name: 'How to split rent', to: '/guides/split-rent-with-flatmates' },
+      { name: 'Splitting electricity', to: '/guides/split-electricity-bill' },
+      { name: 'When a flatmate moves out', to: '/guides/flatmate-moving-out' },
+    ],
+  },
+  {
     title: 'Company',
     links: [
       { name: 'About Us', to: '/about' },
@@ -37,7 +46,7 @@ const columns = [
 const Footer = () => (
   <footer className="border-t border-ink-100 bg-ink-50">
     <div className="container-site py-14 sm:py-16">
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
         <div className="sm:col-span-2 lg:col-span-1">
           <Logo />
           <p className="mt-4 font-display text-sm font-semibold text-ink-800">{site.tagline}</p>

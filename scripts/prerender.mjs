@@ -137,6 +137,10 @@ Settsmartly is a household financial management platform for people who live tog
 
 ${section(['/', '/features', '/voice-assistant', '/flatmates', '/how-it-works', '/pricing'])}
 
+## Guides
+
+${section(['/guides', ...Object.keys(pages).filter((r) => r.startsWith('/guides/'))])}
+
 ## Company
 
 ${section(['/about', '/contact', '/get-started', '/careers'])}

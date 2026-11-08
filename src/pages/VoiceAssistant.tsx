@@ -119,7 +119,11 @@ const VoiceAssistant = () => (
             </span>
           </div>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-white sm:text-6xl">
-            Just speak. Your household gets organized.
+            <span className="block font-sans text-sm font-semibold uppercase leading-normal tracking-wider text-brand-200">
+              AI voice expense tracker
+            </span>
+            <span className="sr-only"> – </span>
+            <span className="mt-4 block">Just speak. Your household gets organised.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-300 lg:mx-0">
             Stop filling in forms. Tell Settsmartly what happened and it prepares the expense with the right amount,
@@ -163,7 +167,7 @@ const VoiceAssistant = () => (
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
                   <g.icon className="h-5 w-5" />
                 </span>
-                <h2 className="text-xl font-extrabold">{g.title}</h2>
+                <h3 className="text-xl font-extrabold">{g.title}</h3>
               </div>
               <ul className="mt-5 space-y-2.5">
                 {g.examples.map((e) => (

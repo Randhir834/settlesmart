@@ -83,12 +83,13 @@ const Flatmates = () => {
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
         <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
           <div className="text-center lg:text-left">
-            <div className="flex items-center justify-center gap-3 lg:justify-start">
-              <AppIcon className="h-12 w-12 drop-shadow-lg" />
-              <span className="eyebrow">For flatmates &amp; working professionals</span>
-            </div>
+            <AppIcon className="mx-auto block h-12 w-12 drop-shadow-lg lg:mx-0" />
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-              Built for flats like <span className="text-brand-700">yours.</span>
+              <span className="eyebrow font-sans leading-normal">Flatmate &amp; roommate expense tracker</span>
+              <span className="sr-only"> – </span>
+              <span className="mt-6 block">
+                Built for flats like <span className="text-brand-700">yours.</span>
+              </span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-600 lg:mx-0">
               Two to five people, one rented flat and the same bills every month. Settsmartly runs your flat’s money so
@@ -225,6 +226,21 @@ const Flatmates = () => {
       <section className="section bg-ink-50/60">
         <div className="container-site max-w-3xl">
           <SectionHeading title="Questions from flatmates" />
+          <p className="mt-4 text-center text-ink-600">
+            Working it out today? Read our guides on{' '}
+            <Link to="/guides/split-rent-with-flatmates" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              how to split rent fairly
+            </Link>
+            ,{' '}
+            <Link to="/guides/split-electricity-bill" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              splitting the electricity bill
+            </Link>{' '}
+            and{' '}
+            <Link to="/guides/flatmate-moving-out" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              settling up when a flatmate moves out
+            </Link>
+            .
+          </p>
           <Reveal className="mt-10">
             <FaqList items={flatmateFaqs} />
           </Reveal>

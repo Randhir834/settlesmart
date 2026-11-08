@@ -123,7 +123,7 @@ const Contact = () => (
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="Contact"
+          eyebrow="Contact Settsmartly"
           title="We'd love to hear from you"
           description="Questions, feedback, partnership ideas or press. Send us a message and a real person will reply."
         />

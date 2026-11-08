@@ -212,7 +212,7 @@ const Voice = () => (
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-200">
           <Sparkles className="h-3.5 w-3.5" /> Signature feature · Planned
         </span>
-        <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-5xl">Just speak. Your household gets organized.</h2>
+        <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-5xl">Just speak. Your household gets organised.</h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-300">
           No forms. Tell Settsmartly what happened, in English, Hindi or Hinglish, and it prepares the expense with the
           right amount, members and split, ready for you to confirm.
@@ -288,7 +288,7 @@ const HomeModules = () => (
       <SectionHeading
         eyebrow="Household workspace"
         title="Every flat gets its own financial workspace."
-        description="Rent, bills, groceries and everything else your home runs on, organized in one place with each member’s contribution."
+        description="Rent, bills, groceries and everything else your home runs on, organised in one place with each member’s contribution."
       />
       <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {homeModules.map((m, i) => (
@@ -338,7 +338,11 @@ const Roommates = () => (
         <Reveal>
           <p className="mt-6 text-sm text-ink-500">
             Example: ₹15,000 rent shared by 5 is ₹3,000 each. Leaving after 15 of 30 days on a daily pro-rata policy
-            means ₹1,500. Your flat decides the policy.
+            means ₹1,500. Your flat decides the policy.{' '}
+            <Link to="/guides/flatmate-moving-out" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              Read our move-out guide
+            </Link>
+            .
           </p>
         </Reveal>
       </div>
@@ -582,6 +586,10 @@ const FaqSection = () => (
             Can’t find what you’re looking for?{' '}
             <Link to="/contact" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
               Get in touch
+            </Link>{' '}
+            or read our{' '}
+            <Link to="/guides" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+              guides for flatmates
             </Link>
             .
           </p>

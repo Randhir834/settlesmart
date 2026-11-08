@@ -19,7 +19,7 @@ const About = () => (
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="About us"
+          eyebrow="About Settsmartly"
           title="Making shared money as easy as having a conversation."
           description="Settsmartly is building an India-first household financial management platform for flatmates and working professionals."
         />

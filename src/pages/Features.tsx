@@ -125,7 +125,7 @@ const Features = () => (
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="Features"
+          eyebrow="Shared expense app features"
           title="Everything a shared home needs to manage money"
           description="Rent, bills, groceries, flatmates moving in and out, and an AI assistant you can just talk to. Settsmartly keeps every rupee in your household accounted for."
         />
@@ -188,7 +188,7 @@ const Features = () => (
                     </span>
                     <StatusBadge status={f.status} />
                   </div>
-                  <h2 className="mt-5 text-2xl font-extrabold">{f.title}</h2>
+                  <h3 className="mt-5 text-2xl font-extrabold">{f.title}</h3>
                   <p className="mt-3 leading-relaxed text-ink-600">{f.description}</p>
                   <Bullets items={f.details} />
                   <div className="mt-8 rounded-2xl bg-brand-50 p-4">{visual}</div>

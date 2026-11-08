@@ -15,7 +15,7 @@ const CtaBand = ({ source }: { source: string }) => (
             <p className="mt-4 text-base leading-relaxed text-brand-100 sm:text-lg">
               Your flat. Your people. Your expenses. One smart place. Join the waitlist for early access.
             </p>
-            <p className="mt-3 font-display text-sm font-bold text-white">Just speak your expense. Settsmartly organizes the rest.</p>
+            <p className="mt-3 font-display text-sm font-bold text-white">Just speak your expense. Settsmartly organises the rest.</p>
             <div className="mx-auto mt-8 max-w-md">
               <WaitlistForm source={source} tone="dark" />
             </div>
