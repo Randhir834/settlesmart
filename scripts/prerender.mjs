@@ -131,11 +131,15 @@ fs.writeFileSync(
 
 > ${pages['/'].description}
 
-Settsmartly is a household financial management platform for people who live together, starting with flatmates and working professionals sharing rented flats in India. It is in development, with a closed beta starting in Bengaluru. Settsmartly is not a bank or wallet and never holds or moves money; payments happen in the user's own UPI app.
+Settsmartly is a shared expense app for people who live together, starting with flatmates and working professionals sharing rented flats in India. It is in development, with a closed beta starting in Bengaluru. Settsmartly is not a bank or wallet and never holds or moves money; payments happen in the user's own UPI app.
 
 ## Product
 
 ${section(['/', '/features', '/voice-assistant', '/flatmates', '/how-it-works', '/pricing'])}
+
+## Guides
+
+${section(['/guides', ...Object.keys(pages).filter((r) => r.startsWith('/guides/'))])}
 
 ## Company
 

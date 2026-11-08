@@ -15,9 +15,7 @@ const Bullets = ({ items }: { items: string[] }) => (
   <ul className="mt-6 space-y-3">
     {items.map((d) => (
       <li key={d} className="flex items-start gap-3 text-[15px] text-ink-700">
-        <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700">
-          <Check className="h-3 w-3" strokeWidth={3} />
-        </span>
+        <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" strokeWidth={2.5} />
         {d}
       </li>
     ))}
@@ -39,12 +37,10 @@ const FeatureRow = ({
     <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
       <Reveal className={reverse ? 'lg:order-2' : ''}>
         <div className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-            <feature.icon className="h-5 w-5" />
-          </span>
+          <feature.icon className="h-6 w-6 text-brand-700" strokeWidth={1.75} aria-hidden />
           <StatusBadge status={feature.status} />
         </div>
-        <h2 className="mt-5 text-3xl font-extrabold sm:text-4xl">{feature.title}</h2>
+        <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{feature.title}</h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-600">{feature.description}</p>
         <Bullets items={feature.details} />
         {link && (
@@ -70,7 +66,7 @@ const RecurringVisual = () => (
       { icon: HomeIcon, n: 'Rent', d: 'Every 1st', a: '₹15,000' },
       { icon: Zap, n: 'Electricity', d: 'Every 10th', a: '~₹2,000' },
       { icon: Wifi, n: 'Internet', d: 'Every 15th', a: '₹999' },
-      { icon: Tv, n: 'OTT subscription', d: 'Every 22nd', a: '₹649' },
+      { icon: Tv, n: 'Streaming subscription', d: 'Every 22nd', a: '₹649' },
     ].map((r) => (
       <div key={r.n} className="flex items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-ink-100">
         <r.icon className="h-4 w-4 shrink-0 text-brand-700" />
@@ -97,7 +93,7 @@ const ReceiptVisual = () => (
     </div>
     <div className="min-w-0 flex-1 space-y-1.5 rounded-xl bg-white p-3 text-sm ring-1 ring-ink-100">
       {[
-        ['Merchant', 'Spar Hypermarket'],
+        ['Shop', 'Spar Hypermarket'],
         ['Date', '04 Nov'],
         ['Category', 'Groceries'],
         ['Total', '₹2,486.50'],
@@ -121,28 +117,28 @@ const secondary: { id: string; visual: ReactNode }[] = [
 const Features = () => (
   <>
     <PageMeta path="/features" />
-    <section className="bg-gradient-to-b from-brand-50 to-white pb-6 pt-16 sm:pt-20">
+    <section className="bg-gradient-to-b from-brand-50/60 to-white pb-6 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading
           as="h1"
-          eyebrow="Features"
-          title="Everything a shared home needs to manage money"
-          description="Rent, bills, groceries, flatmates moving in and out, and an AI assistant you can just talk to. Settsmartly keeps every rupee in your household accounted for."
+          eyebrow="Shared expense app features"
+          title="What Settsmartly does, and what’s coming next"
+          description="Rent, bills, groceries, flatmates moving in and out, and a voice assistant on the way. Here’s each part in detail, including what isn’t ready yet."
         />
         <Reveal className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
           {features.map((f) => (
             <a
               key={f.id}
               href={`#${f.id}`}
-              className="inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white px-4 py-2 text-sm font-medium text-ink-700 transition hover:border-brand-200 hover:text-brand-700"
+              className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 transition hover:border-brand-300 hover:text-brand-700"
             >
-              <f.icon className="h-4 w-4 text-brand-700" /> {f.title}
+              {f.title}
             </a>
           ))}
         </Reveal>
         <Reveal className="mx-auto mt-6 max-w-xl text-center text-sm text-ink-500">
-          Settsmartly is in development. Features marked <StatusBadge status="planned" /> are on our roadmap and not
-          yet available.
+          Settsmartly is still in development. Anything marked <StatusBadge status="planned" /> is being built and isn’t
+          available yet.
         </Reveal>
       </div>
     </section>
@@ -150,7 +146,7 @@ const Features = () => (
     <FeatureRow
       feature={byId('voice')}
       visual={<PhoneFrame><VoiceScreen /></PhoneFrame>}
-      link={{ to: '/voice-assistant', label: 'Explore the AI voice assistant' }}
+      link={{ to: '/voice-assistant', label: 'More about the voice assistant' }}
     />
     <div className="bg-ink-50/60">
       <FeatureRow feature={byId('household')} visual={<PhoneFrame><GroupScreen /></PhoneFrame>} reverse />
@@ -161,13 +157,13 @@ const Features = () => (
         feature={byId('roommates')}
         visual={<PhoneFrame><MoveOutScreen /></PhoneFrame>}
         reverse
-        link={{ to: '/flatmates', label: 'See how it works for flatmates' }}
+        link={{ to: '/guides/flatmate-moving-out', label: 'Read our guide to settling up when someone leaves' }}
       />
     </div>
     <FeatureRow
       feature={byId('settlements')}
       visual={<PhoneFrame><SettleScreen /></PhoneFrame>}
-      link={{ to: '/pricing', label: 'See what’s free' }}
+      link={{ to: '/pricing', label: 'See what’s included for free' }}
     />
     <div className="bg-ink-50/60">
       <FeatureRow feature={byId('insights')} visual={<PhoneFrame><AnalyticsScreen /></PhoneFrame>} reverse />
@@ -175,20 +171,18 @@ const Features = () => (
 
     <section className="section">
       <div className="container-site">
-        <SectionHeading eyebrow="And more" title="Less admin, every single month" />
+        <SectionHeading eyebrow="Also on the way" title="Fewer things to type in every month" />
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {secondary.map(({ id, visual }, i) => {
             const f = byId(id)
             return (
               <Reveal key={id} delay={(i % 2) * 80} className="min-w-0">
-                <article id={id} className="scroll-mt-24 flex h-full flex-col rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8">
+                <article id={id} className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                      <f.icon className="h-5 w-5" />
-                    </span>
+                    <f.icon className="h-6 w-6 text-brand-700" strokeWidth={1.75} aria-hidden />
                     <StatusBadge status={f.status} />
                   </div>
-                  <h2 className="mt-5 text-2xl font-extrabold">{f.title}</h2>
+                  <h3 className="mt-4 text-2xl font-bold">{f.title}</h3>
                   <p className="mt-3 leading-relaxed text-ink-600">{f.description}</p>
                   <Bullets items={f.details} />
                   <div className="mt-8 rounded-2xl bg-brand-50 p-4">{visual}</div>

@@ -1,0 +1,51 @@
+/*
+ * Self-hosted fonts, Latin only. The site is English (en-IN), so the Cyrillic, Greek and Vietnamese
+ * subsets that @fontsource ships are never needed.
+ *
+ * The ₹ sign is the only character on the site outside the Latin subset. Loading the full Latin Extended
+ * files just for it cost about 100 KB on every page, so ₹ comes from tiny files cut from those subsets
+ * (about 1 KB each, weight axis kept). To regenerate them after a font update:
+ *   pyftsubset node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2 \
+ *     --unicodes=U+20B9 --flavor=woff2 --layout-features='*' --output-file=src/fonts/inter-rupee-wght.woff2
+ * (and the same for manrope). pyftsubset comes from `pip install fonttools brotli`.
+ *
+ * scripts/prerender.mjs preloads the two Latin files by name (inter|manrope-latin-wght-normal-*.woff2).
+ */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('./fonts/inter-rupee-wght.woff2') format('woff2-variations');
+  unicode-range: U+20B9;
+}
+
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./fonts/manrope-rupee-wght.woff2') format('woff2-variations');
+  unicode-range: U+20B9;
+}

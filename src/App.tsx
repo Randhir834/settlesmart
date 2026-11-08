@@ -14,6 +14,9 @@ import Legal from './pages/Legal'
 import VoiceAssistant from './pages/VoiceAssistant'
 import Flatmates from './pages/Flatmates'
 import NotFound from './pages/NotFound'
+import Guides from './pages/Guides'
+import Guide from './pages/Guide'
+import { guides } from './data/guides'
 
 const Layout = () => (
   <div className="flex min-h-screen flex-col">
@@ -41,6 +44,10 @@ const App = () => (
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="get-started" element={<GetStarted />} />
+      <Route path="guides" element={<Guides />} />
+      {guides.map((g) => (
+        <Route key={g.slug} path={`guides/${g.slug}`} element={<Guide guide={g} />} />
+      ))}
       <Route path="login" element={<InfoPage kind="login" />} />
       <Route path="careers" element={<InfoPage kind="careers" />} />
       <Route path="privacy" element={<Legal kind="privacy" />} />

@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
 
 export const navLinks = [
   { name: 'Features', to: '/features' },
-  { name: 'Voice Assistant', to: '/voice-assistant' },
-  { name: 'For Flatmates', to: '/flatmates' },
-  { name: 'How It Works', to: '/how-it-works' },
+  { name: 'Voice assistant', to: '/voice-assistant' },
+  { name: 'For flatmates', to: '/flatmates' },
+  { name: 'How it works', to: '/how-it-works' },
   { name: 'Pricing', to: '/pricing' },
-  { name: 'FAQ', to: '/#faq' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'Guides', to: '/guides' },
 ]
 
 const Navbar = () => {
@@ -41,7 +40,7 @@ const Navbar = () => {
   }, [open])
 
   const linkClass = (to: string) => {
-    const active = !to.includes('#') && location.pathname === to
+    const active = location.pathname === to || location.pathname.startsWith(`${to}/`)
     return `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
       active ? 'text-brand-700' : 'text-ink-600 hover:text-ink'
     }`
@@ -56,29 +55,23 @@ const Navbar = () => {
       <nav className="container-site flex h-16 items-center justify-between gap-4" aria-label="Main">
         <Logo />
 
-        <div className="hidden items-center gap-1 xl:flex">
-          {navLinks.map((l) =>
-            l.to.includes('#') ? (
-              <Link key={l.name} to={l.to} className={linkClass(l.to)}>
-                {l.name}
-              </Link>
-            ) : (
-              <NavLink key={l.name} to={l.to} className={linkClass(l.to)}>
-                {l.name}
-              </NavLink>
-            ),
-          )}
+        <div className="hidden items-center gap-0.5 lg:flex">
+          {navLinks.map((l) => (
+            <Link key={l.name} to={l.to} className={linkClass(l.to)} aria-current={location.pathname === l.to ? 'page' : undefined}>
+              {l.name}
+            </Link>
+          ))}
         </div>
 
-        <div className="hidden items-center gap-2 xl:flex">
-          <Link to="/get-started" className="btn-primary py-2.5">
-            Get Started
+        <div className="hidden items-center gap-2 lg:flex">
+          <Link to="/get-started" className="btn-primary min-h-[40px] py-2">
+            Join the waitlist
           </Link>
         </div>
 
         <button
           type="button"
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-50 xl:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-50 lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -92,20 +85,21 @@ const Navbar = () => {
           containing block for this fixed panel and clip it to the header's height. */}
       {open &&
         createPortal(
-        <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-white xl:hidden">
+        <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-white lg:hidden">
           <div className="container-site flex flex-col gap-1 py-6">
-            {navLinks.map((l) => (
+            {[...navLinks, { name: 'Contact', to: '/contact' }].map((l) => (
               <Link
                 key={l.name}
                 to={l.to}
-                className="rounded-xl px-3 py-3.5 font-display text-lg font-semibold text-ink hover:bg-brand-50"
+                aria-current={location.pathname === l.to ? 'page' : undefined}
+                className="rounded-xl px-3 py-3 font-display text-lg font-semibold text-ink hover:bg-ink-50 aria-[current=page]:text-brand-700"
               >
                 {l.name}
               </Link>
             ))}
             <div className="mt-6 grid gap-3 border-t border-ink-100 pt-6">
               <Link to="/get-started" className="btn-primary w-full py-3.5 text-base">
-                Get Started <ArrowRight className="h-4 w-4" />
+                Join the waitlist <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

@@ -1,6 +1,6 @@
 # Settsmartly website
 
-Marketing site for **Settsmartly** (Split. Track. Settle. Smartly.), an Indian-first shared expense app.
+Marketing site for **Settsmartly**, an India-first shared expense app for flatmates.
 Built with Vite, React 18, TypeScript, Tailwind CSS, React Router and Lucide icons.
 
 ## Run locally
@@ -16,8 +16,10 @@ npm run preview   # serve the production build
 
 | Route | Page |
 | --- | --- |
-| `/` | Home: hero, problem/solution, features, how it works, for whom, clarity, trust, FAQ, waitlist |
-| `/features` | Detailed features (anchors: `#splitting`, `#groups`, `#upi`, `#analytics`, `#realtime`, `#recurring`, `#receipts`, `#history`) |
+| `/` | Home: hero, the problem, voice assistant, moving out, features, monthly statement, who it's for, how we handle money, FAQ, waitlist |
+| `/features` | Detailed features (anchors: `#voice`, `#household`, `#splitting`, `#roommates`, `#settlements`, `#insights`, `#recurring`, `#receipts`) |
+| `/voice-assistant`, `/flatmates` | Voice assistant and flatmate landing pages |
+| `/guides`, `/guides/<slug>` | Long-form guides (rent, electricity, moving out) |
 | `/how-it-works` | Six-step walkthrough |
 | `/pricing` | Free, Plus, Premium and Household (not purchasable yet) |
 | `/about`, `/contact`, `/get-started` | About, contact form, waitlist |
@@ -26,7 +28,9 @@ npm run preview   # serve the production build
 
 ## Where to edit things
 
-- **All copy** (features, segments, steps, FAQ, plans): `src/data/content.ts`
+- **Shared copy** (features, segments, steps, FAQ, plans): `src/data/content.ts`. Page-specific copy lives in each page file.
+- **Writing style:** plain and specific, sentence case for headings, buttons and nav, no trailing full stop on
+  single-sentence headings. Prefer a real number or situation over an adjective, and never present a planned feature as live.
 - **Emails, LinkedIn, app login URL, legal date**: `src/config.ts`
 - **Colours and fonts** (design system): `tailwind.config.js`, `src/index.css`
 - **App screen mockups**: `src/components/PhoneMockup.tsx`. Replace with real screenshots via `<PhoneFrame><img … /></PhoneFrame>`.
@@ -80,7 +84,8 @@ vars in Vercel → Settings → Environment Variables.
   WhatsApp/LinkedIn/X previews see everything without running JavaScript;
 - the page's title, description, canonical URL, robots directive and Open Graph/Twitter tags;
 - **JSON-LD structured data** from `src/seo/schema.ts`: Organization, WebSite, WebPage (AboutPage/ContactPage),
-  BreadcrumbList on inner pages, SoftwareApplication on `/`, `/features`, `/pricing`, and FAQPage on pages with
+  BreadcrumbList on inner pages, SoftwareApplication on every product page (`/`, `/features`, `/voice-assistant`,
+  `/flatmates`, `/how-it-works`, `/pricing`), and FAQPage on pages with
   their own FAQ (`faqSchemaByPath` in `content.ts`), generated from the same text that's shown on the page;
 - preload links for the self-hosted Latin font files.
 
@@ -89,8 +94,16 @@ touching that page's `sources`), `robots.txt` and `llms.txt`.
 
 - **Titles and descriptions:** `src/data/pages.json`. Keep titles under ~60 characters and descriptions 120–160.
 - **Adding a page:** add its route in `src/App.tsx`, an entry in `pages.json` (with `name` and `sources`), and
-  `<PageMeta path="/your-page" />` in the page. Give it exactly one `<h1>`.
+  `<PageMeta path="/your-page" />` in the page. Give it exactly one `<h1>`, and start it with a keyword phrase
+  (`<SectionHeading as="h1" eyebrow="…">` puts the eyebrow inside the h1).
 - **FAQs:** edit them in `src/data/content.ts`; the structured data follows automatically.
+- **Guides** (`/guides`, the site's main source of non-brand search traffic): content is in `src/data/guides.tsx`,
+  titles/descriptions/publish dates in `pages.json`. Each guide gets Article, BreadcrumbList and FAQPage markup. To add one,
+  add it to `guides` and a matching `/guides/<slug>` entry in `pages.json`; routes, the sitemap, the /guides listing and
+  llms.txt follow. Check that every worked example adds up.
+- **IndexNow (Bing and others):** after a production deploy, run `npm run indexnow` to ask them to recrawl every page.
+  The key file is `public/<key>.txt`; don't delete it.
+- **Fonts:** Latin only, plus ~1 KB `₹`-only files in `src/fonts/` (see `src/fonts.css` for how to regenerate them).
 - **Domain:** `VITE_SITE_URL` (defaults to `https://settsmartly.com`) sets canonical URLs, the sitemap and robots.txt.
 - **Verification:** set `VITE_GOOGLE_SITE_VERIFICATION` and/or `VITE_BING_SITE_VERIFICATION`.
 - **Local check:** `npm run build && npm run preview`, then open pages *with* a trailing slash

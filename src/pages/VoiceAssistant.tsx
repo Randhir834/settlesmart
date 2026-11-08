@@ -1,73 +1,49 @@
 import { Link } from 'react-router-dom'
-import {
-  ArrowRight,
-  Mic,
-  Languages,
-  Users,
-  IndianRupee,
-  MessageCircle,
-  Building2,
-  Plus,
-  Repeat,
-  HelpCircle,
-  Pencil,
-  ShieldCheck,
-  Calculator,
-  Lock,
-  History,
-  CheckCircle2,
-  Sparkles,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import FaqList from '../components/FaqList'
 import CtaBand from '../components/CtaBand'
-import { AppIcon } from '../components/Logo'
 import { PhoneFrame, VoiceScreen } from '../components/PhoneMockup'
 import { voiceFaqs } from '../data/content'
 
 const sayings = [
   {
-    icon: Plus,
-    title: 'Add expenses',
+    title: 'Add an expense',
     examples: [
-      'I paid 2,500 for groceries today. Split equally between all five of us.',
+      'I paid 2,500 for groceries today. Split it equally between all five of us.',
       'Kabir paid the 999 internet bill.',
-      'Add 800 for cleaning supplies, but exclude Aman.',
+      'Add 800 for cleaning supplies, but leave Aman out.',
     ],
   },
   {
-    icon: Repeat,
-    title: 'Set up recurring bills',
+    title: 'Set up a bill that repeats',
     examples: [
-      'Our rent is 15,000. Add it as a monthly recurring expense, split equally between the five of us.',
+      'Our rent is 15,000. Add it every month and split it equally between the five of us.',
       'Remind everyone about electricity on the 10th of every month.',
     ],
   },
   {
-    icon: HelpCircle,
     title: 'Ask about your money',
     examples: [
       'How much did we spend on groceries last month?',
       'Who owes me the most?',
-      'Which bills are still unpaid?',
-      'How much did I personally spend this month?',
+      'Which bills haven’t been paid yet?',
     ],
   },
   {
-    icon: Pencil,
-    title: 'Fix mistakes',
-    examples: ['Change the electricity bill from 1,800 to 2,000.', 'Remove Riya from the OTT subscription split.'],
+    title: 'Fix a mistake',
+    examples: ['Change the electricity bill from 1,800 to 2,000.', 'Take Riya off the streaming subscription.'],
   },
 ]
 
-const capabilities = [
-  { icon: Building2, t: 'Household context', d: 'Knows which flat you mean, who lives there and which bills are shared.' },
-  { icon: Users, t: 'Member recognition', d: 'Understands your flatmates by name and nickname, and who has moved out.' },
-  { icon: Languages, t: 'Mixed language', d: 'Built for English, Hindi and the Hinglish most of us actually speak.' },
-  { icon: IndianRupee, t: 'Money literacy', d: 'Understands amounts, percentages, shares and dates like "last month".' },
-  { icon: MessageCircle, t: 'Conversation memory', d: 'Remembers what you just said, so "No, exclude Aman" just works.' },
+const understands = [
+  { t: 'Your flat', d: 'Which flat you mean, who lives there and which bills are shared.' },
+  { t: 'Your flatmates', d: 'People by name or nickname, and who has already moved out.' },
+  { t: 'How you talk', d: 'English, Hindi and the Hinglish most of us actually speak.' },
+  { t: 'Money and dates', d: 'Amounts, percentages, shares, and phrases like “last month”.' },
+  { t: 'What you just said', d: 'It keeps track of the conversation, so “No, leave Aman out” just works.' },
 ]
 
 const hinglishParse = [
@@ -80,68 +56,59 @@ const hinglishParse = [
 
 const conversation = [
   { from: 'you', text: 'Add 500 for groceries.' },
-  { from: 'ai', text: 'Should I add ₹500 to Bangalore Flat and split it equally among the 5 active members?' },
-  { from: 'you', text: 'No, exclude Aman.' },
-  { from: 'ai', text: 'Got it. ₹500 split among the other 4 members, ₹125 each. Shall I save it?' },
-  { from: 'you', text: 'Confirm.' },
+  { from: 'ai', text: 'Add ₹500 to Bangalore Flat, split equally between all 5 of you?' },
+  { from: 'you', text: 'No, leave Aman out.' },
+  { from: 'ai', text: 'OK, ₹500 between the other 4, so ₹125 each. Save it?' },
+  { from: 'you', text: 'Yes.' },
 ]
 
 const pipeline = [
-  { t: 'You speak', d: 'In English, Hindi or Hinglish, as you naturally would.' },
-  { t: 'Speech becomes text', d: 'Your words are transcribed so the request can be understood.' },
-  { t: 'AI extracts the details', d: 'Amount, payer, category, members and split method.' },
-  { t: 'We validate and calculate', d: 'Membership, permissions and every share are checked and computed by our expense engine.' },
-  { t: 'You confirm', d: 'You see a draft and approve it. Only then is it saved and shared with your flat.' },
+  { t: 'You say it', d: 'In English, Hindi or Hinglish, the way you’d tell a flatmate.' },
+  { t: 'It’s turned into text', d: 'Your words are transcribed so the request can be read.' },
+  { t: 'The details are picked out', d: 'Amount, who paid, category, who it’s for and how to split it.' },
+  { t: 'The app checks and calculates', d: 'Members and permissions are checked, and every share is calculated by the app itself.' },
+  { t: 'You confirm', d: 'You see the draft and approve it. Only then is it saved and shared with your flat.' },
 ]
 
 const safeguards = [
-  { icon: CheckCircle2, t: 'Nothing saves without you', d: 'Every expense, edit or bill the assistant prepares waits for your explicit confirmation.' },
-  { icon: Calculator, t: 'AI never does the maths', d: 'The assistant interprets what you say. Shares and balances are always calculated by our expense engine.' },
-  { icon: ShieldCheck, t: 'It never moves money', d: 'The assistant can’t pay, transfer or deduct anything. Payments always happen in your own UPI app.' },
-  { icon: Lock, t: 'Voice with consent', d: 'The microphone is only used when you choose to. We’ll publish exactly what is stored, for how long, and how to delete it before launch.' },
-  { icon: History, t: 'Every change is logged', d: 'Expenses created or edited by voice appear in the household’s history like any other change.' },
+  { t: 'Nothing saves without you', d: 'Every expense, edit or bill the assistant prepares waits for you to confirm it.' },
+  { t: 'The AI doesn’t do the maths', d: 'The assistant works out what you meant. Shares and balances are always calculated by the app.' },
+  { t: 'It can’t move money', d: 'It can’t pay, transfer or deduct anything. Payments always happen in your own UPI app.' },
+  { t: 'The mic is off unless you use it', d: 'Before launch, we’ll publish exactly what is stored, how long it’s kept and how to delete it.' },
+  { t: 'Every change is on record', d: 'Expenses added or edited by voice show up in the flat’s history like any other change.' },
 ]
-
 
 const VoiceAssistant = () => (
   <>
     <PageMeta path="/voice-assistant" />
 
-    <section className="relative overflow-hidden bg-ink text-white">
-      <div aria-hidden className="pointer-events-none absolute -right-32 -top-20 h-[520px] w-[520px] rounded-full bg-brand-700/50 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-brand-500/20 blur-3xl" />
-      <div className="container-site relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+    <section className="bg-ink text-white">
+      <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24">
         <div className="text-center lg:text-left">
-          <div className="flex items-center justify-center gap-3 lg:justify-start">
-            <AppIcon className="h-12 w-12 drop-shadow-xl" />
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-200">
-              <Sparkles className="h-3.5 w-3.5" /> Signature feature · Planned
+          <h1 className="text-4xl font-bold leading-[1.06] text-white sm:text-[3.5rem]">
+            <span className="block font-sans text-sm font-semibold leading-normal tracking-normal text-brand-300">
+              AI voice expense tracker
             </span>
-          </div>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-white sm:text-6xl">
-            Just speak. Your household gets organized.
+            <span className="sr-only"> – </span>
+            <span className="mt-4 block">Add an expense by saying it</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-300 lg:mx-0">
-            Stop filling in forms. Tell Settsmartly what happened and it prepares the expense with the right amount,
-            members and split, ready for you to confirm.
+            No forms. Tell Settsmartly what happened and it drafts the expense with the amount, the people and the split,
+            ready for you to check and confirm.
+          </p>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-ink-400 lg:mx-0">
+            English · हिंदी · Hinglish. In development, coming first to beta users in Bengaluru.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
             <Link to="/get-started" className="btn bg-white px-6 py-3.5 text-base text-brand-800 hover:bg-brand-50">
-              Try it in the beta <ArrowRight className="h-4 w-4" />
+              Get early access <ArrowRight className="h-4 w-4" />
             </Link>
             <a href="#how" className="btn border border-white/20 px-6 py-3.5 text-base text-white hover:bg-white/10">
               How it works
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
-            {['English', 'हिंदी', 'Hinglish'].map((l) => (
-              <span key={l} className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm font-medium text-white ring-1 ring-white/15">
-                <Mic className="h-3.5 w-3.5 text-brand-300" /> {l}
-              </span>
-            ))}
-          </div>
         </div>
-        <Reveal delay={100} className="relative mx-auto">
+        <Reveal delay={100} className="mx-auto">
           <PhoneFrame>
             <VoiceScreen />
           </PhoneFrame>
@@ -153,22 +120,17 @@ const VoiceAssistant = () => (
       <div className="container-site">
         <SectionHeading
           eyebrow="What you can say"
-          title="Talk to it like you’d talk to your flatmates"
-          description="Add expenses, set up bills, ask questions and fix mistakes, all without opening a form."
+          title="Talk to it the way you’d talk to your flatmates"
+          description="Add expenses, set up bills, ask questions and fix mistakes without opening a single form."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {sayings.map((g, i) => (
-            <Reveal key={g.title} delay={(i % 2) * 80} className="card p-6 sm:p-8">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                  <g.icon className="h-5 w-5" />
-                </span>
-                <h2 className="text-xl font-extrabold">{g.title}</h2>
-              </div>
+            <Reveal key={g.title} delay={(i % 2) * 60} className="rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
+              <h3 className="text-xl font-bold">{g.title}</h3>
               <ul className="mt-5 space-y-2.5">
                 {g.examples.map((e) => (
-                  <li key={e} className="flex items-start gap-2.5 rounded-xl bg-brand-50 px-4 py-3 text-[15px] leading-relaxed text-ink-800">
-                    <Mic className="mt-1 h-3.5 w-3.5 shrink-0 text-brand-500" />“{e}”
+                  <li key={e} className="rounded-xl bg-ink-50 px-4 py-3 text-[15px] leading-relaxed text-ink-800">
+                    “{e}”
                   </li>
                 ))}
               </ul>
@@ -183,17 +145,17 @@ const VoiceAssistant = () => (
         <div>
           <SectionHeading
             align="left"
-            eyebrow="Hinglish, too"
-            title="Speak the way you actually speak."
+            eyebrow="Hindi and Hinglish"
+            title="Speak the way you actually speak"
             description="Most of us switch between Hindi and English mid-sentence. The assistant is being built for exactly that."
           />
-          <Reveal className="mt-8 rounded-2xl bg-brand-700 px-5 py-4 text-lg leading-relaxed text-white">
-            “Aaj electricity ka 1800 rupees bill pay kiya, sabke beech equally divide kar do.”
+          <Reveal className="mt-8 rounded-2xl rounded-br-md bg-brand-700 px-5 py-4 text-lg leading-relaxed text-white">
+            “Aaj electricity ka 1800 ka bill pay kiya, sabke beech equally divide kar do.”
           </Reveal>
         </div>
-        <Reveal delay={100} className="card p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">What the assistant understands</p>
-          <dl className="mt-4 divide-y divide-ink-100">
+        <Reveal delay={80} className="card p-6 sm:p-8">
+          <p className="text-sm font-semibold text-ink-500">What the assistant picks out</p>
+          <dl className="mt-3 divide-y divide-ink-100">
             {hinglishParse.map(([k, v]) => (
               <div key={k} className="flex items-center justify-between py-3 text-[15px]">
                 <dt className="text-ink-500">{k}</dt>
@@ -201,69 +163,59 @@ const VoiceAssistant = () => (
               </div>
             ))}
           </dl>
-          <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">
-            Shown as a draft. Saved only after you tap Confirm.
-          </p>
+          <p className="mt-4 text-sm text-ink-500">Shown to you as a draft. Saved only when you tap Confirm.</p>
         </Reveal>
       </div>
     </section>
 
     <section className="section">
-      <div className="container-site">
-        <SectionHeading
-          eyebrow="Smarter than speech-to-text"
-          title="It understands your household, not just your words"
-        />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {capabilities.map((c, i) => (
-            <Reveal key={c.t} delay={i * 50} className="card-lavender p-5">
-              <c.icon className="h-6 w-6 text-brand-700" />
-              <h3 className="mt-4 text-base font-bold">{c.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{c.d}</p>
-            </Reveal>
-          ))}
+      <div className="container-site grid gap-14 lg:grid-cols-2 lg:gap-20 [&>*]:min-w-0">
+        <div>
+          <SectionHeading
+            align="left"
+            eyebrow="More than speech-to-text"
+            title="It knows your flat, not just your words"
+          />
+          <dl className="mt-10 divide-y divide-ink-100 border-y border-ink-100">
+            {understands.map((c) => (
+              <div key={c.t} className="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+                <dt className="font-display font-semibold text-ink">{c.t}</dt>
+                <dd className="text-[15px] leading-relaxed text-ink-600">{c.d}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-
-        <div className="mt-16 grid items-center gap-10 lg:grid-cols-2 [&>*]:min-w-0">
-          <Reveal>
-            <h3 className="text-2xl font-extrabold sm:text-3xl">It asks instead of guessing.</h3>
-            <p className="mt-3 text-lg leading-relaxed text-ink-600">
-              When something is missing or ambiguous, the assistant checks with you, and it remembers the conversation so
-              corrections feel natural.
-            </p>
-          </Reveal>
-          <Reveal delay={100} className="rounded-3xl bg-ink p-5 sm:p-6">
-            <div className="space-y-2.5">
-              {conversation.map((m, i) => (
-                <div
-                  key={i}
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-snug ${
-                    m.from === 'you' ? 'ml-auto rounded-br-md bg-brand-700 text-white' : 'rounded-bl-md bg-white text-ink'
-                  }`}
-                >
-                  {m.text}
-                </div>
-              ))}
-              <p className="flex items-center gap-2 pt-1 text-sm font-semibold text-emerald-300">
-                <CheckCircle2 className="h-4 w-4" /> Expense saved after confirmation
-              </p>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={80} className="self-center">
+          <h3 className="text-2xl font-bold">If something’s unclear, it asks</h3>
+          <p className="mt-3 text-lg leading-relaxed text-ink-600">
+            When a detail is missing or could mean two things, the assistant checks with you instead of guessing. It
+            remembers what you just said, so corrections feel natural.
+          </p>
+          <div className="mt-6 space-y-2 rounded-2xl bg-ink p-5 sm:p-6">
+            {conversation.map((m, i) => (
+              <div
+                key={i}
+                className={`w-fit max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-snug ${
+                  m.from === 'you' ? 'ml-auto rounded-br-md bg-brand-600 text-white' : 'rounded-bl-md bg-white/10 text-white'
+                }`}
+              >
+                {m.text}
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
 
     <section className="section scroll-mt-16 bg-ink-50/60" id="how">
       <div className="container-site">
-        <SectionHeading eyebrow="How it works" title="From your voice to your flat’s balances" />
-        <ol className="mt-14 grid gap-4 md:grid-cols-5">
+        <SectionHeading eyebrow="How it works" title="From what you say to your flat’s balances" />
+        <ol className="mt-14 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
           {pipeline.map((p, i) => (
-            <Reveal as="li" key={p.t} delay={i * 60} className="relative rounded-2xl border border-ink-100 bg-white p-5 shadow-card">
-              <span className="amount inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 font-display text-sm font-extrabold text-white">
-                {i + 1}
-              </span>
-              <h3 className="mt-4 text-base font-bold">{p.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{p.d}</p>
+            <Reveal as="li" key={p.t} delay={i * 50} className="border-t-2 border-brand-700 pt-4">
+              <span className="amount text-sm font-semibold text-brand-700">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-2 text-base font-bold">{p.t}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-ink-600">{p.d}</p>
             </Reveal>
           ))}
         </ol>
@@ -273,25 +225,25 @@ const VoiceAssistant = () => (
     <section className="section">
       <div className="container-site">
         <SectionHeading
-          eyebrow="Safety"
-          title="Powerful, but never in charge of your money"
-          description="Shared money depends on trust. These rules are built into how the assistant works."
+          align="left"
+          eyebrow="Safeguards"
+          title="Useful, but never in charge of your money"
+          description="Shared money depends on trust, so these rules are built into how the assistant works."
         />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {safeguards.map((s, i) => (
-            <Reveal key={s.t} delay={i * 50} className="rounded-2xl bg-white p-5 ring-1 ring-ink-100">
-              <s.icon className="h-6 w-6 text-brand-700" />
-              <h3 className="mt-4 text-base font-bold">{s.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{s.d}</p>
+            <Reveal as="li" key={s.t} delay={(i % 3) * 50}>
+              <h3 className="text-base font-bold">{s.t}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-ink-600">{s.d}</p>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
 
     <section className="section bg-ink-50/60">
       <div className="container-site max-w-3xl">
-        <SectionHeading title="Voice assistant questions" />
+        <SectionHeading title="Questions about the voice assistant" />
         <Reveal className="mt-10">
           <FaqList items={voiceFaqs} />
         </Reveal>
