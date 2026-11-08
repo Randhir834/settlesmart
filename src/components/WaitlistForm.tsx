@@ -54,13 +54,13 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
       setState('done')
       setMessage(
         result === 'duplicate'
-          ? "You're already on the list. We'll be in touch."
-          : "You're on the list. We'll email you when early access opens.",
+          ? 'You’re already on the list. We’ll be in touch.'
+          : 'You’re on the list. We’ll email you when early access opens.',
       )
     } catch {
       // Saving failed (offline, or rules not deployed). Let the visitor join by email instead.
       setState('error')
-      setMessage("We couldn't add you automatically.")
+      setMessage('Something went wrong on our side.')
       setFallback(
         mailto(
           site.businessEmail,
@@ -162,13 +162,13 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
       </div>
       <div>
         <label htmlFor="wl-usecase" className="label">
-          I'll mostly use Settsmartly with… <span className="font-normal text-ink-500">(optional)</span>
+          I’ll mostly use it with <span className="font-normal text-ink-500">(optional)</span>
         </label>
         <select id="wl-usecase" value={useCase} onChange={(e) => setUseCase(e.target.value)} className="input">
           <option value="">Choose one</option>
           {segments.map((s) => (
             <option key={s.id} value={s.id}>
-              {s.title.replace('For ', '')}
+              {s.title}
             </option>
           ))}
         </select>
@@ -202,8 +202,8 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
           className="mt-0.5 h-4 w-4 shrink-0 accent-brand-700"
         />
         <span className="text-sm text-ink-700">
-          <span className="font-semibold text-ink">Happy to chat.</span> I’m open to a short call about how my flat manages
-          money, and to joining the early beta.
+          <span className="font-semibold text-ink">Happy to chat.</span> I’m up for a short call about how my flat handles
+          money, and for trying the early beta.
         </span>
       </label>
       <button type="submit" disabled={state === 'loading'} className="btn-primary mt-1 w-full py-3.5 text-base">
@@ -212,7 +212,7 @@ const WaitlistForm = ({ variant = 'compact', source, tone = 'light' }: Props) =>
       </button>
       {feedback}
       <p className="text-xs leading-relaxed text-ink-500">
-        We'll only use your email to tell you about Settsmartly's launch. No spam, unsubscribe anytime. See our{' '}
+        We’ll only use your email to tell you about Settsmartly’s launch, and you can unsubscribe at any time. See our{' '}
         <Link to="/privacy" className="font-medium text-brand-700 hover:underline">
           Privacy Policy
         </Link>

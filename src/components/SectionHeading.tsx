@@ -15,18 +15,18 @@ interface Props {
  * On h2s the eyebrow stays a separate label.
  */
 const SectionHeading = ({ eyebrow, title, description, align = 'center', as: H = 'h2' }: Props) => {
-  const size = `${H === 'h1' ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl'} font-extrabold leading-tight`
+  const size = `${H === 'h1' ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl'} font-bold leading-[1.12]`
   return (
     <Reveal className={`max-w-2xl ${align === 'center' ? 'mx-auto text-center' : ''}`}>
       {H === 'h1' && eyebrow ? (
         <h1 className={size}>
           <span className="eyebrow font-sans leading-normal">{eyebrow}</span>
           <span className="sr-only"> – </span>
-          <span className="mt-4 block">{title}</span>
+          <span className="mt-3 block">{title}</span>
         </h1>
       ) : (
         <>
-          {eyebrow && <span className="eyebrow mb-4">{eyebrow}</span>}
+          {eyebrow && <span className="eyebrow mb-3">{eyebrow}</span>}
           <H className={size}>{title}</H>
         </>
       )}

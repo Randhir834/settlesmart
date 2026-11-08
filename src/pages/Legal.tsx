@@ -17,7 +17,7 @@ const Mail = ({ to }: { to: string }) => (
   </a>
 )
 
-const H = ({ children }: { children: ReactNode }) => <h2 className="mt-10 text-xl font-extrabold sm:text-2xl">{children}</h2>
+const H = ({ children }: { children: ReactNode }) => <h2 className="mt-10 text-xl font-bold">{children}</h2>
 
 const privacy = (
   <>
@@ -113,8 +113,8 @@ const terms = (
 
     <H>1. About Settsmartly</H>
     <p>
-      Settsmartly is a household financial management product for people who live together. It is currently in development. The Website describes the
-      product we are building. Features, plans and timelines shown on the Website, including those marked "Planned",
+      Settsmartly is an app for managing shared expenses for people who live together. It is currently in
+      development, and the Website describes the product we are building. Features, plans and timelines shown on the Website, including those marked "Planned",
       are subject to change and are not a promise that any feature will be available.
     </p>
 
@@ -200,15 +200,15 @@ const refunds = (
 
 const pages: Record<Kind, { heading: string; body: ReactNode }> = {
   privacy: {
-    heading: 'Privacy Policy',
+    heading: 'Privacy policy',
     body: privacy,
   },
   terms: {
-    heading: 'Terms and Conditions',
+    heading: 'Terms and conditions',
     body: terms,
   },
   refunds: {
-    heading: 'Refund Policy',
+    heading: 'Refund policy',
     body: refunds,
   },
 }
@@ -218,19 +218,19 @@ const Legal = ({ kind }: { kind: Kind }) => {
   return (
     <>
       <PageMeta path={`/${kind}`} />
-      <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50 to-white">
+      <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50/60 to-white">
         <div className="container-site max-w-3xl py-14 sm:py-16">
           <span className="eyebrow">Legal</span>
-          <h1 className="mt-4 text-4xl font-extrabold sm:text-5xl">{p.heading}</h1>
+          <h1 className="mt-3 text-4xl font-bold sm:text-5xl">{p.heading}</h1>
           <p className="mt-3 text-sm text-ink-500">Last updated: {site.legalUpdated}</p>
         </div>
       </section>
       <article className="container-site max-w-3xl py-12 text-[16px] leading-relaxed text-ink-700 sm:py-16 [&_li]:mt-2 [&_p]:mt-4 [&_strong]:text-ink [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5">
         {p.body}
         <nav className="mt-14 flex flex-wrap gap-x-6 gap-y-2 border-t border-ink-100 pt-6 text-sm" aria-label="Legal">
-          <Link to="/privacy" className="font-medium text-ink-600 hover:text-brand-700">Privacy Policy</Link>
-          <Link to="/terms" className="font-medium text-ink-600 hover:text-brand-700">Terms and Conditions</Link>
-          <Link to="/refunds" className="font-medium text-ink-600 hover:text-brand-700">Refund Policy</Link>
+          <Link to="/privacy" className="font-medium text-ink-600 hover:text-brand-700">Privacy policy</Link>
+          <Link to="/terms" className="font-medium text-ink-600 hover:text-brand-700">Terms and conditions</Link>
+          <Link to="/refunds" className="font-medium text-ink-600 hover:text-brand-700">Refund policy</Link>
           <Link to="/contact" className="font-medium text-ink-600 hover:text-brand-700">Contact</Link>
         </nav>
       </article>

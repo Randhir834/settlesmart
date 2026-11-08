@@ -1,6 +1,6 @@
 import { isValidElement, type ReactNode } from 'react'
 import { AppIcon } from './Logo'
-import { ArrowLeft, Check, ChevronRight, Plus, ShoppingCart, Zap, Wifi, Droplets, Home as HomeIcon, Mic, Sparkles, Pencil, DoorOpen } from 'lucide-react'
+import { ArrowLeft, Check, ChevronRight, Plus, ShoppingCart, Zap, Wifi, Droplets, Home as HomeIcon, Mic, Pencil, DoorOpen } from 'lucide-react'
 
 /**
  * Coded mockups of the Settsmartly app. Names and amounts are illustrative sample data.
@@ -66,7 +66,7 @@ export const GroupScreen = () => (
 
     <div className="mt-4 rounded-2xl bg-brand-700 p-4 text-white">
       <p className="text-[11px] text-brand-100">November · you are owed</p>
-      <p className="amount mt-1 font-display text-[28px] font-extrabold leading-none">₹9,900.20</p>
+      <p className="amount mt-1 font-display text-[28px] font-bold leading-none">₹9,900.20</p>
       <div className="mt-4 grid grid-cols-2 gap-2 text-[10px]">
         <div className="rounded-xl bg-white/10 px-2.5 py-2">
           <p className="text-brand-100">Household spent</p>
@@ -86,9 +86,9 @@ export const GroupScreen = () => (
     <div className="mt-2 space-y-2">
       {[
         { icon: HomeIcon, title: 'November rent', meta: 'You paid · split 5 ways', amt: '₹15,000', you: '+₹12,000', pos: true },
-        { icon: ShoppingCart, title: 'Groceries – BigBasket', meta: 'Neha paid', amt: '₹5,000', you: '−₹1,000', pos: false },
-        { icon: Zap, title: 'Electricity bill', meta: 'Kabir paid · recurring', amt: '₹2,000', you: '−₹400', pos: false },
-        { icon: Wifi, title: 'Internet', meta: 'Kabir paid · recurring', amt: '₹999', you: '−₹199.80', pos: false },
+        { icon: ShoppingCart, title: 'Groceries, BigBasket', meta: 'Neha paid', amt: '₹5,000', you: '−₹1,000', pos: false },
+        { icon: Zap, title: 'Electricity bill', meta: 'Kabir paid', amt: '₹2,000', you: '−₹400', pos: false },
+        { icon: Wifi, title: 'Internet', meta: 'Kabir paid', amt: '₹999', you: '−₹199.80', pos: false },
       ].map((e) => (
         <div key={e.title} className="flex items-center gap-2.5 rounded-xl border border-ink-100 px-2.5 py-2">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
@@ -123,7 +123,7 @@ export const AddExpenseScreen = () => (
     </div>
     <div className="mt-4 rounded-2xl bg-brand-50 p-4 text-center">
       <p className="text-[10px] font-medium text-ink-500">House party supplies · Bangalore Flat</p>
-      <p className="amount mt-1 font-display text-[30px] font-extrabold text-ink">₹3,600</p>
+      <p className="amount mt-1 font-display text-[30px] font-bold text-ink">₹3,600</p>
       <p className="mt-1 text-[10px] text-ink-500">
         Paid by <span className="font-semibold text-ink">You</span>
       </p>
@@ -230,7 +230,7 @@ export const AnalyticsScreen = () => {
       <p className="text-[10px] text-ink-500">Bangalore Flat · November</p>
       <div className="mt-3 rounded-2xl border border-ink-100 p-3">
         <p className="text-[10px] text-ink-500">Household spent this month</p>
-        <p className="amount font-display text-[22px] font-extrabold text-ink">₹25,499</p>
+        <p className="amount font-display text-[22px] font-bold text-ink">₹25,499</p>
         <p className="text-[9.5px] font-semibold text-positive">6% lower than October</p>
         <div className="mt-3 flex h-20 items-end gap-2">
           {bars.map((h, i) => (
@@ -278,9 +278,7 @@ export const VoiceScreen = ({ live = false }: { live?: boolean }) => {
         <p className="text-[10px] font-medium text-ink-500">Assistant</p>
         <p className="font-display text-[15px] font-bold text-ink">Bangalore Flat</p>
       </div>
-      <span className="inline-flex items-center gap-1 rounded-full bg-brand-50 px-2 py-1 text-[9px] font-semibold text-brand-700 ring-1 ring-brand-100">
-        <Sparkles className="h-3 w-3" /> AI
-      </span>
+      <span className="rounded-full bg-white px-2 py-1 text-[9px] font-semibold text-ink-600 ring-1 ring-ink-100">Listening</span>
     </div>
 
     <div
@@ -298,7 +296,7 @@ export const VoiceScreen = ({ live = false }: { live?: boolean }) => {
         <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-700">Expense draft</p>
         <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-800 ring-1 ring-amber-200">Review</span>
       </div>
-      <p className="amount mt-2 font-display text-[26px] font-extrabold leading-none text-ink">₹2,500</p>
+      <p className="amount mt-2 font-display text-[26px] font-bold leading-none text-ink">₹2,500</p>
       <p className="mt-1 text-[10px] text-ink-500">Groceries · Bangalore Flat</p>
       <div className="mt-3 space-y-1.5 border-t border-ink-100 pt-3 text-[10.5px]">
         {[
@@ -389,7 +387,7 @@ export const MoveOutScreen = () => (
       ))}
       <div className="flex justify-between border-t border-ink-100 pt-1.5 text-[11.5px]">
         <span className="font-semibold text-ink">Rent for December</span>
-        <span className="amount font-extrabold text-brand-700">₹1,500</span>
+        <span className="amount font-bold text-brand-700">₹1,500</span>
       </div>
     </div>
 

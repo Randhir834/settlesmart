@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Briefcase, LifeBuoy, Linkedin, CheckCircle2, Loader2 } from 'lucide-react'
+import { Mail, CheckCircle2, Loader2 } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
@@ -9,7 +9,7 @@ import { createDoc, mailto } from '../lib/firestore'
 import { contactFaqs } from '../data/content'
 import { site } from '../config'
 
-const topics = ['General question', 'Beta / research interview', 'Product feedback', 'Business enquiry', 'Press', 'Other']
+const topics = ['General question', 'The beta or a research chat', 'Product feedback', 'Business enquiry', 'Press', 'Something else']
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: '', email: '', topic: topics[0], message: '' })
@@ -22,7 +22,7 @@ const ContactForm = () => {
     e.preventDefault()
     if (!form.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) || form.message.trim().length < 10) {
       setState('error')
-      setError('Please add your name, a valid email and a message of at least 10 characters.')
+      setError('Please fill in your name, a valid email address and a message of at least 10 characters.')
       return
     }
     setState('loading')
@@ -52,8 +52,8 @@ const ContactForm = () => {
     return (
       <div role="status" className="flex h-full flex-col items-center justify-center py-12 text-center">
         <CheckCircle2 className="h-12 w-12 text-positive" />
-        <h2 className="mt-4 text-2xl font-extrabold">Message sent</h2>
-        <p className="mt-2 max-w-sm text-ink-600">Thanks for reaching out. We'll reply to {form.email} as soon as we can.</p>
+        <h2 className="mt-4 text-2xl font-bold">Message sent</h2>
+        <p className="mt-2 max-w-sm text-ink-600">Thanks for getting in touch. We’ll reply to {form.email}, usually within a couple of working days.</p>
       </div>
     )
   }
@@ -88,7 +88,7 @@ const ContactForm = () => {
           value={form.message}
           onChange={update('message')}
           className="input resize-y"
-          placeholder="How can we help?"
+          placeholder="What would you like to ask or tell us?"
         />
       </div>
       {state === 'error' && (
@@ -106,7 +106,7 @@ const ContactForm = () => {
         Send message
       </button>
       <p className="text-xs text-ink-500">
-        We use your details only to reply to you. See our{' '}
+        We only use your details to reply to you. See our{' '}
         <Link to="/privacy" className="font-medium text-brand-700 hover:underline">
           Privacy Policy
         </Link>
@@ -119,13 +119,13 @@ const ContactForm = () => {
 const Contact = () => (
   <>
     <PageMeta path="/contact" />
-    <section className="bg-gradient-to-b from-brand-50 to-white pb-16 pt-16 sm:pt-20">
+    <section className="bg-gradient-to-b from-brand-50/60 to-white pb-16 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading
           as="h1"
           eyebrow="Contact Settsmartly"
-          title="We'd love to hear from you"
-          description="Questions, feedback, partnership ideas or press. Send us a message and a real person will reply."
+          title="Talk to the team"
+          description="Questions, feedback, partnerships or press. Messages go straight to the people building Settsmartly, and we usually reply within a couple of working days."
         />
       </div>
     </section>
@@ -134,20 +134,17 @@ const Contact = () => (
       <div className="container-site grid gap-6 lg:grid-cols-[1fr_1.5fr]">
         <Reveal className="grid content-start gap-4">
           {[
-            { icon: LifeBuoy, t: 'Support', d: 'Questions about Settsmartly, the beta or your waitlist signup.', href: `mailto:${site.supportEmail}`, l: site.supportEmail },
-            { icon: Briefcase, t: 'Business enquiries', d: 'Partnerships, integrations and press.', href: `mailto:${site.businessEmail}`, l: site.businessEmail },
-            { icon: Linkedin, t: 'LinkedIn', d: 'Follow our progress towards launch.', href: site.linkedin, l: 'linkedin.com/company/settsmartly' },
+            { t: 'Support', d: 'Questions about Settsmartly, the beta or your place on the waitlist.', href: `mailto:${site.supportEmail}`, l: site.supportEmail },
+            { t: 'Business and press', d: 'Partnerships, integrations and media enquiries.', href: `mailto:${site.businessEmail}`, l: site.businessEmail },
+            { t: 'LinkedIn', d: 'Updates as we get closer to launch.', href: site.linkedin, l: 'linkedin.com/company/settsmartly' },
           ].map((c) => (
             <a
               key={c.t}
               href={c.href}
               target={c.href.startsWith('http') ? '_blank' : undefined}
               rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group flex gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-card transition hover:border-brand-200"
+              className="group block rounded-2xl border border-ink-100 bg-white p-5 transition hover:border-brand-300"
             >
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                <c.icon className="h-5 w-5" />
-              </span>
               <div className="min-w-0">
                 <p className="font-display font-bold text-ink">{c.t}</p>
                 <p className="mt-0.5 text-sm text-ink-500">{c.d}</p>
@@ -155,10 +152,9 @@ const Contact = () => (
               </div>
             </a>
           ))}
-          <div className="flex gap-3 rounded-2xl bg-ink-50 p-5 text-sm text-ink-600">
-            <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+          <div className="rounded-2xl bg-ink-50 p-5 text-sm text-ink-600">
             <p>
-              Want early access instead?{' '}
+              Just want early access?{' '}
               <Link to="/get-started" className="font-semibold text-brand-700 hover:underline">
                 Join the waitlist
               </Link>
@@ -174,7 +170,7 @@ const Contact = () => (
 
     <section className="section bg-ink-50/60">
       <div className="container-site max-w-3xl">
-        <SectionHeading title="Common questions" />
+        <SectionHeading title="Before you write" description="A few of the questions we get asked most." />
         <Reveal className="mt-10">
           <FaqList items={contactFaqs} />
         </Reveal>

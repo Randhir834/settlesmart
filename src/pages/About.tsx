@@ -1,55 +1,68 @@
 import { Link } from 'react-router-dom'
-import { Target, Compass, Eye, Sparkles, ShieldCheck, Heart, Users } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import CtaBand from '../components/CtaBand'
 
-const values = [
-  { icon: ShieldCheck, t: 'Trustworthy', d: 'We never hold your money, and we are clear about what the product can and cannot do.' },
-  { icon: Sparkles, t: 'Simple', d: 'Adding an expense should take seconds, not a spreadsheet.' },
-  { icon: Eye, t: 'Transparent', d: 'Every member sees the same numbers, edits and settlements.' },
-  { icon: Heart, t: 'Friendly', d: 'Money between flatmates should never cost the friendship.' },
+const principles = [
+  {
+    t: 'We never touch your money',
+    d: 'Settsmartly records who paid and who owes. The money itself always moves through your own UPI or bank app.',
+  },
+  {
+    t: 'We say what’s ready and what isn’t',
+    d: 'Anything still being built is marked as planned on this site, and it stays that way until it actually works.',
+  },
+  {
+    t: 'Everyone sees the same numbers',
+    d: 'Every member of a flat sees the same expenses, edits and settlements. Nobody keeps a private version.',
+  },
+  {
+    t: 'Adding an expense should take seconds',
+    d: 'If it takes longer than sending a message to your flat’s WhatsApp group, people won’t bother. So it can’t.',
+  },
 ]
 
 const About = () => (
   <>
     <PageMeta path="/about" />
-    <section className="bg-gradient-to-b from-brand-50 to-white pb-16 pt-16 sm:pt-20">
+    <section className="bg-gradient-to-b from-brand-50/60 to-white pb-12 pt-16 sm:pt-20">
       <div className="container-site">
         <SectionHeading
           as="h1"
           eyebrow="About Settsmartly"
-          title="Making shared money as easy as having a conversation."
-          description="Settsmartly is building an India-first household financial management platform for flatmates and working professionals."
+          title="Making the money side of shared living less awkward"
+          description="Settsmartly helps people who live together keep track of shared money, starting with flatmates in India’s cities."
         />
       </div>
     </section>
 
-    <section className="section pt-4">
-      <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+    <section className="section pt-8">
+      <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
         <Reveal>
-          <span className="eyebrow">Why we exist</span>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Living together is simple. Managing its money isn’t.</h2>
+          <span className="eyebrow">Why it exists</span>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Living together is easy. The money part isn’t.</h2>
         </Reveal>
         <Reveal delay={80} className="space-y-5 text-lg leading-relaxed text-ink-600">
           <p>
-            Across India’s cities, young professionals share rented flats. Every month they juggle rent, groceries,
-            electricity, internet and maintenance, paid by different people, shared in different ways, tracked in
-            WhatsApp threads, spreadsheets and memory.
+            In Bengaluru, Pune, Hyderabad and every other city people move to for work, a lot of young professionals share
+            rented flats. Every month there’s rent, groceries, electricity, Wi-Fi, maintenance and the cook to pay for. Each
+            bill is paid by someone different and shared a little differently, and the record of it lives in a WhatsApp
+            group, a spreadsheet nobody updates, and memory.
           </p>
           <p>
-            Then someone pays late, someone moves out mid-month, and nobody has the full picture. Bill-splitting apps
-            help divide a single expense, but the real work is running the household’s money month after month.
+            Then someone pays late. Someone moves out on the 15th. Someone asks what the electricity came to in August,
+            and nobody knows. Bill-splitting apps are good at dividing one expense, but the real work is keeping the
+            flat’s money straight month after month.
           </p>
           <p>
-            Settsmartly gives every flat one financial workspace for expenses, recurring bills, member contributions
-            and settlements, with{' '}
-            <Link to="/voice-assistant" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
-              an AI assistant you can talk to
+            Settsmartly gives each flat one shared record of its expenses, recurring bills, who has paid what and who owes
+            whom. We’re also building{' '}
+            <Link to="/voice-assistant" className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800">
+              a voice assistant
             </Link>{' '}
-            in English, Hindi or Hinglish. Read more about{' '}
-            <Link to="/flatmates" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+            so you can add an expense in English, Hindi or Hinglish just by saying it. You can read more about{' '}
+            <Link to="/flatmates" className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800">
               how it works for flatmates
             </Link>
             .
@@ -59,55 +72,33 @@ const About = () => (
     </section>
 
     <section className="section bg-ink-50/60">
-      <div className="container-site grid gap-5 md:grid-cols-2">
-        <Reveal className="rounded-3xl bg-white p-8 ring-1 ring-ink-100 sm:p-10">
-          <Target className="h-7 w-7 text-brand-700" />
-          <h2 className="mt-5 text-2xl font-extrabold">Our mission</h2>
-          <p className="mt-3 text-lg leading-relaxed text-ink-600">
-            To make managing a shared household’s money effortless and transparent, so everyone knows where every
-            rupee goes, who paid and what is pending.
-          </p>
-        </Reveal>
-        <Reveal delay={80} className="rounded-3xl bg-brand-700 p-8 text-white sm:p-10">
-          <Compass className="h-7 w-7 text-brand-200" />
-          <h2 className="mt-5 text-2xl font-extrabold text-white">Our vision</h2>
-          <p className="mt-3 text-lg leading-relaxed text-brand-100">
-            To become the financial operating system for shared living in India, where managing shared money is as
-            easy as having a conversation.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-
-    <section className="section">
       <div className="container-site">
-        <SectionHeading eyebrow="What we value" title="The principles behind the product" />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((v, i) => (
-            <Reveal key={v.t} delay={i * 60} className="card-lavender p-6">
-              <v.icon className="h-6 w-6 text-brand-700" />
-              <h3 className="mt-4 text-lg font-bold">{v.t}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-600">{v.d}</p>
+        <SectionHeading align="left" eyebrow="How we work" title="A few things we won’t compromise on" />
+        <div className="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2">
+          {principles.map((v, i) => (
+            <Reveal key={v.t} delay={(i % 2) * 60} className="border-t border-ink-200 pt-5">
+              <h3 className="text-lg font-bold">{v.t}</h3>
+              <p className="mt-2 max-w-lg text-[15px] leading-relaxed text-ink-600">{v.d}</p>
             </Reveal>
           ))}
         </div>
       </div>
     </section>
 
-    <section className="section pt-0">
-      <div className="container-site">
-        <Reveal className="flex flex-col items-start gap-6 rounded-3xl border border-ink-100 p-8 sm:flex-row sm:items-center sm:p-10">
-          <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
-            <Users className="h-7 w-7" />
-          </span>
-          <div>
-            <h2 className="text-2xl font-extrabold">Where we are today</h2>
-            <p className="mt-2 max-w-2xl text-ink-600">
-              Settsmartly is in development. We’re talking to flatmates in Bengaluru, building the core household
-              experience, and preparing a closed beta for a small group of households. If you share a flat and want to
-              help shape it, join the waitlist and tick “Happy to chat”.
-            </p>
-          </div>
+    <section className="section">
+      <div className="container-site max-w-3xl">
+        <Reveal>
+          <span className="eyebrow">Where we are</span>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Still early, and building it with flatmates</h2>
+          <p className="mt-4 text-lg leading-relaxed text-ink-600">
+            Settsmartly is in development. We’re talking to flatmates in Bengaluru, building the core of the app, and
+            getting ready for a closed beta with a small group of flats. If you share a flat and want a say in how it
+            turns out,{' '}
+            <Link to="/get-started" className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800">
+              join the waitlist
+            </Link>{' '}
+            and tick “Happy to chat”. We read every reply.
+          </p>
         </Reveal>
       </div>
     </section>

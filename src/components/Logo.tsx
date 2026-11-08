@@ -35,7 +35,7 @@ export const AppIcon = ({
 const Logo = ({ inverted = false }: { inverted?: boolean }) => (
   <Link to="/" className="flex items-center gap-2.5" title="Settsmartly home">
     <AppIcon className="h-9 w-9" eager />
-    <span className={`font-display text-lg font-extrabold tracking-tight ${inverted ? 'text-white' : 'text-ink'}`}>
+    <span className={`font-display text-lg font-bold tracking-tight ${inverted ? 'text-white' : 'text-ink'}`}>
       Sett<span className={inverted ? 'text-brand-300' : 'text-brand-700'}>smartly</span>
     </span>
   </Link>

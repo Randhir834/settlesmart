@@ -4,7 +4,7 @@
 export const site = {
   name: 'Settsmartly',
   url: ((import.meta.env.VITE_SITE_URL as string | undefined) || 'https://settsmartly.com').replace(/\/$/, ''),
-  tagline: 'Your household. Your money. One smart platform.',
+  tagline: 'Shared money, sorted.',
   // Replace with the real inboxes before publishing.
   supportEmail: 'support@settsmartly.com',
   businessEmail: 'hello@settsmartly.com',

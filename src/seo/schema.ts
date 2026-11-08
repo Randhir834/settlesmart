@@ -31,7 +31,7 @@ export function structuredData(route: string, opts: { siteUrl: string; dateModif
     logo: { '@type': 'ImageObject', '@id': `${base}/#logo`, url: `${base}/icon-512.png`, width: 512, height: 512, caption: site.name },
     image: { '@id': `${base}/#logo` },
     description:
-      'Settsmartly is a household financial management platform for flatmates and working professionals in India: shared expenses, recurring bills, member contributions and settlements in one place.',
+      'Settsmartly is a shared expense app for flatmates and working professionals in India. It keeps one record of rent, bills, groceries and settlements for everyone in a shared home.',
     slogan: site.tagline,
     email: site.supportEmail,
     areaServed: { '@type': 'Country', name: 'India' },

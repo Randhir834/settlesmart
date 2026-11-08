@@ -25,14 +25,14 @@ export interface Guide {
 
 /* Building blocks so every guide is formatted the same way. */
 const H2 = ({ id, children }: { id: string; children: ReactNode }) => (
-  <h2 id={id} className="mt-12 scroll-mt-24 text-2xl font-extrabold text-ink sm:text-3xl">
+  <h2 id={id} className="mt-12 scroll-mt-24 text-2xl font-bold text-ink sm:text-3xl">
     {children}
   </h2>
 )
 const H3 = ({ children }: { children: ReactNode }) => <h3 className="mt-8 text-xl font-bold text-ink">{children}</h3>
 const Example = ({ title, children }: { title: string; children: ReactNode }) => (
   <aside className="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-5 sm:p-6">
-    <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">{title}</p>
+    <p className="text-sm font-semibold text-brand-700">{title}</p>
     <div className="[&_p]:mt-2 first:[&_p]:mt-3">{children}</div>
   </aside>
 )

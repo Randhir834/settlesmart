@@ -1,6 +1,6 @@
 # Settsmartly website
 
-Marketing site for **Settsmartly** (Split. Track. Settle. Smartly.), an Indian-first shared expense app.
+Marketing site for **Settsmartly**, an India-first shared expense app for flatmates.
 Built with Vite, React 18, TypeScript, Tailwind CSS, React Router and Lucide icons.
 
 ## Run locally
@@ -16,8 +16,10 @@ npm run preview   # serve the production build
 
 | Route | Page |
 | --- | --- |
-| `/` | Home: hero, problem/solution, features, how it works, for whom, clarity, trust, FAQ, waitlist |
-| `/features` | Detailed features (anchors: `#splitting`, `#groups`, `#upi`, `#analytics`, `#realtime`, `#recurring`, `#receipts`, `#history`) |
+| `/` | Home: hero, the problem, voice assistant, moving out, features, monthly statement, who it's for, how we handle money, FAQ, waitlist |
+| `/features` | Detailed features (anchors: `#voice`, `#household`, `#splitting`, `#roommates`, `#settlements`, `#insights`, `#recurring`, `#receipts`) |
+| `/voice-assistant`, `/flatmates` | Voice assistant and flatmate landing pages |
+| `/guides`, `/guides/<slug>` | Long-form guides (rent, electricity, moving out) |
 | `/how-it-works` | Six-step walkthrough |
 | `/pricing` | Free, Plus, Premium and Household (not purchasable yet) |
 | `/about`, `/contact`, `/get-started` | About, contact form, waitlist |
@@ -26,7 +28,9 @@ npm run preview   # serve the production build
 
 ## Where to edit things
 
-- **All copy** (features, segments, steps, FAQ, plans): `src/data/content.ts`
+- **Shared copy** (features, segments, steps, FAQ, plans): `src/data/content.ts`. Page-specific copy lives in each page file.
+- **Writing style:** plain and specific, sentence case for headings, buttons and nav, no trailing full stop on
+  single-sentence headings. Prefer a real number or situation over an adjective, and never present a planned feature as live.
 - **Emails, LinkedIn, app login URL, legal date**: `src/config.ts`
 - **Colours and fonts** (design system): `tailwind.config.js`, `src/index.css`
 - **App screen mockups**: `src/components/PhoneMockup.tsx`. Replace with real screenshots via `<PhoneFrame><img … /></PhoneFrame>`.

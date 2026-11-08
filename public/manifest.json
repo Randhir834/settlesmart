@@ -1,7 +1,7 @@
 {
-  "name": "Settsmartly – Household finances for flatmates",
+  "name": "Settsmartly: shared expenses for flatmates",
   "short_name": "Settsmartly",
-  "description": "Household financial management for flatmates: rent, bills, groceries and settlements in one place.",
+  "description": "Rent, bills, groceries and settling up, in one shared record for everyone in your flat.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",

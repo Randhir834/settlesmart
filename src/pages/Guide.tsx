@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Clock, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Clock, Check } from 'lucide-react'
 import PageMeta, { type PagePath } from '../components/PageMeta'
 import Breadcrumbs from '../components/Breadcrumbs'
 import FaqList from '../components/FaqList'
@@ -23,13 +23,13 @@ const Guide = ({ guide }: { guide: GuideData }) => {
   return (
     <>
       <PageMeta path={path} />
-      <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50 to-white">
+      <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50/60 to-white">
         <div className="container-site max-w-3xl py-12 sm:py-16">
           <Breadcrumbs items={[{ name: 'Home', to: '/' }, { name: 'Guides', to: '/guides' }, { name: guide.eyebrow }]} />
-          <h1 className="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl">
+          <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl">
             <span className="eyebrow font-sans leading-normal">{guide.eyebrow}</span>
             <span className="sr-only"> – </span>
-            <span className="mt-4 block">{guide.headline}</span>
+            <span className="mt-3 block">{guide.headline}</span>
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-ink-600">{guide.intro}</p>
           <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-500">
@@ -42,12 +42,12 @@ const Guide = ({ guide }: { guide: GuideData }) => {
       </section>
 
       <article className="container-site max-w-3xl py-12 text-[17px] leading-relaxed text-ink-700 sm:py-16 [&_li]:mt-2 [&_p]:mt-4 [&_strong]:text-ink [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5">
-        <div className="rounded-2xl border border-ink-100 bg-white p-5 shadow-card sm:p-6">
-          <p className="!mt-0 font-display text-lg font-bold text-ink">Key takeaways</p>
+        <div className="rounded-2xl bg-ink-50 p-5 sm:p-6">
+          <p className="!mt-0 font-display text-lg font-bold text-ink">The short version</p>
           <ul className="!list-none !pl-0">
             {guide.takeaways.map((t) => (
               <li key={t} className="flex items-start gap-2.5 text-[15px]">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                <Check className="mt-1 h-4 w-4 shrink-0 text-brand-700" strokeWidth={2.5} />
                 {t}
               </li>
             ))}
@@ -56,15 +56,15 @@ const Guide = ({ guide }: { guide: GuideData }) => {
 
         {guide.body}
 
-        <h2 id="faq" className="mt-14 scroll-mt-24 text-2xl font-extrabold text-ink sm:text-3xl">
-          Frequently asked questions
+        <h2 id="faq" className="mt-14 scroll-mt-24 text-2xl font-bold text-ink sm:text-3xl">
+          Common questions
         </h2>
         <div className="mt-6 text-base">
           <FaqList items={guide.faqs} />
         </div>
 
         <aside className="mt-14 border-t border-ink-100 pt-8" aria-labelledby="related-guides">
-          <h2 id="related-guides" className="text-xl font-extrabold text-ink">
+          <h2 id="related-guides" className="text-xl font-bold text-ink">
             More guides for flatmates
           </h2>
           <ul className="!list-none !pl-0">

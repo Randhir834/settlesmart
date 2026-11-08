@@ -10,7 +10,7 @@ import { guides } from '../data/guides'
 const Guides = () => (
   <>
     <PageMeta path="/guides" />
-    <section className="bg-gradient-to-b from-brand-50 to-white pb-6 pt-12 sm:pt-16">
+    <section className="bg-gradient-to-b from-brand-50/60 to-white pb-6 pt-12 sm:pt-16">
       <div className="container-site">
         <div className="mx-auto mb-8 flex max-w-2xl justify-center">
           <Breadcrumbs items={[{ name: 'Home', to: '/' }, { name: 'Guides' }]} />
@@ -18,8 +18,8 @@ const Guides = () => (
         <SectionHeading
           as="h1"
           eyebrow="Guides for flatmates"
-          title="Money guides for shared living"
-          description="Practical, worked-through answers to the money questions every shared flat runs into: splitting rent, electricity and bills, and settling up when someone moves out."
+          title="Sorting out money in a shared flat"
+          description="Worked examples, in rupees, for the questions every shared flat runs into: how to split the rent, what to do about electricity, and how to settle up when someone moves out."
         />
       </div>
     </section>
@@ -28,9 +28,9 @@ const Guides = () => (
       <div className="container-site grid gap-5 md:grid-cols-3">
         {guides.map((g, i) => (
           <Reveal key={g.slug} delay={i * 60}>
-            <article className="flex h-full flex-col rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-7">
+            <article className="flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-6 transition-colors hover:border-brand-300 sm:p-7">
               <span className="eyebrow self-start">{g.eyebrow}</span>
-              <h2 className="mt-4 text-xl font-extrabold">
+              <h2 className="mt-2 text-xl font-bold leading-snug">
                 <Link to={`/guides/${g.slug}`} className="hover:text-brand-700">
                   {g.headline}
                 </Link>
